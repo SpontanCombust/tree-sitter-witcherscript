@@ -356,6 +356,11 @@
     }
   },
   {
+    "type": "literal_bool",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "member_expr",
     "named": true,
     "fields": {
@@ -399,17 +404,16 @@
   {
     "type": "nested_expr",
     "named": true,
-    "fields": {
-      "expr": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "expr",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -625,16 +629,16 @@
     "named": true
   },
   {
+    "type": "false",
+    "named": false
+  },
+  {
     "type": "ident",
     "named": true
   },
   {
     "type": "in",
     "named": false
-  },
-  {
-    "type": "literal_bool",
-    "named": true
   },
   {
     "type": "literal_float",
@@ -671,6 +675,10 @@
   {
     "type": "this_expr",
     "named": true
+  },
+  {
+    "type": "true",
+    "named": false
   },
   {
     "type": "virtual_parent_expr",

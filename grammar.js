@@ -32,6 +32,8 @@ module.exports = grammar({
     $.comment,
   ],
 
+  word: $ => $.ident,
+
   rules: {
     module: $ => repeat(
       $.expr
@@ -158,7 +160,7 @@ module.exports = grammar({
 
     nested_expr: $ => seq(
       '(',
-      field('expr', $.expr),
+      $.expr,
       ')'
     ),
 
@@ -166,21 +168,13 @@ module.exports = grammar({
 
     // TOKENS =======================================================
 
-    this_expr: $ => token(
-      'this'
-    ),
+    this_expr: $ => 'this',
 
-    super_expr: $ => token(
-      'super'
-    ),
+    super_expr: $ => 'super',
 
-    parent_expr: $ => token(
-      'parent'
-    ),
+    parent_expr: $ => 'parent',
 
-    virtual_parent_expr: $ => token(
-      'virtual_parent'
-    ),
+    virtual_parent_expr: $ => 'virtual_parent',
 
     ident: $ => token(
       /[_a-zA-Z][_a-zA-Z0-9]+/
@@ -196,9 +190,7 @@ module.exports = grammar({
       $.literal_name
     ),
 
-    literal_null: $ => token(
-      'NULL'
-    ),
+    literal_null: $ => 'NULL',
 
     literal_float: $ => {
       const digit = /[0-9]/
@@ -219,10 +211,10 @@ module.exports = grammar({
       repeat1(/[0-9]/)
     )),
 
-    literal_bool: $ => token(choice(
+    literal_bool: $ => choice(
       'true',
       'false'
-    )),
+    ),
 
     literal_string: $ => token(seq(
       '"',
