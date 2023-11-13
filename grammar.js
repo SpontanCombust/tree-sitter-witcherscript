@@ -1,3 +1,10 @@
+/**
+ * @file WitcherScript grammar for tree-sitter
+ * @author Przemysław Cedro
+ * @license MIT
+ */
+
+
 // higher number == greater precedence
 // based on C++'s operator precedence
 // https://en.cppreference.com/w/cpp/language/operator_precedence
@@ -85,32 +92,32 @@ module.exports = grammar({
       $.type_annot,
       optional(seq(
         '=',
-        $.expr
+        $._expr
       )),
       ';'
     ),
 
     for_stmt: $ => seq(
       'for', '(',
-      field('initialier', optional($.expr)), ';',
-      field('condition', optional($.expr)), ';',
-      field('iteration', optional($.expr)),
+      field('initialier', optional($._expr)), ';',
+      field('condition', optional($._expr)), ';',
+      field('iteration', optional($._expr)),
       ')',
       field('body', $.func_stmt)
     ),
 
     while_stmt: $ => seq(
-      'while', '(', field('condition', $.expr), ')',
+      'while', '(', field('condition', $._expr), ')',
       field('body', $.func_stmt)
     ),
 
     do_while_stmt: $ => seq(
       'do', field('body', $.func_stmt),
-      'while', '(', field('condition', $.expr), ')', ';'
+      'while', '(', field('condition', $._expr), ')', ';'
     ),
 
     if_stmt: $ => prec.right(seq(
-      'if', '(', field('condition', $.expr), ')',
+      'if', '(', field('condition', $._expr), ')',
       field('body', $.func_stmt),
       optional(seq(
         'else', field('else', $.func_stmt)
@@ -118,7 +125,7 @@ module.exports = grammar({
     )),
 
     switch_stmt: $ => seq(
-      'switch', '(', field('matched_expr', $.expr), ')',
+      'switch', '(', field('matched_expr', $._expr), ')',
       '{',
       repeat($.switch_case),
       optional($.switch_default),
@@ -126,7 +133,7 @@ module.exports = grammar({
     ),
 
     switch_case: $ => seq(
-      'case', field('value', $.expr), ':',
+      'case', field('value', $._expr), ':',
       field('body', repeat($.func_stmt))
     ),
 
@@ -144,11 +151,11 @@ module.exports = grammar({
     ),
 
     return_stmt: $ => seq(
-      'return', optional($.expr), ';'
+      'return', optional($._expr), ';'
     ),
 
     delete_stmt: $ => seq(
-      'delete', $.expr, ';'
+      'delete', $._expr, ';'
     ),
 
     scope_stmt: $ => seq(
@@ -157,7 +164,7 @@ module.exports = grammar({
 
     expr_stmt: $ => seq(
       // optional to also handle trailing semicolons
-      optional($.expr), ';'
+      optional($._expr), ';'
     ),
 
     
@@ -183,7 +190,7 @@ module.exports = grammar({
   
     // EXPRESSIONS ==================================================
 
-    expr: $ => choice( //TODO anonymize
+    _expr: $ => choice(
       $.assign_op_expr,
       $.ternary_cond_expr,
       $.binary_op_expr,
@@ -210,7 +217,7 @@ module.exports = grammar({
           prec.left(PREC.ASSIGN, seq(
             field('left', $._assign_op_left),
             field('op', op),
-            field('right', $.expr)
+            field('right', $._expr)
           ))
       )
     ),
@@ -225,11 +232,11 @@ module.exports = grammar({
     ),
 
     ternary_cond_expr: $ => prec.right(PREC.TERNARY, seq(
-      field('cond', $.expr),
+      field('cond', $._expr),
       '?',
-      field('expr_if_true', $.expr),
+      field('expr_if_true', $._expr),
       ':',
-      field('expr_if_false', $.expr)
+      field('expr_if_false', $._expr)
     )),
 
 
@@ -252,9 +259,9 @@ module.exports = grammar({
         ['*', PREC.MULT],
       ].map(([op, precedence]) =>
         prec.left(precedence, seq(
-          field('left', $.expr),
+          field('left', $._expr),
           field('op', op),
-          field('right', $.expr)
+          field('right', $._expr)
         ))
       )
     ),
@@ -264,33 +271,33 @@ module.exports = grammar({
       'new',
       field('class', $.ident),
       'in',
-      field('lifetime_obj', $.expr)
+      field('lifetime_obj', $._expr)
     )),
 
     unary_op_expr: $ => prec.right(PREC.UNARY, seq(
       field('op', choice('-', '!', '~', '+')),
-      field('expr', $.expr)
+      field('expr', $._expr)
     )),
 
     cast_expr: $ => prec.right(PREC.CAST, seq(
       '(',
       field('type', $.ident),
       ')',
-      field('value', $.expr),
+      field('value', $._expr),
     )),
 
 
     member_func_call_expr: $ => prec.left(PREC.MEMBER_CALL, seq(
-      field('accessor', $.expr),
+      field('accessor', $._expr),
       '.',
       field('func', $.ident),
       '(',
-      field('args', comma_opt($.expr)),
+      field('args', comma_opt($._expr)),
       ')'
     )),
 
     member_field_expr: $ => prec.left(PREC.MEMBER, seq(
-      field('accessor', $.expr),
+      field('accessor', $._expr),
       '.',
       field('member', $.ident)
     )),
@@ -298,21 +305,21 @@ module.exports = grammar({
     func_call_expr: $ => prec.left(PREC.CALL, seq(
       field('func', $.ident),
       '(',
-      field('args', comma_opt($.expr)),
+      field('args', comma_opt($._expr)),
       ')'
     )),
 
     array_expr: $ => prec.left(PREC.ARRAY, seq(
-      field('accessor', $.expr),
+      field('accessor', $._expr),
       '[',
-      field('index', $.expr),
+      field('index', $._expr),
       ']'
     )),
 
 
     nested_expr: $ => seq(
       '(',
-      $.expr,
+      $._expr,
       ')'
     ),
 

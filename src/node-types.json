@@ -13,7 +13,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -23,7 +87,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -99,7 +227,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -115,7 +307,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -191,7 +447,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -222,7 +542,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -236,47 +620,6 @@
   },
   {
     "type": "delete_stmt",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "expr",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "do_while_stmt",
-    "named": true,
-    "fields": {
-      "body": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "func_stmt",
-            "named": true
-          }
-        ]
-      },
-      "condition": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "expr",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "expr",
     "named": true,
     "fields": {},
     "children": {
@@ -355,6 +698,96 @@
     }
   },
   {
+    "type": "do_while_stmt",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "func_stmt",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "expr_stmt",
     "named": true,
     "fields": {},
@@ -363,7 +796,71 @@
       "required": false,
       "types": [
         {
-          "type": "expr",
+          "type": "array_expr",
+          "named": true
+        },
+        {
+          "type": "assign_op_expr",
+          "named": true
+        },
+        {
+          "type": "binary_op_expr",
+          "named": true
+        },
+        {
+          "type": "cast_expr",
+          "named": true
+        },
+        {
+          "type": "func_call_expr",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "member_field_expr",
+          "named": true
+        },
+        {
+          "type": "member_func_call_expr",
+          "named": true
+        },
+        {
+          "type": "nested_expr",
+          "named": true
+        },
+        {
+          "type": "new_expr",
+          "named": true
+        },
+        {
+          "type": "parent_expr",
+          "named": true
+        },
+        {
+          "type": "super_expr",
+          "named": true
+        },
+        {
+          "type": "ternary_cond_expr",
+          "named": true
+        },
+        {
+          "type": "this_expr",
+          "named": true
+        },
+        {
+          "type": "unary_op_expr",
+          "named": true
+        },
+        {
+          "type": "virtual_parent_expr",
           "named": true
         }
       ]
@@ -388,7 +885,71 @@
         "required": false,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -398,7 +959,71 @@
         "required": false,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -408,7 +1033,71 @@
         "required": false,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -428,7 +1117,71 @@
             "named": false
           },
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -523,7 +1276,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -589,7 +1406,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -615,7 +1496,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -629,7 +1574,71 @@
             "named": false
           },
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -675,7 +1684,71 @@
       "required": true,
       "types": [
         {
-          "type": "expr",
+          "type": "array_expr",
+          "named": true
+        },
+        {
+          "type": "assign_op_expr",
+          "named": true
+        },
+        {
+          "type": "binary_op_expr",
+          "named": true
+        },
+        {
+          "type": "cast_expr",
+          "named": true
+        },
+        {
+          "type": "func_call_expr",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "member_field_expr",
+          "named": true
+        },
+        {
+          "type": "member_func_call_expr",
+          "named": true
+        },
+        {
+          "type": "nested_expr",
+          "named": true
+        },
+        {
+          "type": "new_expr",
+          "named": true
+        },
+        {
+          "type": "parent_expr",
+          "named": true
+        },
+        {
+          "type": "super_expr",
+          "named": true
+        },
+        {
+          "type": "ternary_cond_expr",
+          "named": true
+        },
+        {
+          "type": "this_expr",
+          "named": true
+        },
+        {
+          "type": "unary_op_expr",
+          "named": true
+        },
+        {
+          "type": "virtual_parent_expr",
           "named": true
         }
       ]
@@ -700,7 +1773,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -716,7 +1853,71 @@
       "required": false,
       "types": [
         {
-          "type": "expr",
+          "type": "array_expr",
+          "named": true
+        },
+        {
+          "type": "assign_op_expr",
+          "named": true
+        },
+        {
+          "type": "binary_op_expr",
+          "named": true
+        },
+        {
+          "type": "cast_expr",
+          "named": true
+        },
+        {
+          "type": "func_call_expr",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "member_field_expr",
+          "named": true
+        },
+        {
+          "type": "member_func_call_expr",
+          "named": true
+        },
+        {
+          "type": "nested_expr",
+          "named": true
+        },
+        {
+          "type": "new_expr",
+          "named": true
+        },
+        {
+          "type": "parent_expr",
+          "named": true
+        },
+        {
+          "type": "super_expr",
+          "named": true
+        },
+        {
+          "type": "ternary_cond_expr",
+          "named": true
+        },
+        {
+          "type": "this_expr",
+          "named": true
+        },
+        {
+          "type": "unary_op_expr",
+          "named": true
+        },
+        {
+          "type": "virtual_parent_expr",
           "named": true
         }
       ]
@@ -756,7 +1957,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -788,7 +2053,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -818,7 +2147,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -828,7 +2221,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -838,7 +2295,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -880,7 +2401,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -933,11 +2518,75 @@
       "required": true,
       "types": [
         {
-          "type": "expr",
+          "type": "array_expr",
+          "named": true
+        },
+        {
+          "type": "assign_op_expr",
+          "named": true
+        },
+        {
+          "type": "binary_op_expr",
+          "named": true
+        },
+        {
+          "type": "cast_expr",
+          "named": true
+        },
+        {
+          "type": "func_call_expr",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "member_field_expr",
+          "named": true
+        },
+        {
+          "type": "member_func_call_expr",
+          "named": true
+        },
+        {
+          "type": "nested_expr",
+          "named": true
+        },
+        {
+          "type": "new_expr",
+          "named": true
+        },
+        {
+          "type": "parent_expr",
+          "named": true
+        },
+        {
+          "type": "super_expr",
+          "named": true
+        },
+        {
+          "type": "ternary_cond_expr",
+          "named": true
+        },
+        {
+          "type": "this_expr",
           "named": true
         },
         {
           "type": "type_annot",
+          "named": true
+        },
+        {
+          "type": "unary_op_expr",
+          "named": true
+        },
+        {
+          "type": "virtual_parent_expr",
           "named": true
         }
       ]
@@ -962,7 +2611,71 @@
         "required": true,
         "types": [
           {
-            "type": "expr",
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
