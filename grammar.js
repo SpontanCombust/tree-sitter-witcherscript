@@ -22,6 +22,7 @@ const PREC = {
   MEMBER: 12,
   CALL: 12,
   ARRAY: 12,
+  MEMBER_CALL: 13,
 };
 
 module.exports = grammar({
@@ -49,8 +50,9 @@ module.exports = grammar({
       $.new_expr,
       $.unary_op_expr,
       $.cast_expr,
-      $.member_expr,
-      $.call_expr,
+      $.member_func_call_expr,
+      $.member_field_expr,
+      $.func_call_expr,
       $.array_expr,
       $.nested_expr,
       $.this_expr,
@@ -75,8 +77,9 @@ module.exports = grammar({
 
     _assign_op_left: $ => choice(
       $.ident,
-      $.call_expr,
-      $.member_expr,
+      $.func_call_expr,
+      $.member_field_expr,
+      $.member_func_call_expr,
       $.array_expr,
       $.nested_expr
     ),
@@ -137,14 +140,23 @@ module.exports = grammar({
     )),
 
 
-    member_expr: $ => prec.left(PREC.MEMBER, seq(
+    member_func_call_expr: $ => prec.left(PREC.MEMBER_CALL, seq(
+      field('accessor', $.expr),
+      '.',
+      field('func', $.ident),
+      '(',
+      field('args', commaSepOpt($.expr)),
+      ')'
+    )),
+
+    member_field_expr: $ => prec.left(PREC.MEMBER, seq(
       field('accessor', $.expr),
       '.',
       field('member', $.ident)
     )),
 
-    call_expr: $ => prec.left(PREC.CALL, seq(
-      field('func', $.expr),
+    func_call_expr: $ => prec.left(PREC.CALL, seq(
+      field('func', $.ident),
       '(',
       field('args', commaSepOpt($.expr)),
       ')'
