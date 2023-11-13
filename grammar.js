@@ -177,7 +177,7 @@ module.exports = grammar({
     virtual_parent_expr: $ => 'virtual_parent',
 
     ident: $ => token(
-      /[_a-zA-Z][_a-zA-Z0-9]+/
+      /[_a-zA-Z][_a-zA-Z0-9]*/
     ),
 
 

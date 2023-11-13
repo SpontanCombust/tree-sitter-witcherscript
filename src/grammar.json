@@ -1128,7 +1128,7 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[_a-zA-Z][_a-zA-Z0-9]+"
+        "value": "[_a-zA-Z][_a-zA-Z0-9]*"
       }
     },
     "literal": {
