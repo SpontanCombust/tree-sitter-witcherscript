@@ -37,13 +37,153 @@ module.exports = grammar({
 
   rules: {
     module: $ => repeat(
-      $.expr
+      $.func_stmt
     ),
 
 
+    // STATEMENTS ===================================================
+
+    member_var_decl: $ => seq(
+      optional($.import),
+      $.access_modifier,
+      repeat($.member_var_specifier),
+      'var',
+      field('names', comma1($.ident)),
+      $.type_annot,
+      ';'
+    ),
+
+    member_var_specifier: $ => choice(
+      'const',
+      'editable',
+      'inlined',
+      'saved'
+    ),
+
+
+
+    // FUNCTION ============================
+
+    func_stmt: $ => choice(
+      $.var_decl_stmt,
+      $.for_stmt,
+      $.while_stmt,
+      $.do_while_stmt,
+      $.if_stmt,
+      $.switch_stmt,
+      $.break_stmt,
+      $.continue_stmt,
+      $.return_stmt,
+      $.delete_stmt,
+      $.scope_stmt,
+      $.expr_stmt
+    ),
+
+    var_decl_stmt: $ => seq(
+      'var',
+      field('names', comma1($.ident)),
+      $.type_annot,
+      optional(seq(
+        '=',
+        $.expr
+      )),
+      ';'
+    ),
+
+    for_stmt: $ => seq(
+      'for', '(',
+      field('initialier', optional($.expr)), ';',
+      field('condition', optional($.expr)), ';',
+      field('iteration', optional($.expr)),
+      ')',
+      field('body', $.func_stmt)
+    ),
+
+    while_stmt: $ => seq(
+      'while', '(', field('condition', $.expr), ')',
+      field('body', $.func_stmt)
+    ),
+
+    do_while_stmt: $ => seq(
+      'do', field('body', $.func_stmt),
+      'while', '(', field('condition', $.expr), ')', ';'
+    ),
+
+    if_stmt: $ => prec.right(seq(
+      'if', '(', field('condition', $.expr), ')',
+      field('body', $.func_stmt),
+      optional(seq(
+        'else', field('else', $.func_stmt)
+      ))
+    )),
+
+    switch_stmt: $ => seq(
+      'switch', '(', field('matched_expr', $.expr), ')',
+      '{',
+      repeat($.switch_case),
+      optional($.switch_default),
+      '}'
+    ),
+
+    switch_case: $ => seq(
+      'case', field('value', $.expr), ':',
+      field('body', repeat($.func_stmt))
+    ),
+
+    switch_default: $ => seq(
+      'default', ':',
+      field('body', repeat1($.func_stmt))
+    ),
+
+    break_stmt: $ => seq(
+      'break', ';'
+    ),
+
+    continue_stmt: $ => seq(
+      'continue', ';'
+    ),
+
+    return_stmt: $ => seq(
+      'return', optional($.expr), ';'
+    ),
+
+    delete_stmt: $ => seq(
+      'delete', $.expr, ';'
+    ),
+
+    scope_stmt: $ => seq(
+      '{', repeat($.func_stmt), '}'
+    ),
+
+    expr_stmt: $ => seq(
+      // optional to also handle trailing semicolons
+      optional($.expr), ';'
+    ),
+
+    
+    type_annot: $ => seq(
+      ':',
+      field('type', $.ident),
+      optional(seq(
+        '<',
+        field('generic_arg', $.ident),
+        '>'
+      ))
+    ),
+
+    access_modifier: $ => choice(
+      "private",
+      "protected",
+      "public"
+    ),
+
+    import: $ => 'import',
+
+
+  
     // EXPRESSIONS ==================================================
 
-    expr: $ => choice(
+    expr: $ => choice( //TODO anonymize
       $.assign_op_expr,
       $.ternary_cond_expr,
       $.binary_op_expr,
@@ -128,7 +268,7 @@ module.exports = grammar({
     )),
 
     unary_op_expr: $ => prec.right(PREC.UNARY, seq(
-      field('op', choice('-', '!', '~')),
+      field('op', choice('-', '!', '~', '+')),
       field('expr', $.expr)
     )),
 
@@ -145,7 +285,7 @@ module.exports = grammar({
       '.',
       field('func', $.ident),
       '(',
-      field('args', commaSepOpt($.expr)),
+      field('args', comma_opt($.expr)),
       ')'
     )),
 
@@ -158,7 +298,7 @@ module.exports = grammar({
     func_call_expr: $ => prec.left(PREC.CALL, seq(
       field('func', $.ident),
       '(',
-      field('args', commaSepOpt($.expr)),
+      field('args', comma_opt($.expr)),
       ')'
     )),
 
@@ -258,7 +398,7 @@ module.exports = grammar({
   },     
 });
     
-function commaSep1(rule) {
+function comma1(rule) {
   return seq(
     rule,
     repeat(seq(
@@ -268,17 +408,17 @@ function commaSep1(rule) {
   )
 }
     
-function commaSep(rule) {
-  return optional(commaSep1(rule))
+function comma(rule) {
+  return optional(comma1(rule))
 }
 
-function commaSepOpt(rule) {
-  return optional(commaSep1(optional(rule)))
+function comma_opt(rule) {
+  return optional(comma1(optional(rule)))
 }
     
-function commaSepTrail(rule) {
+function comma_trail(rule) {
   return seq(
-    commaSep(rule),
+    comma(rule),
     optional(',')
   )
 }
