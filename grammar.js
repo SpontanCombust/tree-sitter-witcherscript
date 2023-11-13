@@ -43,20 +43,20 @@ module.exports = grammar({
   word: $ => $.ident,
 
   rules: {
-    module: $ => repeat(
-      $.func_stmt
-    ),
+    module: $ => repeat(choice(
+      $.func_decl_stmt
+    )),
 
 
     // STATEMENTS ===================================================
 
     member_var_decl: $ => seq(
-      optional($.import),
-      $.access_modifier,
-      repeat($.member_var_specifier),
+      field('import', optional($.import_spec)),
+      field('access_modifier', optional($.access_modifier)),
+      field('specifiers', repeat($.member_var_specifier)),
       'var',
       field('names', comma1($.ident)),
-      $.type_annot,
+      field('var_type', $.type_annot),
       ';'
     ),
 
@@ -68,6 +68,52 @@ module.exports = grammar({
     ),
 
 
+
+    // FUNCTION DECLARATION ================
+
+    func_decl_stmt: $ => seq(
+      field('import', optional($.import_spec)),
+      field('access_modifier', optional($.access_modifier)),
+      field('specifiers', repeat($.func_specifier)),
+      field('flavour', $._func_flavour),
+      field('name', $.ident),
+      '(', comma($.func_param_group), ')',
+      field('return_type', optional($.type_annot)),
+      choice(
+        ';',
+        field('body', $.scope_stmt)
+      )
+    ),
+
+    func_param_group: $ => seq(
+      field('optional', optional($.optional_spec)),
+      field('out', optional($.out_spec)),
+      field('names', comma1($.ident)),
+      field('param_type', $.type_annot),
+    ),
+
+    _func_flavour: $ => choice(
+      $.func_flavour_function,
+      $.func_flavour_event,
+      $.func_flavour_entry,
+      $.func_flavour_exec,
+      $.func_flavour_quest,
+      $.func_flavour_timer,
+      $.func_flavour_storyscene
+    ),
+
+    func_flavour_function: $ => 'function',
+    func_flavour_event: $ => 'event',
+    func_flavour_entry: $ => seq('entry', 'function'),
+    func_flavour_exec: $ => seq('exec', 'function'),
+    func_flavour_quest: $ => seq('quest', 'function'),
+    func_flavour_timer: $ => seq('timer', 'function'),
+    func_flavour_storyscene: $ => seq('storyscene', 'function'),
+
+    func_specifier: $ => choice(
+      'latent',
+      'final'
+    ),
 
     // FUNCTION ============================
 
@@ -89,10 +135,10 @@ module.exports = grammar({
     var_decl_stmt: $ => seq(
       'var',
       field('names', comma1($.ident)),
-      $.type_annot,
+      field('var_type', $.type_annot),
       optional(seq(
         '=',
-        $._expr
+        field('init_value', $._expr)
       )),
       ';'
     ),
@@ -127,8 +173,8 @@ module.exports = grammar({
     switch_stmt: $ => seq(
       'switch', '(', field('matched_expr', $._expr), ')',
       '{',
-      repeat($.switch_case),
-      optional($.switch_default),
+      field('case', repeat($.switch_case)),
+      field('default', optional($.switch_default)),
       '}'
     ),
 
@@ -151,20 +197,20 @@ module.exports = grammar({
     ),
 
     return_stmt: $ => seq(
-      'return', optional($._expr), ';'
+      'return', field('expr', optional($._expr)), ';'
     ),
 
     delete_stmt: $ => seq(
-      'delete', $._expr, ';'
+      'delete', field('expr', $._expr), ';'
     ),
 
     scope_stmt: $ => seq(
-      '{', repeat($.func_stmt), '}'
+      '{', field('body', repeat($.func_stmt)), '}'
     ),
 
     expr_stmt: $ => seq(
       // optional to also handle trailing semicolons
-      optional($._expr), ';'
+      field('expr', optional($._expr)), ';'
     ),
 
     
@@ -184,7 +230,9 @@ module.exports = grammar({
       "public"
     ),
 
-    import: $ => 'import',
+    import_spec: $ => 'import',
+    optional_spec: $ => 'optional',
+    out_spec: $ => 'out',
 
 
   
