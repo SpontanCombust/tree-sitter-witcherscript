@@ -1,8 +1,8 @@
 Cargo.lock
 package-lock.json
-node_modules/*
-build/*
-target/*
+node_modules
+build
+target
 # files that get generated from parsing (for testing)
 parser.exp
 parser.lib
