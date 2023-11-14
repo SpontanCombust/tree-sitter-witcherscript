@@ -1588,6 +1588,11 @@
     "fields": {}
   },
   {
+    "type": "func_flavour_event",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "func_flavour_exec",
     "named": true,
     "fields": {}
@@ -1827,6 +1832,11 @@
     }
   },
   {
+    "type": "import_spec",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "literal",
     "named": true,
     "fields": {},
@@ -1863,6 +1873,11 @@
   },
   {
     "type": "literal_bool",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "literal_null",
     "named": true,
     "fields": {}
   },
@@ -2506,6 +2521,21 @@
     }
   },
   {
+    "type": "optional_spec",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "out_spec",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "parent_expr",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "return_stmt",
     "named": true,
     "fields": {
@@ -2742,6 +2772,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "super_expr",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "switch_case",
@@ -3178,6 +3213,11 @@
     }
   },
   {
+    "type": "this_expr",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "type_annot",
     "named": true,
     "fields": {
@@ -3410,6 +3450,11 @@
     }
   },
   {
+    "type": "virtual_parent_expr",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "while_stmt",
     "named": true,
     "fields": {
@@ -3608,6 +3653,10 @@
     "named": false
   },
   {
+    "type": "NULL",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
@@ -3676,6 +3725,10 @@
     "named": false
   },
   {
+    "type": "event",
+    "named": false
+  },
+  {
     "type": "exec",
     "named": false
   },
@@ -3696,10 +3749,6 @@
     "named": false
   },
   {
-    "type": "func_flavour_event",
-    "named": true
-  },
-  {
     "type": "function",
     "named": false
   },
@@ -3716,8 +3765,8 @@
     "named": false
   },
   {
-    "type": "import_spec",
-    "named": true
+    "type": "import",
+    "named": false
   },
   {
     "type": "in",
@@ -3744,10 +3793,6 @@
     "named": true
   },
   {
-    "type": "literal_null",
-    "named": true
-  },
-  {
     "type": "literal_string",
     "named": true
   },
@@ -3756,16 +3801,16 @@
     "named": false
   },
   {
-    "type": "optional_spec",
-    "named": true
+    "type": "optional",
+    "named": false
   },
   {
-    "type": "out_spec",
-    "named": true
+    "type": "out",
+    "named": false
   },
   {
-    "type": "parent_expr",
-    "named": true
+    "type": "parent",
+    "named": false
   },
   {
     "type": "private",
@@ -3812,16 +3857,16 @@
     "named": false
   },
   {
-    "type": "super_expr",
-    "named": true
+    "type": "super",
+    "named": false
   },
   {
     "type": "switch",
     "named": false
   },
   {
-    "type": "this_expr",
-    "named": true
+    "type": "this",
+    "named": false
   },
   {
     "type": "timer",
@@ -3836,8 +3881,8 @@
     "named": false
   },
   {
-    "type": "virtual_parent_expr",
-    "named": true
+    "type": "virtual_parent",
+    "named": false
   },
   {
     "type": "while",

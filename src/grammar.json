@@ -2975,13 +2975,6 @@
       "type": "STRING",
       "value": "virtual_parent"
     },
-    "ident": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PATTERN",
-        "value": "[_a-zA-Z][_a-zA-Z0-9]*"
-      }
-    },
     "literal": {
       "type": "CHOICE",
       "members": [
@@ -3253,7 +3246,216 @@
   ],
   "conflicts": [],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "ident"
+    },
+    {
+      "type": "STRING",
+      "value": "abstract"
+    },
+    {
+      "type": "STRING",
+      "value": "autobind"
+    },
+    {
+      "type": "STRING",
+      "value": "break"
+    },
+    {
+      "type": "STRING",
+      "value": "case"
+    },
+    {
+      "type": "STRING",
+      "value": "class"
+    },
+    {
+      "type": "STRING",
+      "value": "const"
+    },
+    {
+      "type": "STRING",
+      "value": "continue"
+    },
+    {
+      "type": "STRING",
+      "value": "default"
+    },
+    {
+      "type": "STRING",
+      "value": "delete"
+    },
+    {
+      "type": "STRING",
+      "value": "do"
+    },
+    {
+      "type": "STRING",
+      "value": "editable"
+    },
+    {
+      "type": "STRING",
+      "value": "else"
+    },
+    {
+      "type": "STRING",
+      "value": "entry"
+    },
+    {
+      "type": "STRING",
+      "value": "enum"
+    },
+    {
+      "type": "STRING",
+      "value": "event"
+    },
+    {
+      "type": "STRING",
+      "value": "exec"
+    },
+    {
+      "type": "STRING",
+      "value": "extends"
+    },
+    {
+      "type": "STRING",
+      "value": "false"
+    },
+    {
+      "type": "STRING",
+      "value": "final"
+    },
+    {
+      "type": "STRING",
+      "value": "for"
+    },
+    {
+      "type": "STRING",
+      "value": "function"
+    },
+    {
+      "type": "STRING",
+      "value": "hint"
+    },
+    {
+      "type": "STRING",
+      "value": "if"
+    },
+    {
+      "type": "STRING",
+      "value": "in"
+    },
+    {
+      "type": "STRING",
+      "value": "inlined"
+    },
+    {
+      "type": "STRING",
+      "value": "import"
+    },
+    {
+      "type": "STRING",
+      "value": "latent"
+    },
+    {
+      "type": "STRING",
+      "value": "new"
+    },
+    {
+      "type": "STRING",
+      "value": "NULL"
+    },
+    {
+      "type": "STRING",
+      "value": "optional"
+    },
+    {
+      "type": "STRING",
+      "value": "out"
+    },
+    {
+      "type": "STRING",
+      "value": "parent"
+    },
+    {
+      "type": "STRING",
+      "value": "private"
+    },
+    {
+      "type": "STRING",
+      "value": "protected"
+    },
+    {
+      "type": "STRING",
+      "value": "public"
+    },
+    {
+      "type": "STRING",
+      "value": "quest"
+    },
+    {
+      "type": "STRING",
+      "value": "return"
+    },
+    {
+      "type": "STRING",
+      "value": "saved"
+    },
+    {
+      "type": "STRING",
+      "value": "single"
+    },
+    {
+      "type": "STRING",
+      "value": "state"
+    },
+    {
+      "type": "STRING",
+      "value": "statemachine"
+    },
+    {
+      "type": "STRING",
+      "value": "storyscene"
+    },
+    {
+      "type": "STRING",
+      "value": "struct"
+    },
+    {
+      "type": "STRING",
+      "value": "super"
+    },
+    {
+      "type": "STRING",
+      "value": "switch"
+    },
+    {
+      "type": "STRING",
+      "value": "this"
+    },
+    {
+      "type": "STRING",
+      "value": "timer"
+    },
+    {
+      "type": "STRING",
+      "value": "true"
+    },
+    {
+      "type": "STRING",
+      "value": "var"
+    },
+    {
+      "type": "STRING",
+      "value": "virtual_parent"
+    },
+    {
+      "type": "STRING",
+      "value": "while"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }

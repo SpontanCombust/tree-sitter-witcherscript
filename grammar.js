@@ -42,6 +42,61 @@ module.exports = grammar({
 
   word: $ => $.ident,
 
+  externals: $ => [
+    $.ident,
+    'abstract',
+    'autobind',
+    'break',
+    'case',
+    'class',
+    'const',
+    'continue', 
+    'default',
+    'delete',
+    'do',
+    'editable',
+    'else',
+    'entry',
+    'enum',
+    'event',
+    'exec',
+    'extends',
+    'false',
+    'final',
+    'for',
+    'function',
+    'hint',
+    'if',
+    'in',
+    'inlined',
+    'import',
+    'latent',
+    'new',
+    'NULL',
+    'optional',
+    'out',
+    'parent',
+    'private',
+    'protected',
+    'public',
+    'quest',
+    'return',
+    'saved',
+    'single',
+    'state',
+    'statemachine',
+    'storyscene',
+    'struct',
+    'super',
+    'switch',
+    'this',
+    'timer',
+    'true',
+    'var',
+    'virtual_parent',
+    'while'
+  ],
+
   rules: {
     module: $ => repeat(choice(
       $.func_decl_stmt,
@@ -498,10 +553,6 @@ module.exports = grammar({
     parent_expr: $ => 'parent',
 
     virtual_parent_expr: $ => 'virtual_parent',
-
-    ident: $ => token(
-      /[_a-zA-Z][_a-zA-Z0-9]*/
-    ),
 
 
     literal: $ => choice(
