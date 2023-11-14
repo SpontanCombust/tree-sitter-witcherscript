@@ -48,7 +48,8 @@ module.exports = grammar({
       $.class_decl_stmt,
       $.state_decl_stmt,
       $.struct_decl_stmt,
-      $.enum_decl_stmt
+      $.enum_decl_stmt,
+      ';'
     )),
 
 
@@ -85,6 +86,7 @@ module.exports = grammar({
       $.member_var_decl_stmt,
       $.member_default_val_stmt,
       $.member_hint_stmt,
+      ';'
     ),
 
 
@@ -132,6 +134,7 @@ module.exports = grammar({
       $.member_hint_stmt,
       $.class_autobind_stmt,
       $.func_decl_stmt,
+      ';'
     ),
 
     class_autobind_stmt: $ => seq(
@@ -317,11 +320,13 @@ module.exports = grammar({
       'delete', field('expr', $._expr), ';'
     ),
 
-    func_block: $ => block($.func_stmt),
+    func_block: $ => block(choice(
+      $.func_stmt, 
+      ';'
+    )),
 
     expr_stmt: $ => seq(
-      // optional to also handle trailing semicolons
-      field('expr', optional($._expr)), ';'
+      field('expr', $._expr), ';'
     ),
 
     

@@ -26,6 +26,10 @@
           {
             "type": "SYMBOL",
             "name": "enum_decl_stmt"
+          },
+          {
+            "type": "STRING",
+            "value": ";"
           }
         ]
       }
@@ -231,6 +235,10 @@
         {
           "type": "SYMBOL",
           "name": "member_hint_stmt"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },
@@ -488,6 +496,10 @@
         {
           "type": "SYMBOL",
           "name": "func_decl_stmt"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },
@@ -1634,8 +1646,17 @@
           "content": {
             "type": "REPEAT",
             "content": {
-              "type": "SYMBOL",
-              "name": "func_stmt"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "func_stmt"
+                },
+                {
+                  "type": "STRING",
+                  "value": ";"
+                }
+              ]
             }
           }
         },
@@ -1652,16 +1673,8 @@
           "type": "FIELD",
           "name": "expr",
           "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_expr"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "_expr"
           }
         },
         {
