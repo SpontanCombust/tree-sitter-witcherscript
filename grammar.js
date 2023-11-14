@@ -44,13 +44,77 @@ module.exports = grammar({
 
   rules: {
     module: $ => repeat(choice(
-      $.func_decl_stmt
+      $.func_decl_stmt,
+      $.class_decl_stmt
     )),
 
 
     // STATEMENTS ===================================================
 
-    member_var_decl: $ => seq(
+  
+
+    // CLASS DECLARATION ===================
+
+    class_decl_stmt: $ => seq(
+      field('import', optional($.import_spec)),
+      field('specifiers', repeat($.class_specifier)),
+      'class',
+      field('name', $.ident),
+      field('base', optional($.class_base)),
+      field('definition', block($.class_stmt))
+    ),
+
+    class_base: $ => seq(
+      'extends', field('base_name', $.ident)
+    ),
+
+    class_specifier: $ => choice(
+      'abstract',
+      'statemachine'
+    ),
+
+
+    // CLASS ===============================
+
+    class_stmt: $ => choice(
+      $.member_var_decl_stmt,
+      $.member_default_val_stmt,
+      $.member_hint_stmt,
+      $.class_autobind_stmt,
+      $.func_decl_stmt,
+    ),
+
+    class_autobind_stmt: $ => seq(
+      field('access_modifier', optional($.access_modifier)),
+      field('optional', optional($.optional_spec)),
+      'autobind',
+      field('name', $.ident),
+      field('autobind_type', $.type_annot),
+      '=',
+      field('value', choice(
+        'single',
+        $.literal_string
+      )),
+      ';'
+    ),
+
+    member_default_val_stmt: $ => seq(
+      'default',
+      field('member', $.ident),
+      '=',
+      field('value', $._expr),
+      ';'
+    ),
+
+    member_hint_stmt: $ => seq(
+      'hint',
+      field('member', $.ident),
+      '=',
+      field('value', $.literal_string),
+      ';'
+    ),
+
+    member_var_decl_stmt: $ => seq(
       field('import', optional($.import_spec)),
       field('access_modifier', optional($.access_modifier)),
       field('specifiers', repeat($.member_var_specifier)),
@@ -68,7 +132,6 @@ module.exports = grammar({
     ),
 
 
-
     // FUNCTION DECLARATION ================
 
     func_decl_stmt: $ => seq(
@@ -81,7 +144,7 @@ module.exports = grammar({
       field('return_type', optional($.type_annot)),
       choice(
         ';',
-        field('body', $.scope_stmt)
+        field('definition', $.func_block)
       )
     ),
 
@@ -128,7 +191,7 @@ module.exports = grammar({
       $.continue_stmt,
       $.return_stmt,
       $.delete_stmt,
-      $.scope_stmt,
+      $.func_block,
       $.expr_stmt
     ),
 
@@ -204,9 +267,7 @@ module.exports = grammar({
       'delete', field('expr', $._expr), ';'
     ),
 
-    scope_stmt: $ => seq(
-      '{', field('body', repeat($.func_stmt)), '}'
-    ),
+    func_block: $ => block($.func_stmt),
 
     expr_stmt: $ => seq(
       // optional to also handle trailing semicolons
@@ -216,7 +277,7 @@ module.exports = grammar({
     
     type_annot: $ => seq(
       ':',
-      field('type', $.ident),
+      field('type_name', $.ident),
       optional(seq(
         '<',
         field('generic_arg', $.ident),
@@ -475,5 +536,11 @@ function comma_trail(rule) {
   return seq(
     comma(rule),
     optional(',')
+  )
+}
+
+function block(rule) {
+  return seq(
+    '{', field('statements', repeat(rule)), '}'
   )
 }
