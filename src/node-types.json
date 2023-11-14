@@ -971,6 +971,76 @@
     }
   },
   {
+    "type": "enum_decl_stmt",
+    "named": true,
+    "fields": {
+      "definition": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "{",
+            "named": false
+          },
+          {
+            "type": "}",
+            "named": false
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "values": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "enum_decl_value",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "enum_decl_value",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "literal_int",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "expr_stmt",
     "named": true,
     "fields": {
@@ -2244,11 +2314,19 @@
           "named": true
         },
         {
+          "type": "enum_decl_stmt",
+          "named": true
+        },
+        {
           "type": "func_decl_stmt",
           "named": true
         },
         {
           "type": "state_decl_stmt",
+          "named": true
+        },
+        {
+          "type": "struct_decl_stmt",
           "named": true
         }
       ]
@@ -2587,6 +2665,79 @@
     "type": "state_specifier",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "struct_decl_stmt",
+    "named": true,
+    "fields": {
+      "definition": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "{",
+            "named": false
+          },
+          {
+            "type": "}",
+            "named": false
+          }
+        ]
+      },
+      "import": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "import_spec",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "statements": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "struct_stmt",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "struct_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "member_default_val_stmt",
+          "named": true
+        },
+        {
+          "type": "member_hint_stmt",
+          "named": true
+        },
+        {
+          "type": "member_var_decl_stmt",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "switch_case",
@@ -3517,6 +3668,10 @@
     "named": false
   },
   {
+    "type": "enum",
+    "named": false
+  },
+  {
     "type": "exec",
     "named": false
   },
@@ -3646,6 +3801,10 @@
   },
   {
     "type": "storyscene",
+    "named": false
+  },
+  {
+    "type": "struct",
     "named": false
   },
   {

@@ -47,12 +47,47 @@ module.exports = grammar({
       $.func_decl_stmt,
       $.class_decl_stmt,
       $.state_decl_stmt,
+      $.struct_decl_stmt,
+      $.enum_decl_stmt
     )),
 
 
     // STATEMENTS ===================================================
 
+    
+    // ENUM DECLARATION ====================
+
+    enum_decl_stmt: $ => seq(
+      'enum', field('name', $.ident),
+      field('definition', seq(
+        '{', field('values', comma_trail($.enum_decl_value)), '}'
+      ))
+    ),
+
+    enum_decl_value: $ => seq(
+      field('name', $.ident),
+      optional(seq(
+        '=',
+        field('value', $.literal_int)
+      )),
+    ),
+
   
+    // STRUCT DECLARATION ==================
+
+    struct_decl_stmt: $ => seq(
+      field('import', optional($.import_spec)),
+      'struct', field('name', $.ident),
+      field('definition', block($.struct_stmt))
+    ),
+
+    struct_stmt: $ => choice(
+      $.member_var_decl_stmt,
+      $.member_default_val_stmt,
+      $.member_hint_stmt,
+    ),
+
+
     // STATE DECLARATION ===================
 
     state_decl_stmt: $ => seq(
