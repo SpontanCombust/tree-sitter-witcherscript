@@ -45,21 +45,36 @@ module.exports = grammar({
   rules: {
     module: $ => repeat(choice(
       $.func_decl_stmt,
-      $.class_decl_stmt
+      $.class_decl_stmt,
+      $.state_decl_stmt,
     )),
 
 
     // STATEMENTS ===================================================
 
   
+    // STATE DECLARATION ===================
+
+    state_decl_stmt: $ => seq(
+      field('import', optional($.import_spec)),
+      field('specifiers', optional($.state_specifier)),
+      'state', field('name', $.ident),
+      'in', field('parent', $.ident),
+      field('base', optional($.class_base)),
+      field('definition', block($.class_stmt))
+    ),
+
+    state_specifier: $ => choice(
+      'abstract'
+    ),
+
 
     // CLASS DECLARATION ===================
 
     class_decl_stmt: $ => seq(
       field('import', optional($.import_spec)),
       field('specifiers', repeat($.class_specifier)),
-      'class',
-      field('name', $.ident),
+      'class', field('name', $.ident),
       field('base', optional($.class_base)),
       field('definition', block($.class_stmt))
     ),

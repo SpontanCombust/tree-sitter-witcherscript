@@ -2246,6 +2246,10 @@
         {
           "type": "func_decl_stmt",
           "named": true
+        },
+        {
+          "type": "state_decl_stmt",
+          "named": true
         }
       ]
     }
@@ -2498,6 +2502,91 @@
         ]
       }
     }
+  },
+  {
+    "type": "state_decl_stmt",
+    "named": true,
+    "fields": {
+      "base": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "class_base",
+            "named": true
+          }
+        ]
+      },
+      "definition": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "{",
+            "named": false
+          },
+          {
+            "type": "}",
+            "named": false
+          }
+        ]
+      },
+      "import": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "import_spec",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "parent": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "specifiers": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "state_specifier",
+            "named": true
+          }
+        ]
+      },
+      "statements": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "class_stmt",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "state_specifier",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "switch_case",
@@ -3545,6 +3634,10 @@
   },
   {
     "type": "single",
+    "named": false
+  },
+  {
+    "type": "state",
     "named": false
   },
   {
