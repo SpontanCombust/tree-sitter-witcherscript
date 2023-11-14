@@ -1,10 +1,9 @@
-/src/** linguist-vendored
-/examples/* linguist-vendored
-
+src/tree_sitter/parser.h linguist-generated
 src/grammar.json linguist-generated
 src/node-types.json linguist-generated
 src/parser.c linguist-generated
 
+src/tree_sitter/parser.h -diff
 src/grammar.json -diff
 src/node-types.json -diff
 src/parser.c -diff
