@@ -1,0 +1,131 @@
+===================================================================================================
+Numbers
+===================================================================================================
+
+function test() {
+    123;
+    -2137;
+    923762112;
+    567.8;
+    9.f;
+    0.0000001;
+}
+
+---------------------------------------------------------------------------------------------------
+
+(module
+  (func_decl_stmt
+    flavour: (func_flavour_function)
+    name: (ident)
+    definition: (func_block
+      statements: (func_stmt
+        (expr_stmt
+          expr: (literal
+            (literal_int))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (literal
+            (literal_int))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (literal
+            (literal_int))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (literal
+            (literal_float))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (literal
+            (literal_float))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (literal
+            (literal_float)))))))
+
+
+
+
+
+===================================================================================================
+NULL
+===================================================================================================
+
+function test() {
+    NULL;
+}
+
+---------------------------------------------------------------------------------------------------
+
+(module
+  (func_decl_stmt
+    flavour: (func_flavour_function)
+    name: (ident)
+    definition: (func_block
+      statements: (func_stmt
+        (expr_stmt
+          expr: (literal
+            (literal_null)))))))
+
+
+
+
+
+===================================================================================================
+bool
+===================================================================================================
+
+function test() {
+    true;
+    false;
+}
+
+---------------------------------------------------------------------------------------------------
+
+(module
+  (func_decl_stmt
+    flavour: (func_flavour_function)
+    name: (ident)
+    definition: (func_block
+      statements: (func_stmt
+        (expr_stmt
+          expr: (literal
+            (literal_bool))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (literal
+            (literal_bool)))))))
+
+
+
+
+
+===================================================================================================
+string-likes
+===================================================================================================
+
+function test() {
+    "abrakadabra";
+    "String with \"escaped quotes\"";
+    '_alakazam123';
+}
+
+---------------------------------------------------------------------------------------------------
+
+(module
+  (func_decl_stmt
+    flavour: (func_flavour_function)
+    name: (ident)
+    definition: (func_block
+      statements: (func_stmt
+        (expr_stmt
+          expr: (literal
+            (literal_string))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (literal
+            (literal_string))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (literal
+            (literal_name)))))))
