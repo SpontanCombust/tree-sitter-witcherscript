@@ -44,6 +44,8 @@ module.exports = grammar({
 
   externals: $ => [
     $.ident,
+
+    'NULL',
     'abstract',
     'autobind',
     'break',
@@ -72,7 +74,6 @@ module.exports = grammar({
     'import',
     'latent',
     'new',
-    'NULL',
     'optional',
     'out',
     'parent',

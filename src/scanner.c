@@ -20,13 +20,24 @@
 #include <ctype.h>
 #include <string.h>
 
+#define DEBUG
+#ifdef DEBUG
+#include <stdio.h>
+#define LOG(...) fprintf(stderr, __VA_ARGS__)
+#else
+#define LOG(...)
+#endif
+
+
 // Do NOT change the order of values in TokenType and KEYWORDS
-// Keywords have to be listed alphabetically for the binary search to work
+// Keywords have to be sorted according to the ASCII table for the binary search to work (so those with capital letters have to go first)
+// This applies to padding entries as well
 // Each string in KEYWORDS should correspond to an enum value on the same index in TokenType
 
 enum TokenType {
     IDENT,
 
+    KW_NULL,
     KW_ABSTRACT,
     KW_AUTOBIND,
     KW_BREAK,
@@ -55,7 +66,6 @@ enum TokenType {
     KW_IMPORT,
     KW_LATENT,
     KW_NEW,
-    KW_NULL,
     KW_OPTIONAL,
     KW_OUT,
     KW_PARENT,
@@ -83,8 +93,9 @@ enum TokenType {
 };
 
 static const char * const KEYWORDS[_MAX_TOKENS] = {
-    "__PAD__", // padding for INDENT
+    "000_PAD_IDENT",
 
+    "NULL",
     "abstract",
     "autobind",
     "break",
@@ -113,7 +124,6 @@ static const char * const KEYWORDS[_MAX_TOKENS] = {
     "import",
     "latent",
     "new",
-    "NULL",
     "optional",
     "out",
     "parent",
@@ -141,7 +151,7 @@ static const char * const KEYWORDS[_MAX_TOKENS] = {
 // should be more than enough
 #define MAX_IDENT_LENGTH 128 
 
-// Returns index of the keyword or -1 if it wasn't found
+// Does a binary search for a given keyword. Returns index of the keyword or -1 if it wasn't found.
 static int find_keyword(const char * ident){
     int start = 0;
     int end = _MAX_TOKENS - 1;
@@ -149,6 +159,7 @@ static int find_keyword(const char * ident){
 
     while(start <= end){
         mid = (start + end) / 2;
+        LOG("checking %s\n", KEYWORDS[mid]);
         cmp = strcmp(KEYWORDS[mid], ident);
         if (cmp == 0){
             return mid;
@@ -217,7 +228,9 @@ bool tree_sitter_witcherscript_external_scanner_scan(void *payload, TSLexer *lex
 
         if(scan_ident(lexer, buffer, MAX_IDENT_LENGTH)) {
             // check whether this identifier is actually a reserved keyword
+            LOG("scanned identifier: %s\n", buffer);
             int kw = find_keyword(buffer);
+            LOG("it is %sa keyword\n", kw == -1 ? "not " : "");
             if (kw != -1) {
                 // keywords take precedence over any name identifier
                 if (expected_keyword) {

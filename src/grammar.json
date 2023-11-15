@@ -3253,6 +3253,10 @@
     },
     {
       "type": "STRING",
+      "value": "NULL"
+    },
+    {
+      "type": "STRING",
       "value": "abstract"
     },
     {
@@ -3362,10 +3366,6 @@
     {
       "type": "STRING",
       "value": "new"
-    },
-    {
-      "type": "STRING",
-      "value": "NULL"
     },
     {
       "type": "STRING",
