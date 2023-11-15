@@ -2641,20 +2641,12 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "STRING",
-            "value": "("
-          },
-          {
             "type": "FIELD",
             "name": "type",
             "content": {
               "type": "SYMBOL",
-              "name": "ident"
+              "name": "_paren_ident"
             }
-          },
-          {
-            "type": "STRING",
-            "value": ")"
           },
           {
             "type": "FIELD",
@@ -2898,6 +2890,32 @@
       }
     },
     "nested_expr": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_expr"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_paren_ident"
+        }
+      ]
+    },
+    "_paren_ident": {
       "type": "SEQ",
       "members": [
         {
@@ -2906,7 +2924,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_expr"
+          "name": "ident"
         },
         {
           "type": "STRING",
@@ -3199,7 +3217,12 @@
       "name": "comment"
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "_expr",
+      "_paren_ident"
+    ]
+  ],
   "precedences": [],
   "externals": [
     {

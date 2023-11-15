@@ -98,6 +98,10 @@ module.exports = grammar({
     'while'
   ],
 
+  conflicts: $ => [
+    [$._expr, $._paren_ident]
+  ],
+
   rules: {
     module: $ => repeat(choice(
       $.func_decl_stmt,
@@ -537,9 +541,7 @@ module.exports = grammar({
 
 
     cast_expr: $ => prec.right(PREC.CAST, seq(
-      '(',
-      field('type', $.ident),
-      ')',
+      field('type', $._paren_ident),
       field('value', $._expr),
     )),
 
@@ -574,10 +576,13 @@ module.exports = grammar({
     )),
 
 
-    nested_expr: $ => seq(
-      '(',
-      $._expr,
-      ')'
+    nested_expr: $ => choice(
+      seq('(', $._expr, ')'),
+      $._paren_ident
+    ),
+
+    _paren_ident: $ => seq(
+      '(', $.ident, ')'
     ),
 
 
