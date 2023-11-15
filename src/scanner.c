@@ -228,7 +228,7 @@ bool tree_sitter_witcherscript_external_scanner_scan(void *payload, TSLexer *lex
             // check whether this identifier is actually a reserved keyword
             LOG("scanned identifier: %s\n", buffer);
             int kw = find_keyword(buffer);
-            LOG("it is %sa keyword\n", kw == -1 ? "not " : "");
+            LOG("it %s a keyword\n", kw != -1 ? "is" : "is not");
             if (kw != -1) {
                 // keywords take precedence over any name identifier
                 if (expected_keyword) {
