@@ -1,0 +1,467 @@
+===================================================================================================
+Identifiers and objects
+===================================================================================================
+
+function test() {
+    myVar;
+    var1;
+    __asfs328afncaas1483aaaaaaaaazzzzzzzzz0000;
+    null;
+    this;
+    super;
+    parent;
+    virtual_parent;
+}
+
+---------------------------------------------------------------------------------------------------
+
+(module
+  (func_decl_stmt
+    flavour: (func_flavour_function)
+    name: (ident)
+    definition: (func_block
+      statements: (func_stmt
+        (expr_stmt
+          expr: (ident)))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (ident)))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (ident)))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (ident)))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (this_expr)))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (super_expr)))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (parent_expr)))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (virtual_parent_expr))))))
+
+
+
+
+
+===================================================================================================
+Unary operators
+===================================================================================================
+
+function test() {
+    -a;
+    !condition;
+    ~number;
+}
+
+---------------------------------------------------------------------------------------------------
+
+(module
+  (func_decl_stmt
+    flavour: (func_flavour_function)
+    name: (ident)
+    definition: (func_block
+      statements: (func_stmt
+        (expr_stmt
+          expr: (unary_op_expr
+            op: (unary_op_neg)
+            expr: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (unary_op_expr
+            op: (unary_op_not)
+            expr: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (unary_op_expr
+            op: (unary_op_bitnot)
+            expr: (ident)))))))
+
+
+
+
+===================================================================================================
+Binary operators
+===================================================================================================
+
+function test() {
+    a || b;
+    a && b;
+    a | b;
+    a & b;
+    a == b;
+    a != b;
+    a > b;
+    a >= b;
+    a < b;
+    a <= b;
+    a - b;
+    a + b;
+    a * b;
+    a / b;
+    a % b;
+}
+
+---------------------------------------------------------------------------------------------------
+
+(module
+  (func_decl_stmt
+    flavour: (func_flavour_function)
+    name: (ident)
+    definition: (func_block
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_or)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_and)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_bitor)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_bitand)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_eq)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_neq)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_gt)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_ge)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_lt)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_le)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_diff)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_sum)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_mult)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_div)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (binary_op_expr
+            left: (ident)
+            op: (binary_op_mod)
+            right: (ident)))))))
+
+
+
+
+
+===================================================================================================
+Assignment
+===================================================================================================
+
+function test() {
+    a = "1";
+    b += c;
+    a -= b;
+    a *= CONSTANT;
+    a /= 2;
+    dt %= 0.01667;
+}
+
+---------------------------------------------------------------------------------------------------
+
+(module
+  (func_decl_stmt
+    flavour: (func_flavour_function)
+    name: (ident)
+    definition: (func_block
+      statements: (func_stmt
+        (expr_stmt
+          expr: (assign_op_expr
+            left: (ident)
+            op: (assign_op_direct)
+            right: (literal
+              (literal_string)))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (assign_op_expr
+            left: (ident)
+            op: (assign_op_sum)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (assign_op_expr
+            left: (ident)
+            op: (assign_op_diff)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (assign_op_expr
+            left: (ident)
+            op: (assign_op_mult)
+            right: (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (assign_op_expr
+            left: (ident)
+            op: (assign_op_div)
+            right: (literal
+              (literal_int)))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (assign_op_expr
+            left: (ident)
+            op: (assign_op_mod)
+            right: (literal
+              (literal_float))))))))
+
+
+
+
+
+===================================================================================================
+Assignment left side error
+===================================================================================================
+
+function test() {
+    1 *= a;
+    this = ptr;
+}
+
+---------------------------------------------------------------------------------------------------
+
+(module
+  (func_decl_stmt
+    flavour: (func_flavour_function)
+    name: (ident)
+    definition: (func_block
+      (ERROR
+        (literal
+          (literal_int))
+        (assign_op_mult))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (ident)))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (this_expr)
+          (ERROR
+            (ident)))))))
+
+
+
+
+
+===================================================================================================
+Others
+===================================================================================================
+
+function test() {
+    (a);
+    (Type)val;
+    (((a)(b)));
+    arr[i];
+    func(1, "a",, true);
+    thePlayer.inv;
+    thePlayer.IsCiri(false);
+    (Type)func(arg);
+    isTrue ? true : getFalse();
+}
+
+---------------------------------------------------------------------------------------------------
+
+(module
+  (func_decl_stmt
+    flavour: (func_flavour_function)
+    name: (ident)
+    definition: (func_block
+      statements: (func_stmt
+        (expr_stmt
+          expr: (nested_expr
+            (ident))))
+      statements: (func_stmt
+        (expr_stmt
+          expr: (cast_expr
+            type: (ident)
+            value: (ident))))
+      statements: (func_stmt 
+        (expr_stmt 
+          expr: (nested_expr 
+            (nested_expr 
+              (cast_expr 
+                type: (ident)
+                value: (nested_expr 
+                  (ident)))))))
+      statements: (func_stmt 
+        (expr_stmt 
+          expr: (array_expr 
+            accessor: (ident)
+            index: (ident))))
+      statements: (func_stmt 
+        (expr_stmt 
+          expr: (func_call_expr 
+            func: (ident)
+            args: (literal 
+              (literal_int))
+            args: (literal 
+              (literal_string))
+            args: (literal 
+              (literal_bool)))))
+      statements: (func_stmt 
+        (expr_stmt 
+          expr: (member_field_expr 
+            accessor: (ident)
+            member: (ident))))
+      statements: (func_stmt 
+        (expr_stmt 
+          expr: (member_func_call_expr 
+            accessor: (ident)
+            func: (ident)
+            args: (literal 
+              (literal_bool)))))
+      statements: (func_stmt 
+        (expr_stmt 
+          expr: (cast_expr 
+            type: (ident)
+            value: (func_call_expr 
+              func: (ident)
+              args: (ident)))))
+      statements: (func_stmt 
+        (expr_stmt 
+          expr: (ternary_cond_expr 
+            cond: (ident)
+            expr_if_true: (literal 
+              (literal_bool))
+            expr_if_false: (func_call_expr 
+              func: (ident))))))))
+
+
+
+
+===================================================================================================
+Precedence
+===================================================================================================
+
+function test() {
+    a.b = x + y * z && p / -q;
+}
+
+---------------------------------------------------------------------------------------------------
+
+(module
+  (func_decl_stmt
+    flavour: (func_flavour_function)
+    name: (ident)
+    definition: (func_block
+      statements: (func_stmt
+        (expr_stmt
+          expr: (assign_op_expr
+            left: (member_field_expr
+              accessor: (ident)
+              member: (ident))
+            op: (assign_op_direct)
+            right: (binary_op_expr
+              left: (binary_op_expr
+                left: (ident)
+                op: (binary_op_sum)
+                right: (binary_op_expr
+                  left: (ident)
+                  op: (binary_op_mult)
+                  right: (ident)))
+              op: (binary_op_and)
+              right: (binary_op_expr
+                left: (ident)
+                op: (binary_op_div)
+                right: (unary_op_expr
+                  op: (unary_op_neg)
+                  expr: (ident))))))))))
+
+
+
+
+===================================================================================================
+Complex
+===================================================================================================
+
+function test() {
+    ((CMovingPhysicalAgentComponent)((CNewNPC)results[i]).GetMovingAgentComponent()).SetAnimatedMovement( false );
+}
+
+---------------------------------------------------------------------------------------------------
+
+(module
+  (func_decl_stmt
+    flavour: (func_flavour_function)
+    name: (ident)
+    definition: (func_block
+      statements: (func_stmt
+        (expr_stmt
+          expr: (member_func_call_expr
+            accessor: (nested_expr
+              (cast_expr
+                type: (ident)
+                value: (member_func_call_expr
+                  accessor: (nested_expr
+                    (cast_expr
+                      type: (ident)
+                      value: (array_expr
+                        accessor: (ident)
+                        index: (ident))))
+                  func: (ident))))
+            func: (ident)
+            args: (literal
+              (literal_bool))))))))
