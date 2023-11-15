@@ -31,8 +31,7 @@
 
 // Do NOT change the order of values in TokenType and KEYWORDS
 // Keywords have to be sorted according to the ASCII table for the binary search to work (so those with capital letters have to go first)
-// This applies to padding entries as well
-// Each string in KEYWORDS should correspond to an enum value on the same index in TokenType
+// Non keyword tokens go first (here it's just IDENT)
 
 enum TokenType {
     IDENT,
@@ -92,9 +91,8 @@ enum TokenType {
     _MAX_TOKENS
 };
 
-static const char * const KEYWORDS[_MAX_TOKENS] = {
-    "000_PAD_IDENT",
-
+#define KEYWORD_COUNT _MAX_TOKENS - 1
+static const char * const KEYWORDS[KEYWORD_COUNT] = {
     "NULL",
     "abstract",
     "autobind",
@@ -151,10 +149,10 @@ static const char * const KEYWORDS[_MAX_TOKENS] = {
 // should be more than enough
 #define MAX_IDENT_LENGTH 128 
 
-// Does a binary search for a given keyword. Returns index of the keyword or -1 if it wasn't found.
+// Does a binary search for a given keyword. Returns index in KEYWORDS array or -1 if it wasn't found.
 static int find_keyword(const char * ident){
     int start = 0;
-    int end = _MAX_TOKENS - 1;
+    int end = KEYWORD_COUNT - 1;
     int mid, cmp;
 
     while(start <= end){
@@ -234,7 +232,7 @@ bool tree_sitter_witcherscript_external_scanner_scan(void *payload, TSLexer *lex
             if (kw != -1) {
                 // keywords take precedence over any name identifier
                 if (expected_keyword) {
-                    lexer->result_symbol = kw;
+                    lexer->result_symbol = KW_NULL + kw; // convert from index in KEYWORDS to enum value in TokenType
                     return true;
                 // if anything else was expected here (like name identifier) it should throw an error anyways
                 } else {
