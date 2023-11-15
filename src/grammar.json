@@ -1832,207 +1832,62 @@
       ]
     },
     "assign_op_expr": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "PREC_LEFT",
-          "value": 1,
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "left",
-                "content": {
+      "type": "PREC_LEFT",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "left",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_assign_op_left"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "op",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
                   "type": "SYMBOL",
-                  "name": "_assign_op_left"
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "op",
-                "content": {
-                  "type": "STRING",
-                  "value": "="
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "right",
-                "content": {
+                  "name": "assign_op_direct"
+                },
+                {
                   "type": "SYMBOL",
-                  "name": "_expr"
+                  "name": "assign_op_sum"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_op_diff"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_op_mult"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_op_div"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_op_mod"
                 }
-              }
-            ]
+              ]
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "right",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expr"
+            }
           }
-        },
-        {
-          "type": "PREC_LEFT",
-          "value": 1,
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "left",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_assign_op_left"
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "op",
-                "content": {
-                  "type": "STRING",
-                  "value": "+="
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "right",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_expr"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "PREC_LEFT",
-          "value": 1,
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "left",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_assign_op_left"
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "op",
-                "content": {
-                  "type": "STRING",
-                  "value": "-="
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "right",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_expr"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "PREC_LEFT",
-          "value": 1,
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "left",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_assign_op_left"
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "op",
-                "content": {
-                  "type": "STRING",
-                  "value": "*="
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "right",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_expr"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "PREC_LEFT",
-          "value": 1,
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "left",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_assign_op_left"
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "op",
-                "content": {
-                  "type": "STRING",
-                  "value": "/="
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "right",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_expr"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "PREC_LEFT",
-          "value": 1,
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "left",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_assign_op_left"
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "op",
-                "content": {
-                  "type": "STRING",
-                  "value": "%="
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "right",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_expr"
-                }
-              }
-            ]
-          }
-        }
-      ]
+        ]
+      }
     },
     "_assign_op_left": {
       "type": "CHOICE",
@@ -2062,6 +1917,30 @@
           "name": "nested_expr"
         }
       ]
+    },
+    "assign_op_direct": {
+      "type": "STRING",
+      "value": "="
+    },
+    "assign_op_sum": {
+      "type": "STRING",
+      "value": "+="
+    },
+    "assign_op_diff": {
+      "type": "STRING",
+      "value": "-="
+    },
+    "assign_op_mult": {
+      "type": "STRING",
+      "value": "*="
+    },
+    "assign_op_div": {
+      "type": "STRING",
+      "value": "/="
+    },
+    "assign_op_mod": {
+      "type": "STRING",
+      "value": "%="
     },
     "ternary_cond_expr": {
       "type": "PREC_RIGHT",
@@ -2125,8 +2004,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "||"
+                  "type": "SYMBOL",
+                  "name": "binary_op_or"
                 }
               },
               {
@@ -2158,8 +2037,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "&&"
+                  "type": "SYMBOL",
+                  "name": "binary_op_and"
                 }
               },
               {
@@ -2191,8 +2070,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "|"
+                  "type": "SYMBOL",
+                  "name": "binary_op_bitor"
                 }
               },
               {
@@ -2224,8 +2103,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "&"
+                  "type": "SYMBOL",
+                  "name": "binary_op_bitand"
                 }
               },
               {
@@ -2257,8 +2136,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "!="
+                  "type": "SYMBOL",
+                  "name": "binary_op_eq"
                 }
               },
               {
@@ -2290,8 +2169,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "=="
+                  "type": "SYMBOL",
+                  "name": "binary_op_neq"
                 }
               },
               {
@@ -2323,8 +2202,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": ">="
+                  "type": "SYMBOL",
+                  "name": "binary_op_gt"
                 }
               },
               {
@@ -2356,8 +2235,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": ">"
+                  "type": "SYMBOL",
+                  "name": "binary_op_ge"
                 }
               },
               {
@@ -2389,8 +2268,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "<="
+                  "type": "SYMBOL",
+                  "name": "binary_op_lt"
                 }
               },
               {
@@ -2422,8 +2301,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "<"
+                  "type": "SYMBOL",
+                  "name": "binary_op_le"
                 }
               },
               {
@@ -2455,8 +2334,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "-"
+                  "type": "SYMBOL",
+                  "name": "binary_op_diff"
                 }
               },
               {
@@ -2488,8 +2367,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "+"
+                  "type": "SYMBOL",
+                  "name": "binary_op_sum"
                 }
               },
               {
@@ -2521,8 +2400,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "%"
+                  "type": "SYMBOL",
+                  "name": "binary_op_mod"
                 }
               },
               {
@@ -2554,8 +2433,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "/"
+                  "type": "SYMBOL",
+                  "name": "binary_op_div"
                 }
               },
               {
@@ -2587,8 +2466,8 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "*"
+                  "type": "SYMBOL",
+                  "name": "binary_op_mult"
                 }
               },
               {
@@ -2603,6 +2482,66 @@
           }
         }
       ]
+    },
+    "binary_op_or": {
+      "type": "STRING",
+      "value": "||"
+    },
+    "binary_op_and": {
+      "type": "STRING",
+      "value": "&&"
+    },
+    "binary_op_bitor": {
+      "type": "STRING",
+      "value": "|"
+    },
+    "binary_op_bitand": {
+      "type": "STRING",
+      "value": "&"
+    },
+    "binary_op_eq": {
+      "type": "STRING",
+      "value": "=="
+    },
+    "binary_op_neq": {
+      "type": "STRING",
+      "value": "!="
+    },
+    "binary_op_gt": {
+      "type": "STRING",
+      "value": ">"
+    },
+    "binary_op_ge": {
+      "type": "STRING",
+      "value": ">="
+    },
+    "binary_op_lt": {
+      "type": "STRING",
+      "value": "<"
+    },
+    "binary_op_le": {
+      "type": "STRING",
+      "value": "<="
+    },
+    "binary_op_diff": {
+      "type": "STRING",
+      "value": "-"
+    },
+    "binary_op_sum": {
+      "type": "STRING",
+      "value": "+"
+    },
+    "binary_op_mod": {
+      "type": "STRING",
+      "value": "%"
+    },
+    "binary_op_div": {
+      "type": "STRING",
+      "value": "/"
+    },
+    "binary_op_mult": {
+      "type": "STRING",
+      "value": "*"
     },
     "new_expr": {
       "type": "PREC_RIGHT",
@@ -2650,20 +2589,20 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": "-"
+                  "type": "SYMBOL",
+                  "name": "unary_op_neg"
                 },
                 {
-                  "type": "STRING",
-                  "value": "!"
+                  "type": "SYMBOL",
+                  "name": "unary_op_not"
                 },
                 {
-                  "type": "STRING",
-                  "value": "~"
+                  "type": "SYMBOL",
+                  "name": "unary_op_bitnot"
                 },
                 {
-                  "type": "STRING",
-                  "value": "+"
+                  "type": "SYMBOL",
+                  "name": "unary_op_plus"
                 }
               ]
             }
@@ -2678,6 +2617,22 @@
           }
         ]
       }
+    },
+    "unary_op_neg": {
+      "type": "STRING",
+      "value": "-"
+    },
+    "unary_op_not": {
+      "type": "STRING",
+      "value": "!"
+    },
+    "unary_op_bitnot": {
+      "type": "STRING",
+      "value": "~"
+    },
+    "unary_op_plus": {
+      "type": "STRING",
+      "value": "+"
     },
     "cast_expr": {
       "type": "PREC_RIGHT",

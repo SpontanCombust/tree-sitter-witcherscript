@@ -159,6 +159,11 @@
     }
   },
   {
+    "type": "assign_op_direct",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "assign_op_expr",
     "named": true,
     "fields": {
@@ -197,28 +202,28 @@
         "required": true,
         "types": [
           {
-            "type": "%=",
-            "named": false
+            "type": "assign_op_diff",
+            "named": true
           },
           {
-            "type": "*=",
-            "named": false
+            "type": "assign_op_direct",
+            "named": true
           },
           {
-            "type": "+=",
-            "named": false
+            "type": "assign_op_div",
+            "named": true
           },
           {
-            "type": "-=",
-            "named": false
+            "type": "assign_op_mod",
+            "named": true
           },
           {
-            "type": "/=",
-            "named": false
+            "type": "assign_op_mult",
+            "named": true
           },
           {
-            "type": "=",
-            "named": false
+            "type": "assign_op_sum",
+            "named": true
           }
         ]
       },
@@ -297,6 +302,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "binary_op_diff",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "binary_op_expr",
@@ -381,64 +391,64 @@
         "required": true,
         "types": [
           {
-            "type": "!=",
-            "named": false
+            "type": "binary_op_and",
+            "named": true
           },
           {
-            "type": "%",
-            "named": false
+            "type": "binary_op_bitand",
+            "named": true
           },
           {
-            "type": "&",
-            "named": false
+            "type": "binary_op_bitor",
+            "named": true
           },
           {
-            "type": "&&",
-            "named": false
+            "type": "binary_op_diff",
+            "named": true
           },
           {
-            "type": "*",
-            "named": false
+            "type": "binary_op_div",
+            "named": true
           },
           {
-            "type": "+",
-            "named": false
+            "type": "binary_op_eq",
+            "named": true
           },
           {
-            "type": "-",
-            "named": false
+            "type": "binary_op_ge",
+            "named": true
           },
           {
-            "type": "/",
-            "named": false
+            "type": "binary_op_gt",
+            "named": true
           },
           {
-            "type": "<",
-            "named": false
+            "type": "binary_op_le",
+            "named": true
           },
           {
-            "type": "<=",
-            "named": false
+            "type": "binary_op_lt",
+            "named": true
           },
           {
-            "type": "==",
-            "named": false
+            "type": "binary_op_mod",
+            "named": true
           },
           {
-            "type": ">",
-            "named": false
+            "type": "binary_op_mult",
+            "named": true
           },
           {
-            "type": ">=",
-            "named": false
+            "type": "binary_op_neq",
+            "named": true
           },
           {
-            "type": "|",
-            "named": false
+            "type": "binary_op_or",
+            "named": true
           },
           {
-            "type": "||",
-            "named": false
+            "type": "binary_op_sum",
+            "named": true
           }
         ]
       },
@@ -517,6 +527,21 @@
         ]
       }
     }
+  },
+  {
+    "type": "binary_op_gt",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "binary_op_lt",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "binary_op_sum",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "break_stmt",
@@ -3326,24 +3351,34 @@
         "required": true,
         "types": [
           {
-            "type": "!",
-            "named": false
+            "type": "unary_op_bitnot",
+            "named": true
           },
           {
-            "type": "+",
-            "named": false
+            "type": "unary_op_neg",
+            "named": true
           },
           {
-            "type": "-",
-            "named": false
+            "type": "unary_op_not",
+            "named": true
           },
           {
-            "type": "~",
-            "named": false
+            "type": "unary_op_plus",
+            "named": true
           }
         ]
       }
     }
+  },
+  {
+    "type": "unary_op_neg",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "unary_op_plus",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "var_decl_stmt",
@@ -3545,30 +3580,6 @@
     }
   },
   {
-    "type": "!",
-    "named": false
-  },
-  {
-    "type": "!=",
-    "named": false
-  },
-  {
-    "type": "%",
-    "named": false
-  },
-  {
-    "type": "%=",
-    "named": false
-  },
-  {
-    "type": "&",
-    "named": false
-  },
-  {
-    "type": "&&",
-    "named": false
-  },
-  {
     "type": "(",
     "named": false
   },
@@ -3577,19 +3588,7 @@
     "named": false
   },
   {
-    "type": "*",
-    "named": false
-  },
-  {
-    "type": "*=",
-    "named": false
-  },
-  {
     "type": "+",
-    "named": false
-  },
-  {
-    "type": "+=",
     "named": false
   },
   {
@@ -3601,19 +3600,7 @@
     "named": false
   },
   {
-    "type": "-=",
-    "named": false
-  },
-  {
     "type": ".",
-    "named": false
-  },
-  {
-    "type": "/",
-    "named": false
-  },
-  {
-    "type": "/=",
     "named": false
   },
   {
@@ -3629,23 +3616,11 @@
     "named": false
   },
   {
-    "type": "<=",
-    "named": false
-  },
-  {
     "type": "=",
     "named": false
   },
   {
-    "type": "==",
-    "named": false
-  },
-  {
     "type": ">",
-    "named": false
-  },
-  {
-    "type": ">=",
     "named": false
   },
   {
@@ -3669,8 +3644,72 @@
     "named": false
   },
   {
+    "type": "assign_op_diff",
+    "named": true
+  },
+  {
+    "type": "assign_op_div",
+    "named": true
+  },
+  {
+    "type": "assign_op_mod",
+    "named": true
+  },
+  {
+    "type": "assign_op_mult",
+    "named": true
+  },
+  {
+    "type": "assign_op_sum",
+    "named": true
+  },
+  {
     "type": "autobind",
     "named": false
+  },
+  {
+    "type": "binary_op_and",
+    "named": true
+  },
+  {
+    "type": "binary_op_bitand",
+    "named": true
+  },
+  {
+    "type": "binary_op_bitor",
+    "named": true
+  },
+  {
+    "type": "binary_op_div",
+    "named": true
+  },
+  {
+    "type": "binary_op_eq",
+    "named": true
+  },
+  {
+    "type": "binary_op_ge",
+    "named": true
+  },
+  {
+    "type": "binary_op_le",
+    "named": true
+  },
+  {
+    "type": "binary_op_mod",
+    "named": true
+  },
+  {
+    "type": "binary_op_mult",
+    "named": true
+  },
+  {
+    "type": "binary_op_neq",
+    "named": true
+  },
+  {
+    "type": "binary_op_or",
+    "named": true
   },
   {
     "type": "break",
@@ -3877,6 +3916,14 @@
     "named": false
   },
   {
+    "type": "unary_op_bitnot",
+    "named": true
+  },
+  {
+    "type": "unary_op_not",
+    "named": true
+  },
+  {
     "type": "var",
     "named": false
   },
@@ -3893,19 +3940,7 @@
     "named": false
   },
   {
-    "type": "|",
-    "named": false
-  },
-  {
-    "type": "||",
-    "named": false
-  },
-  {
     "type": "}",
-    "named": false
-  },
-  {
-    "type": "~",
     "named": false
   }
 ]

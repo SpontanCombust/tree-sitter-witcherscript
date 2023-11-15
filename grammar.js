@@ -431,16 +431,18 @@ module.exports = grammar({
     ),
 
 
-    assign_op_expr: $ => choice(
-      ...['=', '+=', '-=', '*=', '/=', '%=']
-        .map((op) =>
-          prec.left(PREC.ASSIGN, seq(
-            field('left', $._assign_op_left),
-            field('op', op),
-            field('right', $._expr)
-          ))
-      )
-    ),
+    assign_op_expr: $ => prec.left(PREC.ASSIGN, seq(
+      field('left', $._assign_op_left),
+      field('op', choice(
+        $.assign_op_direct,
+        $.assign_op_sum,
+        $.assign_op_diff,
+        $.assign_op_mult,
+        $.assign_op_div,
+        $.assign_op_mod
+      )),
+      field('right', $._expr)
+    )),
 
     _assign_op_left: $ => choice(
       $.ident,
@@ -450,6 +452,14 @@ module.exports = grammar({
       $.array_expr,
       $.nested_expr
     ),
+
+    assign_op_direct: $ => '=',
+    assign_op_sum: $ => '+=',
+    assign_op_diff: $ => '-=',
+    assign_op_mult: $ => '*=',
+    assign_op_div: $ => '/=',
+    assign_op_mod: $ => '%=', 
+
 
     ternary_cond_expr: $ => prec.right(PREC.TERNARY, seq(
       field('cond', $._expr),
@@ -462,21 +472,21 @@ module.exports = grammar({
 
     binary_op_expr: $ => choice(
       ...[
-        ['||', PREC.OR],
-        ['&&', PREC.AND],
-        ['|', PREC.BIT_OR],
-        ['&', PREC.BIT_AND],
-        ['!=', PREC.EQ],
-        ['==', PREC.EQ],
-        ['>=', PREC.RELATION],
-        ['>', PREC.RELATION],
-        ['<=', PREC.RELATION],
-        ['<', PREC.RELATION],
-        ['-', PREC.DIFF],
-        ['+', PREC.SUM],
-        ['%', PREC.MODULO],
-        ['/', PREC.DIV],
-        ['*', PREC.MULT],
+        [$.binary_op_or, PREC.OR],
+        [$.binary_op_and, PREC.AND],
+        [$.binary_op_bitor, PREC.BIT_OR],
+        [$.binary_op_bitand, PREC.BIT_AND],
+        [$.binary_op_eq, PREC.EQ],
+        [$.binary_op_neq, PREC.EQ],
+        [$.binary_op_gt, PREC.RELATION],
+        [$.binary_op_ge, PREC.RELATION],
+        [$.binary_op_lt, PREC.RELATION],
+        [$.binary_op_le, PREC.RELATION],
+        [$.binary_op_diff, PREC.DIFF],
+        [$.binary_op_sum, PREC.SUM],
+        [$.binary_op_mod, PREC.MODULO],
+        [$.binary_op_div, PREC.DIV],
+        [$.binary_op_mult, PREC.MULT],
       ].map(([op, precedence]) =>
         prec.left(precedence, seq(
           field('left', $._expr),
@@ -485,6 +495,22 @@ module.exports = grammar({
         ))
       )
     ),
+
+    binary_op_or: $ => '||',
+    binary_op_and: $ => '&&',
+    binary_op_bitor: $ => '|',
+    binary_op_bitand: $ => '&',
+    binary_op_eq: $ => '==',
+    binary_op_neq: $ => '!=',
+    binary_op_gt: $ => '>',
+    binary_op_ge: $ => '>=',
+    binary_op_lt: $ => '<',
+    binary_op_le: $ => '<=',
+    binary_op_diff: $ => '-',
+    binary_op_sum: $ => '+',
+    binary_op_mod: $ => '%',
+    binary_op_div: $ => '/',
+    binary_op_mult: $ => '*',
     
 
     new_expr: $ => prec.right(PREC.NEW, seq(
@@ -495,9 +521,20 @@ module.exports = grammar({
     )),
 
     unary_op_expr: $ => prec.right(PREC.UNARY, seq(
-      field('op', choice('-', '!', '~', '+')),
+      field('op', choice(
+        $.unary_op_neg,
+        $.unary_op_not,
+        $.unary_op_bitnot,
+        $.unary_op_plus,
+      )),
       field('expr', $._expr)
     )),
+
+    unary_op_neg: $ => '-',
+    unary_op_not: $ => '!',
+    unary_op_bitnot: $ => '~',
+    unary_op_plus: $ => '+',
+
 
     cast_expr: $ => prec.right(PREC.CAST, seq(
       '(',
