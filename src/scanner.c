@@ -20,7 +20,7 @@
 #include <ctype.h>
 #include <string.h>
 
-#define DEBUG
+// #define DEBUG
 #ifdef DEBUG
 #include <stdio.h>
 #define LOG(...) fprintf(stderr, __VA_ARGS__)
