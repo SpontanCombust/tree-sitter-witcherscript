@@ -355,12 +355,13 @@ function test() {
         (expr_stmt 
           (func_call_expr 
             func: (ident)
-            args: (literal 
-              (literal_int))
-            args: (literal 
-              (literal_string))
-            args: (literal 
-              (literal_bool)))))
+            args: (func_call_args
+              (literal 
+                (literal_int))
+              (literal 
+                (literal_string))
+              (literal 
+                (literal_bool))))))
       (func_stmt 
         (expr_stmt 
           (member_field_expr 
@@ -371,15 +372,17 @@ function test() {
           (member_func_call_expr 
             accessor: (ident)
             func: (ident)
-            args: (literal 
-              (literal_bool)))))
+            args: (func_call_args
+              (literal 
+                (literal_bool))))))
       (func_stmt 
         (expr_stmt 
           (cast_expr 
             type: (ident)
             value: (func_call_expr 
               func: (ident)
-              args: (ident)))))
+              args: (func_call_args
+                (ident))))))
       (func_stmt 
         (expr_stmt 
           (ternary_cond_expr 
@@ -463,5 +466,6 @@ function test() {
                         index: (ident))))
                   func: (ident))))
             func: (ident)
-            args: (literal
-              (literal_bool))))))))
+            args: (func_call_args
+              (literal
+                (literal_bool)))))))))

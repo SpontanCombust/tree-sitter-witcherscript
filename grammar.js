@@ -563,7 +563,7 @@ module.exports = grammar({
       '.',
       field('func', $.ident),
       '(',
-      field('args', comma_opt($._expr)),
+      field('args', optional($.func_call_args)),
       ')'
     )),
 
@@ -576,9 +576,14 @@ module.exports = grammar({
     func_call_expr: $ => prec.left(PREC.CALL, seq(
       field('func', $.ident),
       '(',
-      field('args', comma_opt($._expr)),
+      field('args', optional($.func_call_args)),
       ')'
     )),
+
+    func_call_args: $ => choice(
+      $._expr,
+      comma2(optional($._expr))
+    ),
 
     array_expr: $ => prec.left(PREC.ARRAY, seq(
       field('accessor', $._expr),
@@ -684,13 +689,19 @@ function comma1(rule) {
     ))
   )
 }
+
+function comma2(rule) {
+  return seq(
+    rule,
+    repeat1(seq(
+      ',',
+      rule
+    ))
+  )
+}
     
 function comma(rule) {
   return optional(comma1(rule))
-}
-
-function comma_opt(rule) {
-  return optional(comma1(optional(rule)))
 }
     
 function comma_trail(rule) {

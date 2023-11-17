@@ -2554,45 +2554,8 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "CHOICE",
-                      "members": [
-                        {
-                          "type": "SYMBOL",
-                          "name": "_expr"
-                        },
-                        {
-                          "type": "BLANK"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "REPEAT",
-                      "content": {
-                        "type": "SEQ",
-                        "members": [
-                          {
-                            "type": "STRING",
-                            "value": ","
-                          },
-                          {
-                            "type": "CHOICE",
-                            "members": [
-                              {
-                                "type": "SYMBOL",
-                                "name": "_expr"
-                              },
-                              {
-                                "type": "BLANK"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "func_call_args"
                 },
                 {
                   "type": "BLANK"
@@ -2661,45 +2624,8 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "CHOICE",
-                      "members": [
-                        {
-                          "type": "SYMBOL",
-                          "name": "_expr"
-                        },
-                        {
-                          "type": "BLANK"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "REPEAT",
-                      "content": {
-                        "type": "SEQ",
-                        "members": [
-                          {
-                            "type": "STRING",
-                            "value": ","
-                          },
-                          {
-                            "type": "CHOICE",
-                            "members": [
-                              {
-                                "type": "SYMBOL",
-                                "name": "_expr"
-                              },
-                              {
-                                "type": "BLANK"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "func_call_args"
                 },
                 {
                   "type": "BLANK"
@@ -2713,6 +2639,56 @@
           }
         ]
       }
+    },
+    "func_call_args": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_expr"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_expr"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_expr"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
     },
     "array_expr": {
       "type": "PREC_LEFT",
