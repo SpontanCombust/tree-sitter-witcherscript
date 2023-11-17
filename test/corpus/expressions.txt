@@ -20,30 +20,30 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (ident)))
-      statements: (func_stmt
+          (ident)))
+      (func_stmt
         (expr_stmt
-          expr: (ident)))
-      statements: (func_stmt
+          (ident)))
+      (func_stmt
         (expr_stmt
-          expr: (ident)))
-      statements: (func_stmt
+          (ident)))
+      (func_stmt
         (expr_stmt
-          expr: (ident)))
-      statements: (func_stmt
+          (ident)))
+      (func_stmt
         (expr_stmt
-          expr: (this_expr)))
-      statements: (func_stmt
+          (this_expr)))
+      (func_stmt
         (expr_stmt
-          expr: (super_expr)))
-      statements: (func_stmt
+          (super_expr)))
+      (func_stmt
         (expr_stmt
-          expr: (parent_expr)))
-      statements: (func_stmt
+          (parent_expr)))
+      (func_stmt
         (expr_stmt
-          expr: (virtual_parent_expr))))))
+          (virtual_parent_expr))))))
 
 
 
@@ -66,21 +66,21 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (unary_op_expr
+          (unary_op_expr
             op: (unary_op_neg)
-            expr: (ident))))
-      statements: (func_stmt
+            right: (ident))))
+      (func_stmt
         (expr_stmt
-          expr: (unary_op_expr
+          (unary_op_expr
             op: (unary_op_not)
-            expr: (ident))))
-      statements: (func_stmt
+            right: (ident))))
+      (func_stmt
         (expr_stmt
-          expr: (unary_op_expr
+          (unary_op_expr
             op: (unary_op_bitnot)
-            expr: (ident)))))))
+            right: (ident)))))))
 
 
 
@@ -114,93 +114,93 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_or)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_and)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_bitor)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_bitand)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_eq)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_neq)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_gt)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_ge)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_lt)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_le)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_diff)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_sum)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_mult)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_div)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (binary_op_expr
+          (binary_op_expr
             left: (ident)
             op: (binary_op_mod)
             right: (ident)))))))
@@ -229,41 +229,41 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (assign_op_expr
+          (assign_op_expr
             left: (ident)
             op: (assign_op_direct)
             right: (literal
               (literal_string)))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (assign_op_expr
+          (assign_op_expr
             left: (ident)
             op: (assign_op_sum)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (assign_op_expr
+          (assign_op_expr
             left: (ident)
             op: (assign_op_diff)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (assign_op_expr
+          (assign_op_expr
             left: (ident)
             op: (assign_op_mult)
             right: (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (assign_op_expr
+          (assign_op_expr
             left: (ident)
             op: (assign_op_div)
             right: (literal
               (literal_int)))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (assign_op_expr
+          (assign_op_expr
             left: (ident)
             op: (assign_op_mod)
             right: (literal
@@ -293,12 +293,12 @@ function test() {
         (literal
           (literal_int))
         (assign_op_mult))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (ident)))
-      statements: (func_stmt
+          (ident)))
+      (func_stmt
         (expr_stmt
-          expr: (this_expr)
+          (this_expr)
           (ERROR
             (ident)))))))
 
@@ -329,31 +329,31 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (nested_expr
+          (nested_expr
             (ident))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (cast_expr
+          (cast_expr
             type: (ident)
             value: (ident))))
-      statements: (func_stmt 
+      (func_stmt 
         (expr_stmt 
-          expr: (nested_expr 
+          (nested_expr 
             (nested_expr 
               (cast_expr 
                 type: (ident)
                 value: (nested_expr 
                   (ident)))))))
-      statements: (func_stmt 
+      (func_stmt 
         (expr_stmt 
-          expr: (array_expr 
+          (array_expr 
             accessor: (ident)
             index: (ident))))
-      statements: (func_stmt 
+      (func_stmt 
         (expr_stmt 
-          expr: (func_call_expr 
+          (func_call_expr 
             func: (ident)
             args: (literal 
               (literal_int))
@@ -361,32 +361,32 @@ function test() {
               (literal_string))
             args: (literal 
               (literal_bool)))))
-      statements: (func_stmt 
+      (func_stmt 
         (expr_stmt 
-          expr: (member_field_expr 
+          (member_field_expr 
             accessor: (ident)
             member: (ident))))
-      statements: (func_stmt 
+      (func_stmt 
         (expr_stmt 
-          expr: (member_func_call_expr 
+          (member_func_call_expr 
             accessor: (ident)
             func: (ident)
             args: (literal 
               (literal_bool)))))
-      statements: (func_stmt 
+      (func_stmt 
         (expr_stmt 
-          expr: (cast_expr 
+          (cast_expr 
             type: (ident)
             value: (func_call_expr 
               func: (ident)
               args: (ident)))))
-      statements: (func_stmt 
+      (func_stmt 
         (expr_stmt 
-          expr: (ternary_cond_expr 
+          (ternary_cond_expr 
             cond: (ident)
-            expr_if_true: (literal 
+            conseq: (literal 
               (literal_bool))
-            expr_if_false: (func_call_expr 
+            alt: (func_call_expr 
               func: (ident))))))))
 
 
@@ -407,9 +407,9 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (assign_op_expr
+          (assign_op_expr
             left: (member_field_expr
               accessor: (ident)
               member: (ident))
@@ -428,7 +428,7 @@ function test() {
                 op: (binary_op_div)
                 right: (unary_op_expr
                   op: (unary_op_neg)
-                  expr: (ident))))))))))
+                  right: (ident))))))))))
 
 
 
@@ -448,9 +448,9 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (member_func_call_expr
+          (member_func_call_expr
             accessor: (nested_expr
               (cast_expr
                 type: (ident)

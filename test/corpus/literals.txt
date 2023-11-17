@@ -18,29 +18,29 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (literal
+          (literal
             (literal_int))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (literal
+          (literal
             (literal_int))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (literal
+          (literal
             (literal_int))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (literal
+          (literal
             (literal_float))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (literal
+          (literal
             (literal_float))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (literal
+          (literal
             (literal_float)))))))
 
 
@@ -62,9 +62,9 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (literal
+          (literal
             (literal_null)))))))
 
 
@@ -87,13 +87,13 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (literal
+          (literal
             (literal_bool))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (literal
+          (literal
             (literal_bool)))))))
 
 
@@ -117,15 +117,15 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (literal
+          (literal
             (literal_string))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (literal
+          (literal
             (literal_string))))
-      statements: (func_stmt
+      (func_stmt
         (expr_stmt
-          expr: (literal
+          (literal
             (literal_name)))))))
