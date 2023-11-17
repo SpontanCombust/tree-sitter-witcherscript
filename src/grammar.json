@@ -165,18 +165,13 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "import",
+          "name": "specifiers",
           "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "import_spec"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "struct_specifier"
+            }
           }
         },
         {
@@ -221,6 +216,15 @@
         }
       ]
     },
+    "struct_specifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "import"
+        }
+      ]
+    },
     "struct_stmt": {
       "type": "CHOICE",
       "members": [
@@ -247,34 +251,13 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "import",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "import_spec"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        },
-        {
-          "type": "FIELD",
           "name": "specifiers",
           "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "state_specifier"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "state_specifier"
+            }
           }
         },
         {
@@ -352,6 +335,10 @@
       "members": [
         {
           "type": "STRING",
+          "value": "import"
+        },
+        {
+          "type": "STRING",
           "value": "abstract"
         }
       ]
@@ -359,22 +346,6 @@
     "class_decl_stmt": {
       "type": "SEQ",
       "members": [
-        {
-          "type": "FIELD",
-          "name": "import",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "import_spec"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        },
         {
           "type": "FIELD",
           "name": "specifiers",
@@ -466,6 +437,10 @@
       "members": [
         {
           "type": "STRING",
+          "value": "import"
+        },
+        {
+          "type": "STRING",
           "value": "abstract"
         },
         {
@@ -508,34 +483,13 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "access_modifier",
+          "name": "specifiers",
           "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "access_modifier"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        },
-        {
-          "type": "FIELD",
-          "name": "optional",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "optional_spec"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "class_autobind_specifier"
+            }
           }
         },
         {
@@ -582,6 +536,19 @@
         {
           "type": "STRING",
           "value": ";"
+        }
+      ]
+    },
+    "class_autobind_specifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_access_modifier"
+        },
+        {
+          "type": "STRING",
+          "value": "optional"
         }
       ]
     },
@@ -656,38 +623,6 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "import",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "import_spec"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        },
-        {
-          "type": "FIELD",
-          "name": "access_modifier",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "access_modifier"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        },
-        {
-          "type": "FIELD",
           "name": "specifiers",
           "content": {
             "type": "REPEAT",
@@ -748,6 +683,14 @@
       "type": "CHOICE",
       "members": [
         {
+          "type": "SYMBOL",
+          "name": "_access_modifier"
+        },
+        {
+          "type": "STRING",
+          "value": "import"
+        },
+        {
           "type": "STRING",
           "value": "const"
         },
@@ -768,38 +711,6 @@
     "func_decl_stmt": {
       "type": "SEQ",
       "members": [
-        {
-          "type": "FIELD",
-          "name": "import",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "import_spec"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        },
-        {
-          "type": "FIELD",
-          "name": "access_modifier",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "access_modifier"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        },
         {
           "type": "FIELD",
           "name": "specifiers",
@@ -908,34 +819,13 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "optional",
+          "name": "specifiers",
           "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "optional_spec"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        },
-        {
-          "type": "FIELD",
-          "name": "out",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "out_spec"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "func_param_specifier"
+            }
           }
         },
         {
@@ -974,6 +864,19 @@
             "type": "SYMBOL",
             "name": "type_annot"
           }
+        }
+      ]
+    },
+    "func_param_specifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "optional"
+        },
+        {
+          "type": "STRING",
+          "value": "out"
         }
       ]
     },
@@ -1086,6 +989,14 @@
     "func_specifier": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_access_modifier"
+        },
+        {
+          "type": "STRING",
+          "value": "import"
+        },
         {
           "type": "STRING",
           "value": "latent"
@@ -1729,7 +1640,7 @@
         }
       ]
     },
-    "access_modifier": {
+    "_access_modifier": {
       "type": "CHOICE",
       "members": [
         {
@@ -1745,18 +1656,6 @@
           "value": "public"
         }
       ]
-    },
-    "import_spec": {
-      "type": "STRING",
-      "value": "import"
-    },
-    "optional_spec": {
-      "type": "STRING",
-      "value": "optional"
-    },
-    "out_spec": {
-      "type": "STRING",
-      "value": "out"
     },
     "_expr": {
       "type": "CHOICE",
@@ -3221,6 +3120,25 @@
     [
       "_expr",
       "_paren_ident"
+    ],
+    [
+      "struct_specifier",
+      "state_specifier",
+      "class_specifier",
+      "func_specifier"
+    ],
+    [
+      "state_specifier",
+      "class_specifier"
+    ],
+    [
+      "member_var_specifier",
+      "func_specifier"
+    ],
+    [
+      "class_autobind_specifier",
+      "member_var_specifier",
+      "func_specifier"
     ]
   ],
   "precedences": [],

@@ -1,10 +1,5 @@
 [
   {
-    "type": "access_modifier",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "array_expr",
     "named": true,
     "fields": {
@@ -647,19 +642,14 @@
     }
   },
   {
+    "type": "class_autobind_specifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "class_autobind_stmt",
     "named": true,
     "fields": {
-      "access_modifier": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "access_modifier",
-            "named": true
-          }
-        ]
-      },
       "autobind_type": {
         "multiple": false,
         "required": true,
@@ -680,12 +670,12 @@
           }
         ]
       },
-      "optional": {
-        "multiple": false,
+      "specifiers": {
+        "multiple": true,
         "required": false,
         "types": [
           {
-            "type": "optional_spec",
+            "type": "class_autobind_specifier",
             "named": true
           }
         ]
@@ -747,16 +737,6 @@
           {
             "type": "}",
             "named": false
-          }
-        ]
-      },
-      "import": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "import_spec",
-            "named": true
           }
         ]
       },
@@ -1509,16 +1489,6 @@
     "type": "func_decl_stmt",
     "named": true,
     "fields": {
-      "access_modifier": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "access_modifier",
-            "named": true
-          }
-        ]
-      },
       "definition": {
         "multiple": false,
         "required": false,
@@ -1559,16 +1529,6 @@
           },
           {
             "type": "func_flavour_timer",
-            "named": true
-          }
-        ]
-      },
-      "import": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "import_spec",
             "named": true
           }
         ]
@@ -1668,26 +1628,6 @@
           }
         ]
       },
-      "optional": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "optional_spec",
-            "named": true
-          }
-        ]
-      },
-      "out": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "out_spec",
-            "named": true
-          }
-        ]
-      },
       "param_type": {
         "multiple": false,
         "required": true,
@@ -1697,8 +1637,23 @@
             "named": true
           }
         ]
+      },
+      "specifiers": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "func_param_specifier",
+            "named": true
+          }
+        ]
       }
     }
+  },
+  {
+    "type": "func_param_specifier",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "func_specifier",
@@ -1863,11 +1818,6 @@
         ]
       }
     }
-  },
-  {
-    "type": "import_spec",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "literal",
@@ -2292,26 +2242,6 @@
     "type": "member_var_decl_stmt",
     "named": true,
     "fields": {
-      "access_modifier": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "access_modifier",
-            "named": true
-          }
-        ]
-      },
-      "import": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "import_spec",
-            "named": true
-          }
-        ]
-      },
       "names": {
         "multiple": true,
         "required": true,
@@ -2554,16 +2484,6 @@
     }
   },
   {
-    "type": "optional_spec",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "out_spec",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "parent_expr",
     "named": true,
     "fields": {}
@@ -2676,16 +2596,6 @@
           }
         ]
       },
-      "import": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "import_spec",
-            "named": true
-          }
-        ]
-      },
       "name": {
         "multiple": false,
         "required": true,
@@ -2707,7 +2617,7 @@
         ]
       },
       "specifiers": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -2751,22 +2661,22 @@
           }
         ]
       },
-      "import": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "import_spec",
-            "named": true
-          }
-        ]
-      },
       "name": {
         "multiple": false,
         "required": true,
         "types": [
           {
             "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "specifiers": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "struct_specifier",
             "named": true
           }
         ]
@@ -2782,6 +2692,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "struct_specifier",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "struct_stmt",

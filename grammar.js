@@ -99,7 +99,11 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
-    [$._expr, $._paren_ident]
+    [$._expr, $._paren_ident], // nested expr
+    [$.struct_specifier, $.state_specifier, $.class_specifier, $.func_specifier], // import
+    [$.state_specifier, $.class_specifier], // abstract
+    [$.member_var_specifier, $.func_specifier],
+    [$.class_autobind_specifier, $.member_var_specifier, $.func_specifier] // access_modifier
   ],
 
   rules: {
@@ -137,9 +141,13 @@ module.exports = grammar({
     // STRUCT DECLARATION ==================
 
     struct_decl_stmt: $ => seq(
-      field('import', optional($.import_spec)),
+      field('specifiers', repeat($.struct_specifier)),
       'struct', field('name', $.ident),
       field('definition', block($.struct_stmt))
+    ),
+
+    struct_specifier: $ => choice(
+      'import'
     ),
 
     struct_stmt: $ => choice(
@@ -153,8 +161,7 @@ module.exports = grammar({
     // STATE DECLARATION ===================
 
     state_decl_stmt: $ => seq(
-      field('import', optional($.import_spec)),
-      field('specifiers', optional($.state_specifier)),
+      field('specifiers', repeat($.state_specifier)),
       'state', field('name', $.ident),
       'in', field('parent', $.ident),
       field('base', optional($.class_base)),
@@ -162,6 +169,7 @@ module.exports = grammar({
     ),
 
     state_specifier: $ => choice(
+      'import',
       'abstract'
     ),
 
@@ -169,7 +177,6 @@ module.exports = grammar({
     // CLASS DECLARATION ===================
 
     class_decl_stmt: $ => seq(
-      field('import', optional($.import_spec)),
       field('specifiers', repeat($.class_specifier)),
       'class', field('name', $.ident),
       field('base', optional($.class_base)),
@@ -181,6 +188,7 @@ module.exports = grammar({
     ),
 
     class_specifier: $ => choice(
+      'import',
       'abstract',
       'statemachine'
     ),
@@ -198,8 +206,7 @@ module.exports = grammar({
     ),
 
     class_autobind_stmt: $ => seq(
-      field('access_modifier', optional($.access_modifier)),
-      field('optional', optional($.optional_spec)),
+      field('specifiers', repeat($.class_autobind_specifier)),
       'autobind',
       field('name', $.ident),
       field('autobind_type', $.type_annot),
@@ -209,6 +216,11 @@ module.exports = grammar({
         $.literal_string
       )),
       ';'
+    ),
+
+    class_autobind_specifier: $ => choice(
+      $._access_modifier,
+      'optional',
     ),
 
     member_default_val_stmt: $ => seq(
@@ -228,8 +240,6 @@ module.exports = grammar({
     ),
 
     member_var_decl_stmt: $ => seq(
-      field('import', optional($.import_spec)),
-      field('access_modifier', optional($.access_modifier)),
       field('specifiers', repeat($.member_var_specifier)),
       'var',
       field('names', comma1($.ident)),
@@ -238,18 +248,18 @@ module.exports = grammar({
     ),
 
     member_var_specifier: $ => choice(
+      $._access_modifier,
+      'import',
       'const',
       'editable',
       'inlined',
-      'saved'
+      'saved',
     ),
 
 
     // FUNCTION DECLARATION ================
 
     func_decl_stmt: $ => seq(
-      field('import', optional($.import_spec)),
-      field('access_modifier', optional($.access_modifier)),
       field('specifiers', repeat($.func_specifier)),
       field('flavour', $._func_flavour),
       field('name', $.ident),
@@ -262,10 +272,14 @@ module.exports = grammar({
     ),
 
     func_param_group: $ => seq(
-      field('optional', optional($.optional_spec)),
-      field('out', optional($.out_spec)),
+      field('specifiers', repeat($.func_param_specifier)),
       field('names', comma1($.ident)),
       field('param_type', $.type_annot),
+    ),
+
+    func_param_specifier: $ => choice(
+      'optional',
+      'out'
     ),
 
     _func_flavour: $ => choice(
@@ -287,8 +301,10 @@ module.exports = grammar({
     func_flavour_storyscene: $ => seq('storyscene', 'function'),
 
     func_specifier: $ => choice(
+      $._access_modifier,
+      'import',
       'latent',
-      'final'
+      'final',
     ),
 
     // FUNCTION ============================
@@ -400,15 +416,11 @@ module.exports = grammar({
       ))
     ),
 
-    access_modifier: $ => choice(
+    _access_modifier: $ => choice(
       "private",
       "protected",
       "public"
     ),
-
-    import_spec: $ => 'import',
-    optional_spec: $ => 'optional',
-    out_spec: $ => 'out',
 
 
   
