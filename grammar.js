@@ -321,7 +321,8 @@ module.exports = grammar({
       $.return_stmt,
       $.delete_stmt,
       $.func_block,
-      $.expr_stmt
+      $.expr_stmt,
+      ';'
     ),
 
     var_decl_stmt: $ => seq(
@@ -396,10 +397,9 @@ module.exports = grammar({
       'delete', field('expr', $._expr), ';'
     ),
 
-    func_block: $ => block(choice(
-      $.func_stmt, 
-      ';'
-    )),
+    func_block: $ => block(
+      $.func_stmt
+    ),
 
     expr_stmt: $ => seq(
       field('expr', $._expr), ';'

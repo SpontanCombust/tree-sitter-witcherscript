@@ -1380,10 +1380,6 @@
         "required": false,
         "types": [
           {
-            "type": ";",
-            "named": false
-          },
-          {
             "type": "func_stmt",
             "named": true
           }
@@ -1666,7 +1662,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "break_stmt",
