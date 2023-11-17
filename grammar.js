@@ -338,25 +338,25 @@ module.exports = grammar({
 
     for_stmt: $ => seq(
       'for', '(',
-      field('initialier', optional($._expr)), ';',
-      field('condition', optional($._expr)), ';',
-      field('iteration', optional($._expr)),
+      field('init', optional($._expr)), ';',
+      field('cond', optional($._expr)), ';',
+      field('iter', optional($._expr)),
       ')',
       field('body', $.func_stmt)
     ),
 
     while_stmt: $ => seq(
-      'while', '(', field('condition', $._expr), ')',
+      'while', '(', field('cond', $._expr), ')',
       field('body', $.func_stmt)
     ),
 
     do_while_stmt: $ => seq(
       'do', field('body', $.func_stmt),
-      'while', '(', field('condition', $._expr), ')', ';'
+      'while', '(', field('cond', $._expr), ')', ';'
     ),
 
     if_stmt: $ => prec.right(seq(
-      'if', '(', field('condition', $._expr), ')',
+      'if', '(', field('cond', $._expr), ')',
       field('body', $.func_stmt),
       optional(seq(
         'else', field('else', $.func_stmt)
@@ -366,7 +366,7 @@ module.exports = grammar({
     switch_stmt: $ => seq(
       'switch', '(', field('matched_expr', $._expr), ')',
       '{',
-      field('case', repeat($.switch_case)),
+      field('cases', repeat($.switch_case)),
       field('default', optional($.switch_default)),
       '}'
     ),
@@ -390,11 +390,11 @@ module.exports = grammar({
     ),
 
     return_stmt: $ => seq(
-      'return', field('expr', optional($._expr)), ';'
+      'return', $._expr, ';'
     ),
 
     delete_stmt: $ => seq(
-      'delete', field('expr', $._expr), ';'
+      'delete', $._expr, ';'
     ),
 
     func_block: $ => block(
@@ -402,7 +402,7 @@ module.exports = grammar({
     ),
 
     expr_stmt: $ => seq(
-      field('expr', $._expr), ';'
+      $._expr, ';'
     ),
 
     
@@ -480,9 +480,9 @@ module.exports = grammar({
     ternary_cond_expr: $ => prec.right(PREC.TERNARY, seq(
       field('cond', $._expr),
       '?',
-      field('expr_if_true', $._expr),
+      field('conseq', $._expr),
       ':',
-      field('expr_if_false', $._expr)
+      field('alt', $._expr)
     )),
 
 
@@ -543,7 +543,7 @@ module.exports = grammar({
         $.unary_op_bitnot,
         $.unary_op_plus,
       )),
-      field('expr', $._expr)
+      field('right', $._expr)
     )),
 
     unary_op_neg: $ => '-',
@@ -702,6 +702,6 @@ function comma_trail(rule) {
 
 function block(rule) {
   return seq(
-    '{', field('statements', repeat(rule)), '}'
+    '{', repeat(rule), '}'
   )
 }

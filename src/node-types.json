@@ -731,6 +731,10 @@
         "required": true,
         "types": [
           {
+            "type": "class_stmt",
+            "named": true
+          },
+          {
             "type": "{",
             "named": false
           },
@@ -756,16 +760,6 @@
         "types": [
           {
             "type": "class_specifier",
-            "named": true
-          }
-        ]
-      },
-      "statements": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "class_stmt",
             "named": true
           }
         ]
@@ -816,81 +810,80 @@
   {
     "type": "delete_stmt",
     "named": true,
-    "fields": {
-      "expr": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "array_expr",
-            "named": true
-          },
-          {
-            "type": "assign_op_expr",
-            "named": true
-          },
-          {
-            "type": "binary_op_expr",
-            "named": true
-          },
-          {
-            "type": "cast_expr",
-            "named": true
-          },
-          {
-            "type": "func_call_expr",
-            "named": true
-          },
-          {
-            "type": "ident",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "member_field_expr",
-            "named": true
-          },
-          {
-            "type": "member_func_call_expr",
-            "named": true
-          },
-          {
-            "type": "nested_expr",
-            "named": true
-          },
-          {
-            "type": "new_expr",
-            "named": true
-          },
-          {
-            "type": "parent_expr",
-            "named": true
-          },
-          {
-            "type": "super_expr",
-            "named": true
-          },
-          {
-            "type": "ternary_cond_expr",
-            "named": true
-          },
-          {
-            "type": "this_expr",
-            "named": true
-          },
-          {
-            "type": "unary_op_expr",
-            "named": true
-          },
-          {
-            "type": "virtual_parent_expr",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array_expr",
+          "named": true
+        },
+        {
+          "type": "assign_op_expr",
+          "named": true
+        },
+        {
+          "type": "binary_op_expr",
+          "named": true
+        },
+        {
+          "type": "cast_expr",
+          "named": true
+        },
+        {
+          "type": "func_call_expr",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "member_field_expr",
+          "named": true
+        },
+        {
+          "type": "member_func_call_expr",
+          "named": true
+        },
+        {
+          "type": "nested_expr",
+          "named": true
+        },
+        {
+          "type": "new_expr",
+          "named": true
+        },
+        {
+          "type": "parent_expr",
+          "named": true
+        },
+        {
+          "type": "super_expr",
+          "named": true
+        },
+        {
+          "type": "ternary_cond_expr",
+          "named": true
+        },
+        {
+          "type": "this_expr",
+          "named": true
+        },
+        {
+          "type": "unary_op_expr",
+          "named": true
+        },
+        {
+          "type": "virtual_parent_expr",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -907,7 +900,7 @@
           }
         ]
       },
-      "condition": {
+      "cond": {
         "multiple": false,
         "required": true,
         "types": [
@@ -1056,81 +1049,80 @@
   {
     "type": "expr_stmt",
     "named": true,
-    "fields": {
-      "expr": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "array_expr",
-            "named": true
-          },
-          {
-            "type": "assign_op_expr",
-            "named": true
-          },
-          {
-            "type": "binary_op_expr",
-            "named": true
-          },
-          {
-            "type": "cast_expr",
-            "named": true
-          },
-          {
-            "type": "func_call_expr",
-            "named": true
-          },
-          {
-            "type": "ident",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "member_field_expr",
-            "named": true
-          },
-          {
-            "type": "member_func_call_expr",
-            "named": true
-          },
-          {
-            "type": "nested_expr",
-            "named": true
-          },
-          {
-            "type": "new_expr",
-            "named": true
-          },
-          {
-            "type": "parent_expr",
-            "named": true
-          },
-          {
-            "type": "super_expr",
-            "named": true
-          },
-          {
-            "type": "ternary_cond_expr",
-            "named": true
-          },
-          {
-            "type": "this_expr",
-            "named": true
-          },
-          {
-            "type": "unary_op_expr",
-            "named": true
-          },
-          {
-            "type": "virtual_parent_expr",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array_expr",
+          "named": true
+        },
+        {
+          "type": "assign_op_expr",
+          "named": true
+        },
+        {
+          "type": "binary_op_expr",
+          "named": true
+        },
+        {
+          "type": "cast_expr",
+          "named": true
+        },
+        {
+          "type": "func_call_expr",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "member_field_expr",
+          "named": true
+        },
+        {
+          "type": "member_func_call_expr",
+          "named": true
+        },
+        {
+          "type": "nested_expr",
+          "named": true
+        },
+        {
+          "type": "new_expr",
+          "named": true
+        },
+        {
+          "type": "parent_expr",
+          "named": true
+        },
+        {
+          "type": "super_expr",
+          "named": true
+        },
+        {
+          "type": "ternary_cond_expr",
+          "named": true
+        },
+        {
+          "type": "this_expr",
+          "named": true
+        },
+        {
+          "type": "unary_op_expr",
+          "named": true
+        },
+        {
+          "type": "virtual_parent_expr",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1147,7 +1139,7 @@
           }
         ]
       },
-      "condition": {
+      "cond": {
         "multiple": false,
         "required": false,
         "types": [
@@ -1221,7 +1213,7 @@
           }
         ]
       },
-      "initialier": {
+      "init": {
         "multiple": false,
         "required": false,
         "types": [
@@ -1295,7 +1287,7 @@
           }
         ]
       },
-      "iteration": {
+      "iter": {
         "multiple": false,
         "required": false,
         "types": [
@@ -1374,17 +1366,16 @@
   {
     "type": "func_block",
     "named": true,
-    "fields": {
-      "statements": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "func_stmt",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "func_stmt",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1729,7 +1720,7 @@
           }
         ]
       },
-      "condition": {
+      "cond": {
         "multiple": false,
         "required": true,
         "types": [
@@ -2487,81 +2478,80 @@
   {
     "type": "return_stmt",
     "named": true,
-    "fields": {
-      "expr": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "array_expr",
-            "named": true
-          },
-          {
-            "type": "assign_op_expr",
-            "named": true
-          },
-          {
-            "type": "binary_op_expr",
-            "named": true
-          },
-          {
-            "type": "cast_expr",
-            "named": true
-          },
-          {
-            "type": "func_call_expr",
-            "named": true
-          },
-          {
-            "type": "ident",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "member_field_expr",
-            "named": true
-          },
-          {
-            "type": "member_func_call_expr",
-            "named": true
-          },
-          {
-            "type": "nested_expr",
-            "named": true
-          },
-          {
-            "type": "new_expr",
-            "named": true
-          },
-          {
-            "type": "parent_expr",
-            "named": true
-          },
-          {
-            "type": "super_expr",
-            "named": true
-          },
-          {
-            "type": "ternary_cond_expr",
-            "named": true
-          },
-          {
-            "type": "this_expr",
-            "named": true
-          },
-          {
-            "type": "unary_op_expr",
-            "named": true
-          },
-          {
-            "type": "virtual_parent_expr",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array_expr",
+          "named": true
+        },
+        {
+          "type": "assign_op_expr",
+          "named": true
+        },
+        {
+          "type": "binary_op_expr",
+          "named": true
+        },
+        {
+          "type": "cast_expr",
+          "named": true
+        },
+        {
+          "type": "func_call_expr",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "member_field_expr",
+          "named": true
+        },
+        {
+          "type": "member_func_call_expr",
+          "named": true
+        },
+        {
+          "type": "nested_expr",
+          "named": true
+        },
+        {
+          "type": "new_expr",
+          "named": true
+        },
+        {
+          "type": "parent_expr",
+          "named": true
+        },
+        {
+          "type": "super_expr",
+          "named": true
+        },
+        {
+          "type": "ternary_cond_expr",
+          "named": true
+        },
+        {
+          "type": "this_expr",
+          "named": true
+        },
+        {
+          "type": "unary_op_expr",
+          "named": true
+        },
+        {
+          "type": "virtual_parent_expr",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -2582,6 +2572,10 @@
         "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "class_stmt",
+            "named": true
+          },
           {
             "type": "{",
             "named": false
@@ -2621,16 +2615,6 @@
             "named": true
           }
         ]
-      },
-      "statements": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "class_stmt",
-            "named": true
-          }
-        ]
       }
     }
   },
@@ -2647,6 +2631,10 @@
         "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "struct_stmt",
+            "named": true
+          },
           {
             "type": "{",
             "named": false
@@ -2673,16 +2661,6 @@
         "types": [
           {
             "type": "struct_specifier",
-            "named": true
-          }
-        ]
-      },
-      "statements": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "struct_stmt",
             "named": true
           }
         ]
@@ -2832,7 +2810,7 @@
     "type": "switch_stmt",
     "named": true,
     "fields": {
-      "case": {
+      "cases": {
         "multiple": true,
         "required": false,
         "types": [
@@ -2932,6 +2910,80 @@
     "type": "ternary_cond_expr",
     "named": true,
     "fields": {
+      "alt": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_field_expr",
+            "named": true
+          },
+          {
+            "type": "member_func_call_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
+            "named": true
+          }
+        ]
+      },
       "cond": {
         "multiple": false,
         "required": true,
@@ -3006,81 +3058,7 @@
           }
         ]
       },
-      "expr_if_false": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "array_expr",
-            "named": true
-          },
-          {
-            "type": "assign_op_expr",
-            "named": true
-          },
-          {
-            "type": "binary_op_expr",
-            "named": true
-          },
-          {
-            "type": "cast_expr",
-            "named": true
-          },
-          {
-            "type": "func_call_expr",
-            "named": true
-          },
-          {
-            "type": "ident",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "member_field_expr",
-            "named": true
-          },
-          {
-            "type": "member_func_call_expr",
-            "named": true
-          },
-          {
-            "type": "nested_expr",
-            "named": true
-          },
-          {
-            "type": "new_expr",
-            "named": true
-          },
-          {
-            "type": "parent_expr",
-            "named": true
-          },
-          {
-            "type": "super_expr",
-            "named": true
-          },
-          {
-            "type": "ternary_cond_expr",
-            "named": true
-          },
-          {
-            "type": "this_expr",
-            "named": true
-          },
-          {
-            "type": "unary_op_expr",
-            "named": true
-          },
-          {
-            "type": "virtual_parent_expr",
-            "named": true
-          }
-        ]
-      },
-      "expr_if_true": {
+      "conseq": {
         "multiple": false,
         "required": true,
         "types": [
@@ -3191,7 +3169,29 @@
     "type": "unary_op_expr",
     "named": true,
     "fields": {
-      "expr": {
+      "op": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "unary_op_bitnot",
+            "named": true
+          },
+          {
+            "type": "unary_op_neg",
+            "named": true
+          },
+          {
+            "type": "unary_op_not",
+            "named": true
+          },
+          {
+            "type": "unary_op_plus",
+            "named": true
+          }
+        ]
+      },
+      "right": {
         "multiple": false,
         "required": true,
         "types": [
@@ -3261,28 +3261,6 @@
           },
           {
             "type": "virtual_parent_expr",
-            "named": true
-          }
-        ]
-      },
-      "op": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "unary_op_bitnot",
-            "named": true
-          },
-          {
-            "type": "unary_op_neg",
-            "named": true
-          },
-          {
-            "type": "unary_op_not",
-            "named": true
-          },
-          {
-            "type": "unary_op_plus",
             "named": true
           }
         ]
@@ -3422,7 +3400,7 @@
           }
         ]
       },
-      "condition": {
+      "cond": {
         "multiple": false,
         "required": true,
         "types": [
