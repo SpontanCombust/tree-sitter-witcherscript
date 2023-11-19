@@ -18,30 +18,24 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      (func_stmt
         (expr_stmt
           (literal
-            (literal_int))))
-      (func_stmt
+            (literal_int)))
         (expr_stmt
           (literal
-            (literal_int))))
-      (func_stmt
+            (literal_int)))
         (expr_stmt
           (literal
-            (literal_int))))
-      (func_stmt
+            (literal_int)))
         (expr_stmt
           (literal
-            (literal_float))))
-      (func_stmt
+            (literal_float)))
         (expr_stmt
           (literal
-            (literal_float))))
-      (func_stmt
+            (literal_float)))
         (expr_stmt
           (literal
-            (literal_float)))))))
+            (literal_float))))))
 
 
 
@@ -62,10 +56,9 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      (func_stmt
         (expr_stmt
           (literal
-            (literal_null)))))))
+            (literal_null))))))
 
 
 
@@ -87,14 +80,12 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      (func_stmt
         (expr_stmt
           (literal
-            (literal_bool))))
-      (func_stmt
+            (literal_bool)))
         (expr_stmt
           (literal
-            (literal_bool)))))))
+            (literal_bool))))))
 
 
 
@@ -117,15 +108,12 @@ function test() {
     flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
-      (func_stmt
         (expr_stmt
           (literal
-            (literal_string))))
-      (func_stmt
+            (literal_string)))
         (expr_stmt
           (literal
-            (literal_string))))
-      (func_stmt
+            (literal_string)))
         (expr_stmt
           (literal
-            (literal_name)))))))
+            (literal_name))))))

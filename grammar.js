@@ -124,9 +124,11 @@ module.exports = grammar({
 
     enum_decl_stmt: $ => seq(
       'enum', field('name', $.ident),
-      field('definition', seq(
-        '{', field('values', comma_trail($.enum_decl_value)), '}'
-      ))
+      field('definition', $.enum_block)
+    ),
+
+    enum_block: $ => block_delim(
+      $.enum_decl_value, ','
     ),
 
     enum_decl_value: $ => seq(
@@ -143,14 +145,18 @@ module.exports = grammar({
     struct_decl_stmt: $ => seq(
       field('specifiers', repeat($.struct_specifier)),
       'struct', field('name', $.ident),
-      field('definition', block($.struct_stmt))
+      field('definition', $.struct_block)
+    ),
+
+    struct_block: $ => block(
+      $._struct_stmt
     ),
 
     struct_specifier: $ => choice(
       'import'
     ),
 
-    struct_stmt: $ => choice(
+    _struct_stmt: $ => choice(
       $.member_var_decl_stmt,
       $.member_default_val_stmt,
       $.member_hint_stmt,
@@ -165,7 +171,7 @@ module.exports = grammar({
       'state', field('name', $.ident),
       'in', field('parent', $.ident),
       field('base', optional($.class_base)),
-      field('definition', block($.class_stmt))
+      field('definition', $.class_block)
     ),
 
     state_specifier: $ => choice(
@@ -180,7 +186,11 @@ module.exports = grammar({
       field('specifiers', repeat($.class_specifier)),
       'class', field('name', $.ident),
       field('base', optional($.class_base)),
-      field('definition', block($.class_stmt))
+      field('definition', $.class_block)
+    ),
+
+    class_block: $ => block(
+      $._class_stmt
     ),
 
     class_base: $ => seq(
@@ -196,7 +206,7 @@ module.exports = grammar({
 
     // CLASS ===============================
 
-    class_stmt: $ => choice(
+    _class_stmt: $ => choice(
       $.member_var_decl_stmt,
       $.member_default_val_stmt,
       $.member_hint_stmt,
@@ -309,7 +319,7 @@ module.exports = grammar({
 
     // FUNCTION ============================
 
-    func_stmt: $ => choice(
+    _func_stmt: $ => choice(
       $.var_decl_stmt,
       $.for_stmt,
       $.while_stmt,
@@ -342,24 +352,24 @@ module.exports = grammar({
       field('cond', optional($._expr)), ';',
       field('iter', optional($._expr)),
       ')',
-      field('body', $.func_stmt)
+      field('body', $._func_stmt)
     ),
 
     while_stmt: $ => seq(
       'while', '(', field('cond', $._expr), ')',
-      field('body', $.func_stmt)
+      field('body', $._func_stmt)
     ),
 
     do_while_stmt: $ => seq(
-      'do', field('body', $.func_stmt),
+      'do', field('body', $._func_stmt),
       'while', '(', field('cond', $._expr), ')', ';'
     ),
 
     if_stmt: $ => prec.right(seq(
       'if', '(', field('cond', $._expr), ')',
-      field('body', $.func_stmt),
+      field('body', $._func_stmt),
       optional(seq(
-        'else', field('else', $.func_stmt)
+        'else', field('else', $._func_stmt)
       ))
     )),
 
@@ -373,12 +383,12 @@ module.exports = grammar({
 
     switch_case: $ => seq(
       'case', field('value', $._expr), ':',
-      field('body', repeat($.func_stmt))
+      field('body', repeat($._func_stmt))
     ),
 
     switch_default: $ => seq(
       'default', ':',
-      field('body', repeat1($.func_stmt))
+      field('body', repeat1($._func_stmt))
     ),
 
     break_stmt: $ => seq(
@@ -398,7 +408,7 @@ module.exports = grammar({
     ),
 
     func_block: $ => block(
-      $.func_stmt
+      $._func_stmt
     ),
 
     expr_stmt: $ => seq(
@@ -679,25 +689,46 @@ module.exports = grammar({
     )),
   },     
 });
-    
-function comma1(rule) {
+
+
+function delim1(rule, del) {
   return seq(
     rule,
     repeat(seq(
-      ',',
+      del,
       rule
     ))
   )
 }
 
-function comma2(rule) {
+function delim2(rule, del) {
   return seq(
     rule,
     repeat1(seq(
-      ',',
+      del,
       rule
     ))
   )
+}
+
+function delim(rule, del) {
+  return optional(delim1(rule, del))
+}
+
+function delim_trail(rule, del) {
+  return seq(
+    delim(rule, del),
+    optional(del)
+  )
+}
+
+
+function comma1(rule) {
+  return delim1(rule, ',')
+}
+
+function comma2(rule) {
+  return delim2(rule, ',')
 }
     
 function comma(rule) {
@@ -705,14 +736,18 @@ function comma(rule) {
 }
     
 function comma_trail(rule) {
-  return seq(
-    comma(rule),
-    optional(',')
-  )
+  return delim_trail(rule, del)
 }
+
 
 function block(rule) {
   return seq(
     '{', repeat(rule), '}'
+  )
+}
+
+function block_delim(rule, del) {
+  return seq(
+    '{', delim_trail(rule, del), '}'
   )
 }
