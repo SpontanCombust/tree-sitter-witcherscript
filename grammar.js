@@ -460,7 +460,7 @@ module.exports = grammar({
 
 
     assign_op_expr: $ => prec.left(PREC.ASSIGN, seq(
-      field('left', $._assign_op_left),
+      field('left', $._expr),
       field('op', choice(
         $.assign_op_direct,
         $.assign_op_sum,
@@ -471,15 +471,6 @@ module.exports = grammar({
       )),
       field('right', $._expr)
     )),
-
-    _assign_op_left: $ => choice(
-      $.ident,
-      $.func_call_expr,
-      $.member_field_expr,
-      $.member_func_call_expr,
-      $.array_expr,
-      $.nested_expr
-    ),
 
     assign_op_direct: $ => '=',
     assign_op_sum: $ => '+=',

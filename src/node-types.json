@@ -171,11 +171,27 @@
             "named": true
           },
           {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
             "type": "func_call_expr",
             "named": true
           },
           {
             "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal",
             "named": true
           },
           {
@@ -188,6 +204,34 @@
           },
           {
             "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]

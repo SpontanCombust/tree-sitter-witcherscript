@@ -1704,7 +1704,7 @@
             "name": "left",
             "content": {
               "type": "SYMBOL",
-              "name": "_assign_op_left"
+              "name": "_expr"
             }
           },
           {
@@ -1750,35 +1750,6 @@
           }
         ]
       }
-    },
-    "_assign_op_left": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "ident"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "func_call_expr"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "member_field_expr"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "member_func_call_expr"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "array_expr"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "nested_expr"
-        }
-      ]
     },
     "assign_op_direct": {
       "type": "STRING",
