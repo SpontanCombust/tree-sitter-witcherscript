@@ -400,7 +400,7 @@ module.exports = grammar({
     ),
 
     return_stmt: $ => seq(
-      'return', $._expr, ';'
+      'return', optional($._expr), ';'
     ),
 
     delete_stmt: $ => seq(
