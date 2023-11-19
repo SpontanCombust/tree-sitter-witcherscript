@@ -113,7 +113,7 @@ module.exports = grammar({
       $.state_decl_stmt,
       $.struct_decl_stmt,
       $.enum_decl_stmt,
-      ';'
+      $.nop
     )),
 
 
@@ -160,7 +160,7 @@ module.exports = grammar({
       $.member_var_decl_stmt,
       $.member_default_val_stmt,
       $.member_hint_stmt,
-      ';'
+      $.nop
     ),
 
 
@@ -212,7 +212,7 @@ module.exports = grammar({
       $.member_hint_stmt,
       $.class_autobind_stmt,
       $.func_decl_stmt,
-      ';'
+      $.nop
     ),
 
     class_autobind_stmt: $ => seq(
@@ -332,7 +332,7 @@ module.exports = grammar({
       $.delete_stmt,
       $.func_block,
       $.expr_stmt,
-      ';'
+      $.nop
     ),
 
     var_decl_stmt: $ => seq(
@@ -416,6 +416,8 @@ module.exports = grammar({
     ),
 
     
+    nop: $ => ';',
+
     type_annot: $ => seq(
       ':',
       field('type_name', $.ident),

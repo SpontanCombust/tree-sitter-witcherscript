@@ -739,6 +739,10 @@
         {
           "type": "member_var_decl_stmt",
           "named": true
+        },
+        {
+          "type": "nop",
+          "named": true
         }
       ]
     }
@@ -887,10 +891,6 @@
         "required": true,
         "types": [
           {
-            "type": ";",
-            "named": false
-          },
-          {
             "type": "break_stmt",
             "named": true
           },
@@ -920,6 +920,10 @@
           },
           {
             "type": "if_stmt",
+            "named": true
+          },
+          {
+            "type": "nop",
             "named": true
           },
           {
@@ -1171,10 +1175,6 @@
         "required": true,
         "types": [
           {
-            "type": ";",
-            "named": false
-          },
-          {
             "type": "break_stmt",
             "named": true
           },
@@ -1204,6 +1204,10 @@
           },
           {
             "type": "if_stmt",
+            "named": true
+          },
+          {
+            "type": "nop",
             "named": true
           },
           {
@@ -1486,6 +1490,10 @@
         },
         {
           "type": "if_stmt",
+          "named": true
+        },
+        {
+          "type": "nop",
           "named": true
         },
         {
@@ -1796,10 +1804,6 @@
         "required": true,
         "types": [
           {
-            "type": ";",
-            "named": false
-          },
-          {
             "type": "break_stmt",
             "named": true
           },
@@ -1829,6 +1833,10 @@
           },
           {
             "type": "if_stmt",
+            "named": true
+          },
+          {
+            "type": "nop",
             "named": true
           },
           {
@@ -1928,10 +1936,6 @@
         "required": false,
         "types": [
           {
-            "type": ";",
-            "named": false
-          },
-          {
             "type": "break_stmt",
             "named": true
           },
@@ -1961,6 +1965,10 @@
           },
           {
             "type": "if_stmt",
+            "named": true
+          },
+          {
+            "type": "nop",
             "named": true
           },
           {
@@ -2400,6 +2408,10 @@
           "named": true
         },
         {
+          "type": "nop",
+          "named": true
+        },
+        {
           "type": "state_decl_stmt",
           "named": true
         },
@@ -2580,6 +2592,11 @@
     }
   },
   {
+    "type": "nop",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "parent_expr",
     "named": true,
     "fields": {}
@@ -2743,6 +2760,10 @@
         {
           "type": "member_var_decl_stmt",
           "named": true
+        },
+        {
+          "type": "nop",
+          "named": true
         }
       ]
     }
@@ -2802,10 +2823,6 @@
         "required": false,
         "types": [
           {
-            "type": ";",
-            "named": false
-          },
-          {
             "type": "break_stmt",
             "named": true
           },
@@ -2835,6 +2852,10 @@
           },
           {
             "type": "if_stmt",
+            "named": true
+          },
+          {
+            "type": "nop",
             "named": true
           },
           {
@@ -2940,10 +2961,6 @@
         "required": true,
         "types": [
           {
-            "type": ";",
-            "named": false
-          },
-          {
             "type": "break_stmt",
             "named": true
           },
@@ -2973,6 +2990,10 @@
           },
           {
             "type": "if_stmt",
+            "named": true
+          },
+          {
+            "type": "nop",
             "named": true
           },
           {
@@ -3584,10 +3605,6 @@
         "required": true,
         "types": [
           {
-            "type": ";",
-            "named": false
-          },
-          {
             "type": "break_stmt",
             "named": true
           },
@@ -3617,6 +3634,10 @@
           },
           {
             "type": "if_stmt",
+            "named": true
+          },
+          {
+            "type": "nop",
             "named": true
           },
           {

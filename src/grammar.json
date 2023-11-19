@@ -28,8 +28,8 @@
             "name": "enum_decl_stmt"
           },
           {
-            "type": "STRING",
-            "value": ";"
+            "type": "SYMBOL",
+            "name": "nop"
           }
         ]
       }
@@ -241,8 +241,8 @@
           "name": "member_hint_stmt"
         },
         {
-          "type": "STRING",
-          "value": ";"
+          "type": "SYMBOL",
+          "name": "nop"
         }
       ]
     },
@@ -453,8 +453,8 @@
           "name": "func_decl_stmt"
         },
         {
-          "type": "STRING",
-          "value": ";"
+          "type": "SYMBOL",
+          "name": "nop"
         }
       ]
     },
@@ -1039,8 +1039,8 @@
           "name": "expr_stmt"
         },
         {
-          "type": "STRING",
-          "value": ";"
+          "type": "SYMBOL",
+          "name": "nop"
         }
       ]
     },
@@ -1552,6 +1552,10 @@
           "value": ";"
         }
       ]
+    },
+    "nop": {
+      "type": "STRING",
+      "value": ";"
     },
     "type_annot": {
       "type": "SEQ",
