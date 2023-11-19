@@ -273,7 +273,7 @@ module.exports = grammar({
       field('specifiers', repeat($.func_specifier)),
       field('flavour', $._func_flavour),
       field('name', $.ident),
-      '(', comma($.func_param_group), ')',
+      '(', field('params', comma($.func_param_group)), ')',
       field('return_type', optional($.type_annot)),
       choice(
         ';',

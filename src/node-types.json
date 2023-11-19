@@ -1722,6 +1722,20 @@
           }
         ]
       },
+      "params": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "func_param_group",
+            "named": true
+          }
+        ]
+      },
       "return_type": {
         "multiple": false,
         "required": false,
@@ -1742,16 +1756,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "func_param_group",
-          "named": true
-        }
-      ]
     }
   },
   {
