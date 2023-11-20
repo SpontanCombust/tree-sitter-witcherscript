@@ -741,22 +741,6 @@
     }
   },
   {
-    "type": "class_base",
-    "named": true,
-    "fields": {
-      "base_name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "ident",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "class_block",
     "named": true,
     "fields": {},
@@ -800,7 +784,7 @@
         "required": false,
         "types": [
           {
-            "type": "class_base",
+            "type": "ident",
             "named": true
           }
         ]
@@ -2737,7 +2721,7 @@
         "required": false,
         "types": [
           {
-            "type": "class_base",
+            "type": "ident",
             "named": true
           }
         ]

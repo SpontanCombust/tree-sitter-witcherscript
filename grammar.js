@@ -170,7 +170,7 @@ module.exports = grammar({
       field('specifiers', repeat($.state_specifier)),
       'state', field('name', $.ident),
       'in', field('parent', $.ident),
-      field('base', optional($.class_base)),
+      optional($._class_base),
       field('definition', $.class_block)
     ),
 
@@ -185,7 +185,7 @@ module.exports = grammar({
     class_decl_stmt: $ => seq(
       field('specifiers', repeat($.class_specifier)),
       'class', field('name', $.ident),
-      field('base', optional($.class_base)),
+      optional($._class_base),
       field('definition', $.class_block)
     ),
 
@@ -193,8 +193,8 @@ module.exports = grammar({
       $._class_stmt
     ),
 
-    class_base: $ => seq(
-      'extends', field('base_name', $.ident)
+    _class_base: $ => seq(
+      'extends', field('base', $.ident)
     ),
 
     class_specifier: $ => choice(
