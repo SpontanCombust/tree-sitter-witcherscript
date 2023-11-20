@@ -15,7 +15,7 @@ function test() {
 
 ---------------------------------------------------------------------------------------------------
 
-(module
+(script
   (func_decl_stmt
     flavour: (func_flavour_function)
     name: (ident)
@@ -53,7 +53,7 @@ function test() {
 
 ---------------------------------------------------------------------------------------------------
 
-(module
+(script
   (func_decl_stmt
     flavour: (func_flavour_function)
     name: (ident)
@@ -98,7 +98,7 @@ function test() {
 
 ---------------------------------------------------------------------------------------------------
 
-(module
+(script
   (func_decl_stmt
     flavour: (func_flavour_function)
     name: (ident)
@@ -198,7 +198,7 @@ function test() {
 
 ---------------------------------------------------------------------------------------------------
 
-(module
+(script
   (func_decl_stmt
     flavour: (func_flavour_function)
     name: (ident)
@@ -259,7 +259,7 @@ function test() {
 
 ---------------------------------------------------------------------------------------------------
 
-(module
+(script
   (func_decl_stmt
     flavour: (func_flavour_function)
     name: (ident)
@@ -331,7 +331,7 @@ function test() {
 
 ---------------------------------------------------------------------------------------------------
 
-(module
+(script
   (func_decl_stmt
     flavour: (func_flavour_function)
     name: (ident)
@@ -371,7 +371,7 @@ function test() {
 
 ---------------------------------------------------------------------------------------------------
 
-(module
+(script
   (func_decl_stmt
     flavour: (func_flavour_function)
     name: (ident)

@@ -2420,41 +2420,6 @@
     "fields": {}
   },
   {
-    "type": "module",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "class_decl_stmt",
-          "named": true
-        },
-        {
-          "type": "enum_decl_stmt",
-          "named": true
-        },
-        {
-          "type": "func_decl_stmt",
-          "named": true
-        },
-        {
-          "type": "nop",
-          "named": true
-        },
-        {
-          "type": "state_decl_stmt",
-          "named": true
-        },
-        {
-          "type": "struct_decl_stmt",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "nested_expr",
     "named": true,
     "fields": {},
@@ -2707,6 +2672,41 @@
         },
         {
           "type": "virtual_parent_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "script",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "class_decl_stmt",
+          "named": true
+        },
+        {
+          "type": "enum_decl_stmt",
+          "named": true
+        },
+        {
+          "type": "func_decl_stmt",
+          "named": true
+        },
+        {
+          "type": "nop",
+          "named": true
+        },
+        {
+          "type": "state_decl_stmt",
+          "named": true
+        },
+        {
+          "type": "struct_decl_stmt",
           "named": true
         }
       ]

@@ -107,7 +107,10 @@ module.exports = grammar({
   ],
 
   rules: {
-    module: $ => repeat(choice(
+
+    // TOP LEVEL RULE ===============================================
+    
+    script: $ => repeat(choice(
       $.func_decl_stmt,
       $.class_decl_stmt,
       $.state_decl_stmt,
@@ -115,8 +118,8 @@ module.exports = grammar({
       $.enum_decl_stmt,
       $.nop
     )),
-
-
+    
+    
     // STATEMENTS ===================================================
 
     
