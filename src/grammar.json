@@ -997,6 +997,23 @@
         }
       ]
     },
+    "_access_modifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "private"
+        },
+        {
+          "type": "STRING",
+          "value": "protected"
+        },
+        {
+          "type": "STRING",
+          "value": "public"
+        }
+      ]
+    },
     "_func_stmt": {
       "type": "CHOICE",
       "members": [
@@ -1610,23 +1627,6 @@
               "type": "BLANK"
             }
           ]
-        }
-      ]
-    },
-    "_access_modifier": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "private"
-        },
-        {
-          "type": "STRING",
-          "value": "protected"
-        },
-        {
-          "type": "STRING",
-          "value": "public"
         }
       ]
     },

@@ -321,6 +321,13 @@ module.exports = grammar({
       'final',
     ),
 
+    _access_modifier: $ => choice(
+      "private",
+      "protected",
+      "public"
+    ),
+
+
     // FUNCTION ============================
 
     _func_stmt: $ => choice(
@@ -430,12 +437,6 @@ module.exports = grammar({
         field('generic_arg', $.ident),
         '>'
       ))
-    ),
-
-    _access_modifier: $ => choice(
-      "private",
-      "protected",
-      "public"
     ),
 
 

@@ -61,23 +61,23 @@ enum {
   anon_sym_storyscene = 34,
   anon_sym_latent = 35,
   anon_sym_final = 36,
-  anon_sym_for = 37,
-  anon_sym_while = 38,
-  anon_sym_do = 39,
-  anon_sym_if = 40,
-  anon_sym_else = 41,
-  anon_sym_switch = 42,
-  anon_sym_case = 43,
-  anon_sym_COLON = 44,
-  anon_sym_break = 45,
-  anon_sym_continue = 46,
-  anon_sym_return = 47,
-  anon_sym_delete = 48,
-  anon_sym_LT = 49,
-  anon_sym_GT = 50,
-  anon_sym_private = 51,
-  anon_sym_protected = 52,
-  anon_sym_public = 53,
+  anon_sym_private = 37,
+  anon_sym_protected = 38,
+  anon_sym_public = 39,
+  anon_sym_for = 40,
+  anon_sym_while = 41,
+  anon_sym_do = 42,
+  anon_sym_if = 43,
+  anon_sym_else = 44,
+  anon_sym_switch = 45,
+  anon_sym_case = 46,
+  anon_sym_COLON = 47,
+  anon_sym_break = 48,
+  anon_sym_continue = 49,
+  anon_sym_return = 50,
+  anon_sym_delete = 51,
+  anon_sym_LT = 52,
+  anon_sym_GT = 53,
   sym_assign_op_sum = 54,
   sym_assign_op_diff = 55,
   sym_assign_op_mult = 56,
@@ -143,24 +143,24 @@ enum {
   sym_func_param_specifier = 116,
   sym_func_flavour = 117,
   sym_func_specifier = 118,
-  sym__func_stmt = 119,
-  sym_var_decl_stmt = 120,
-  sym_for_stmt = 121,
-  sym_while_stmt = 122,
-  sym_do_while_stmt = 123,
-  sym_if_stmt = 124,
-  sym_switch_stmt = 125,
-  sym_switch_case = 126,
-  sym_switch_default = 127,
-  sym_break_stmt = 128,
-  sym_continue_stmt = 129,
-  sym_return_stmt = 130,
-  sym_delete_stmt = 131,
-  sym_func_block = 132,
-  sym_expr_stmt = 133,
-  sym_nop = 134,
-  sym_type_annot = 135,
-  sym__access_modifier = 136,
+  sym__access_modifier = 119,
+  sym__func_stmt = 120,
+  sym_var_decl_stmt = 121,
+  sym_for_stmt = 122,
+  sym_while_stmt = 123,
+  sym_do_while_stmt = 124,
+  sym_if_stmt = 125,
+  sym_switch_stmt = 126,
+  sym_switch_case = 127,
+  sym_switch_default = 128,
+  sym_break_stmt = 129,
+  sym_continue_stmt = 130,
+  sym_return_stmt = 131,
+  sym_delete_stmt = 132,
+  sym_func_block = 133,
+  sym_expr_stmt = 134,
+  sym_nop = 135,
+  sym_type_annot = 136,
   sym__expr = 137,
   sym_assign_op_expr = 138,
   sym_assign_op_direct = 139,
@@ -245,6 +245,9 @@ static const char * const ts_symbol_names[] = {
   [anon_sym_storyscene] = "storyscene",
   [anon_sym_latent] = "latent",
   [anon_sym_final] = "final",
+  [anon_sym_private] = "private",
+  [anon_sym_protected] = "protected",
+  [anon_sym_public] = "public",
   [anon_sym_for] = "for",
   [anon_sym_while] = "while",
   [anon_sym_do] = "do",
@@ -259,9 +262,6 @@ static const char * const ts_symbol_names[] = {
   [anon_sym_delete] = "delete",
   [anon_sym_LT] = "<",
   [anon_sym_GT] = ">",
-  [anon_sym_private] = "private",
-  [anon_sym_protected] = "protected",
-  [anon_sym_public] = "public",
   [sym_assign_op_sum] = "assign_op_sum",
   [sym_assign_op_diff] = "assign_op_diff",
   [sym_assign_op_mult] = "assign_op_mult",
@@ -327,6 +327,7 @@ static const char * const ts_symbol_names[] = {
   [sym_func_param_specifier] = "func_param_specifier",
   [sym_func_flavour] = "func_flavour",
   [sym_func_specifier] = "func_specifier",
+  [sym__access_modifier] = "_access_modifier",
   [sym__func_stmt] = "_func_stmt",
   [sym_var_decl_stmt] = "var_decl_stmt",
   [sym_for_stmt] = "for_stmt",
@@ -344,7 +345,6 @@ static const char * const ts_symbol_names[] = {
   [sym_expr_stmt] = "expr_stmt",
   [sym_nop] = "nop",
   [sym_type_annot] = "type_annot",
-  [sym__access_modifier] = "_access_modifier",
   [sym__expr] = "_expr",
   [sym_assign_op_expr] = "assign_op_expr",
   [sym_assign_op_direct] = "assign_op_direct",
@@ -429,6 +429,9 @@ static const TSSymbol ts_symbol_map[] = {
   [anon_sym_storyscene] = anon_sym_storyscene,
   [anon_sym_latent] = anon_sym_latent,
   [anon_sym_final] = anon_sym_final,
+  [anon_sym_private] = anon_sym_private,
+  [anon_sym_protected] = anon_sym_protected,
+  [anon_sym_public] = anon_sym_public,
   [anon_sym_for] = anon_sym_for,
   [anon_sym_while] = anon_sym_while,
   [anon_sym_do] = anon_sym_do,
@@ -443,9 +446,6 @@ static const TSSymbol ts_symbol_map[] = {
   [anon_sym_delete] = anon_sym_delete,
   [anon_sym_LT] = anon_sym_LT,
   [anon_sym_GT] = anon_sym_GT,
-  [anon_sym_private] = anon_sym_private,
-  [anon_sym_protected] = anon_sym_protected,
-  [anon_sym_public] = anon_sym_public,
   [sym_assign_op_sum] = sym_assign_op_sum,
   [sym_assign_op_diff] = sym_assign_op_diff,
   [sym_assign_op_mult] = sym_assign_op_mult,
@@ -511,6 +511,7 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_func_param_specifier] = sym_func_param_specifier,
   [sym_func_flavour] = sym_func_flavour,
   [sym_func_specifier] = sym_func_specifier,
+  [sym__access_modifier] = sym__access_modifier,
   [sym__func_stmt] = sym__func_stmt,
   [sym_var_decl_stmt] = sym_var_decl_stmt,
   [sym_for_stmt] = sym_for_stmt,
@@ -528,7 +529,6 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_expr_stmt] = sym_expr_stmt,
   [sym_nop] = sym_nop,
   [sym_type_annot] = sym_type_annot,
-  [sym__access_modifier] = sym__access_modifier,
   [sym__expr] = sym__expr,
   [sym_assign_op_expr] = sym_assign_op_expr,
   [sym_assign_op_direct] = sym_assign_op_direct,
@@ -724,6 +724,18 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
+  [anon_sym_private] = {
+    .visible = true,
+    .named = false,
+  },
+  [anon_sym_protected] = {
+    .visible = true,
+    .named = false,
+  },
+  [anon_sym_public] = {
+    .visible = true,
+    .named = false,
+  },
   [anon_sym_for] = {
     .visible = true,
     .named = false,
@@ -777,18 +789,6 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .named = false,
   },
   [anon_sym_GT] = {
-    .visible = true,
-    .named = false,
-  },
-  [anon_sym_private] = {
-    .visible = true,
-    .named = false,
-  },
-  [anon_sym_protected] = {
-    .visible = true,
-    .named = false,
-  },
-  [anon_sym_public] = {
     .visible = true,
     .named = false,
   },
@@ -1052,6 +1052,10 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
+  [sym__access_modifier] = {
+    .visible = false,
+    .named = true,
+  },
   [sym__func_stmt] = {
     .visible = false,
     .named = true,
@@ -1118,10 +1122,6 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
   },
   [sym_type_annot] = {
     .visible = true,
-    .named = true,
-  },
-  [sym__access_modifier] = {
-    .visible = false,
     .named = true,
   },
   [sym__expr] = {
@@ -2978,11 +2978,11 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '-') ADVANCE(304);
       if (lookahead == '.') ADVANCE(313);
       if (lookahead == '/') ADVANCE(308);
-      if (lookahead == ':') ADVANCE(278);
+      if (lookahead == ':') ADVANCE(281);
       if (lookahead == ';') ADVANCE(250);
-      if (lookahead == '<') ADVANCE(283);
+      if (lookahead == '<') ADVANCE(286);
       if (lookahead == '=') ADVANCE(238);
-      if (lookahead == '>') ADVANCE(285);
+      if (lookahead == '>') ADVANCE(288);
       if (lookahead == '?') ADVANCE(294);
       if (lookahead == 'N') ADVANCE(16);
       if (lookahead == '[') ADVANCE(314);
@@ -3042,11 +3042,11 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '-') ADVANCE(303);
       if (lookahead == '.') ADVANCE(313);
       if (lookahead == '/') ADVANCE(308);
-      if (lookahead == ':') ADVANCE(278);
+      if (lookahead == ':') ADVANCE(281);
       if (lookahead == ';') ADVANCE(250);
-      if (lookahead == '<') ADVANCE(283);
+      if (lookahead == '<') ADVANCE(286);
       if (lookahead == '=') ADVANCE(238);
-      if (lookahead == '>') ADVANCE(285);
+      if (lookahead == '>') ADVANCE(288);
       if (lookahead == '?') ADVANCE(294);
       if (lookahead == '[') ADVANCE(314);
       if (lookahead == '\\') SKIP(2)
@@ -3208,7 +3208,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'c') ADVANCE(265);
       END_STATE();
     case 43:
-      if (lookahead == 'c') ADVANCE(288);
+      if (lookahead == 'c') ADVANCE(273);
       END_STATE();
     case 44:
       if (lookahead == 'c') ADVANCE(97);
@@ -3241,7 +3241,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'd') ADVANCE(248);
       END_STATE();
     case 54:
-      if (lookahead == 'd') ADVANCE(287);
+      if (lookahead == 'd') ADVANCE(272);
       END_STATE();
     case 55:
       if (lookahead == 'd') ADVANCE(110);
@@ -3261,7 +3261,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 58:
       if (lookahead == 'e') ADVANCE(95);
-      if (lookahead == 'o') ADVANCE(273);
+      if (lookahead == 'o') ADVANCE(276);
       END_STATE();
     case 59:
       if (lookahead == 'e') ADVANCE(225);
@@ -3274,10 +3274,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 't') ADVANCE(82);
       END_STATE();
     case 62:
-      if (lookahead == 'e') ADVANCE(277);
+      if (lookahead == 'e') ADVANCE(280);
       END_STATE();
     case 63:
-      if (lookahead == 'e') ADVANCE(275);
+      if (lookahead == 'e') ADVANCE(278);
       END_STATE();
     case 64:
       if (lookahead == 'e') ADVANCE(51);
@@ -3292,19 +3292,19 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'e') ADVANCE(241);
       END_STATE();
     case 68:
-      if (lookahead == 'e') ADVANCE(272);
+      if (lookahead == 'e') ADVANCE(275);
       END_STATE();
     case 69:
-      if (lookahead == 'e') ADVANCE(282);
+      if (lookahead == 'e') ADVANCE(285);
       END_STATE();
     case 70:
       if (lookahead == 'e') ADVANCE(249);
       END_STATE();
     case 71:
-      if (lookahead == 'e') ADVANCE(286);
+      if (lookahead == 'e') ADVANCE(271);
       END_STATE();
     case 72:
-      if (lookahead == 'e') ADVANCE(280);
+      if (lookahead == 'e') ADVANCE(283);
       END_STATE();
     case 73:
       if (lookahead == 'e') ADVANCE(256);
@@ -3364,7 +3364,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'e') ADVANCE(145);
       END_STATE();
     case 92:
-      if (lookahead == 'f') ADVANCE(274);
+      if (lookahead == 'f') ADVANCE(277);
       if (lookahead == 'm') ADVANCE(156);
       if (lookahead == 'n') ADVANCE(243);
       END_STATE();
@@ -3383,7 +3383,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'g') ADVANCE(122);
       END_STATE();
     case 97:
-      if (lookahead == 'h') ADVANCE(276);
+      if (lookahead == 'h') ADVANCE(279);
       END_STATE();
     case 98:
       if (lookahead == 'h') ADVANCE(106);
@@ -3444,7 +3444,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'i') ADVANCE(147);
       END_STATE();
     case 116:
-      if (lookahead == 'k') ADVANCE(279);
+      if (lookahead == 'k') ADVANCE(282);
       END_STATE();
     case 117:
       if (lookahead == 'l') ADVANCE(270);
@@ -3493,7 +3493,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'n') ADVANCE(96);
       END_STATE();
     case 132:
-      if (lookahead == 'n') ADVANCE(281);
+      if (lookahead == 'n') ADVANCE(284);
       END_STATE();
     case 133:
       if (lookahead == 'n') ADVANCE(262);
@@ -3585,7 +3585,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'u') ADVANCE(39);
       END_STATE();
     case 162:
-      if (lookahead == 'r') ADVANCE(271);
+      if (lookahead == 'r') ADVANCE(274);
       END_STATE();
     case 163:
       if (lookahead == 'r') ADVANCE(254);
@@ -3788,7 +3788,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '+' ||
           lookahead == '-') ADVANCE(229);
       if (lookahead == '/') ADVANCE(10);
-      if (lookahead == '>') ADVANCE(284);
+      if (lookahead == '>') ADVANCE(287);
       if (lookahead == '\\') SKIP(4)
       if (lookahead == 'i') ADVANCE(134);
       if (lookahead == '\t' ||
@@ -3934,60 +3934,60 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(anon_sym_final);
       END_STATE();
     case 271:
-      ACCEPT_TOKEN(anon_sym_for);
+      ACCEPT_TOKEN(anon_sym_private);
       END_STATE();
     case 272:
-      ACCEPT_TOKEN(anon_sym_while);
+      ACCEPT_TOKEN(anon_sym_protected);
       END_STATE();
     case 273:
-      ACCEPT_TOKEN(anon_sym_do);
+      ACCEPT_TOKEN(anon_sym_public);
       END_STATE();
     case 274:
-      ACCEPT_TOKEN(anon_sym_if);
+      ACCEPT_TOKEN(anon_sym_for);
       END_STATE();
     case 275:
-      ACCEPT_TOKEN(anon_sym_else);
+      ACCEPT_TOKEN(anon_sym_while);
       END_STATE();
     case 276:
-      ACCEPT_TOKEN(anon_sym_switch);
+      ACCEPT_TOKEN(anon_sym_do);
       END_STATE();
     case 277:
-      ACCEPT_TOKEN(anon_sym_case);
+      ACCEPT_TOKEN(anon_sym_if);
       END_STATE();
     case 278:
-      ACCEPT_TOKEN(anon_sym_COLON);
+      ACCEPT_TOKEN(anon_sym_else);
       END_STATE();
     case 279:
-      ACCEPT_TOKEN(anon_sym_break);
+      ACCEPT_TOKEN(anon_sym_switch);
       END_STATE();
     case 280:
-      ACCEPT_TOKEN(anon_sym_continue);
+      ACCEPT_TOKEN(anon_sym_case);
       END_STATE();
     case 281:
-      ACCEPT_TOKEN(anon_sym_return);
+      ACCEPT_TOKEN(anon_sym_COLON);
       END_STATE();
     case 282:
-      ACCEPT_TOKEN(anon_sym_delete);
+      ACCEPT_TOKEN(anon_sym_break);
       END_STATE();
     case 283:
+      ACCEPT_TOKEN(anon_sym_continue);
+      END_STATE();
+    case 284:
+      ACCEPT_TOKEN(anon_sym_return);
+      END_STATE();
+    case 285:
+      ACCEPT_TOKEN(anon_sym_delete);
+      END_STATE();
+    case 286:
       ACCEPT_TOKEN(anon_sym_LT);
       if (lookahead == '=') ADVANCE(302);
       END_STATE();
-    case 284:
-      ACCEPT_TOKEN(anon_sym_GT);
-      END_STATE();
-    case 285:
-      ACCEPT_TOKEN(anon_sym_GT);
-      if (lookahead == '=') ADVANCE(301);
-      END_STATE();
-    case 286:
-      ACCEPT_TOKEN(anon_sym_private);
-      END_STATE();
     case 287:
-      ACCEPT_TOKEN(anon_sym_protected);
+      ACCEPT_TOKEN(anon_sym_GT);
       END_STATE();
     case 288:
-      ACCEPT_TOKEN(anon_sym_public);
+      ACCEPT_TOKEN(anon_sym_GT);
+      if (lookahead == '=') ADVANCE(301);
       END_STATE();
     case 289:
       ACCEPT_TOKEN(sym_assign_op_sum);
@@ -5702,6 +5702,9 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_storyscene] = ACTIONS(1),
     [anon_sym_latent] = ACTIONS(1),
     [anon_sym_final] = ACTIONS(1),
+    [anon_sym_private] = ACTIONS(1),
+    [anon_sym_protected] = ACTIONS(1),
+    [anon_sym_public] = ACTIONS(1),
     [anon_sym_for] = ACTIONS(1),
     [anon_sym_while] = ACTIONS(1),
     [anon_sym_do] = ACTIONS(1),
@@ -5716,9 +5719,6 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_delete] = ACTIONS(1),
     [anon_sym_LT] = ACTIONS(1),
     [anon_sym_GT] = ACTIONS(1),
-    [anon_sym_private] = ACTIONS(1),
-    [anon_sym_protected] = ACTIONS(1),
-    [anon_sym_public] = ACTIONS(1),
     [sym_assign_op_sum] = ACTIONS(1),
     [sym_assign_op_diff] = ACTIONS(1),
     [sym_assign_op_mult] = ACTIONS(1),
@@ -5770,8 +5770,8 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_func_decl_stmt] = STATE(213),
     [sym_func_flavour] = STATE(989),
     [sym_func_specifier] = STATE(612),
-    [sym_nop] = STATE(213),
     [sym__access_modifier] = STATE(624),
+    [sym_nop] = STATE(213),
     [aux_sym_script_repeat1] = STATE(213),
     [aux_sym_struct_decl_stmt_repeat1] = STATE(716),
     [aux_sym_state_decl_stmt_repeat1] = STATE(669),
