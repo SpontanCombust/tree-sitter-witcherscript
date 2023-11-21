@@ -446,6 +446,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "event_decl_stmt"
+        },
+        {
+          "type": "SYMBOL",
           "name": "nop"
         }
       ]
@@ -680,6 +684,85 @@
         }
       ]
     },
+    "event_decl_stmt": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "event"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "ident"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "params",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "func_param_group"
+                  },
+                  {
+                    "type": "REPEAT",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": ","
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "func_param_group"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ";"
+            },
+            {
+              "type": "FIELD",
+              "name": "definition",
+              "content": {
+                "type": "SYMBOL",
+                "name": "func_block"
+              }
+            }
+          ]
+        }
+      ]
+    },
     "func_decl_stmt": {
       "type": "SEQ",
       "members": [
@@ -698,9 +781,21 @@
           "type": "FIELD",
           "name": "flavour",
           "content": {
-            "type": "SYMBOL",
-            "name": "_func_flavour"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "func_flavour"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           }
+        },
+        {
+          "type": "STRING",
+          "value": "function"
         },
         {
           "type": "FIELD",
@@ -856,49 +951,8 @@
         }
       ]
     },
-    "_func_flavour": {
+    "func_flavour": {
       "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "func_flavour_function"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "func_flavour_event"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "func_flavour_entry"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "func_flavour_exec"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "func_flavour_quest"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "func_flavour_timer"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "func_flavour_storyscene"
-        }
-      ]
-    },
-    "func_flavour_function": {
-      "type": "STRING",
-      "value": "function"
-    },
-    "func_flavour_event": {
-      "type": "STRING",
-      "value": "event"
-    },
-    "func_flavour_entry": {
-      "type": "SEQ",
       "members": [
         {
           "type": "STRING",
@@ -906,59 +960,19 @@
         },
         {
           "type": "STRING",
-          "value": "function"
-        }
-      ]
-    },
-    "func_flavour_exec": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
           "value": "exec"
         },
-        {
-          "type": "STRING",
-          "value": "function"
-        }
-      ]
-    },
-    "func_flavour_quest": {
-      "type": "SEQ",
-      "members": [
         {
           "type": "STRING",
           "value": "quest"
         },
         {
           "type": "STRING",
-          "value": "function"
-        }
-      ]
-    },
-    "func_flavour_timer": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
           "value": "timer"
         },
         {
           "type": "STRING",
-          "value": "function"
-        }
-      ]
-    },
-    "func_flavour_storyscene": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
           "value": "storyscene"
-        },
-        {
-          "type": "STRING",
-          "value": "function"
         }
       ]
     },

@@ -215,6 +215,7 @@ module.exports = grammar({
       $.member_hint_stmt,
       $.class_autobind_stmt,
       $.func_decl_stmt,
+      $.event_decl_stmt,
       $.nop
     ),
 
@@ -272,10 +273,19 @@ module.exports = grammar({
 
     // FUNCTION DECLARATION ================
 
+    event_decl_stmt: $ => seq(
+      'event', field('name', $.ident),
+      '(', field('params', comma($.func_param_group)), ')',
+      choice(
+        ';',
+        field('definition', $.func_block)
+      )
+    ),
+
     func_decl_stmt: $ => seq(
       field('specifiers', repeat($.func_specifier)),
-      field('flavour', $._func_flavour),
-      field('name', $.ident),
+      field('flavour', optional($.func_flavour)),
+      'function', field('name', $.ident),
       '(', field('params', comma($.func_param_group)), ')',
       field('return_type', optional($.type_annot)),
       choice(
@@ -283,6 +293,7 @@ module.exports = grammar({
         field('definition', $.func_block)
       )
     ),
+
 
     func_param_group: $ => seq(
       field('specifiers', repeat($.func_param_specifier)),
@@ -295,23 +306,13 @@ module.exports = grammar({
       'out'
     ),
 
-    _func_flavour: $ => choice(
-      $.func_flavour_function,
-      $.func_flavour_event,
-      $.func_flavour_entry,
-      $.func_flavour_exec,
-      $.func_flavour_quest,
-      $.func_flavour_timer,
-      $.func_flavour_storyscene
+    func_flavour: $ => choice(
+      'entry',
+      'exec',
+      'quest',
+      'timer',
+      'storyscene'
     ),
-
-    func_flavour_function: $ => 'function',
-    func_flavour_event: $ => 'event',
-    func_flavour_entry: $ => seq('entry', 'function'),
-    func_flavour_exec: $ => seq('exec', 'function'),
-    func_flavour_quest: $ => seq('quest', 'function'),
-    func_flavour_timer: $ => seq('timer', 'function'),
-    func_flavour_storyscene: $ => seq('storyscene', 'function'),
 
     func_specifier: $ => choice(
       $._access_modifier,

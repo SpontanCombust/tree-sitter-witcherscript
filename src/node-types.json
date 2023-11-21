@@ -753,6 +753,10 @@
           "named": true
         },
         {
+          "type": "event_decl_stmt",
+          "named": true
+        },
+        {
           "type": "func_decl_stmt",
           "named": true
         },
@@ -1109,6 +1113,46 @@
         "types": [
           {
             "type": "literal_int",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "event_decl_stmt",
+    "named": true,
+    "fields": {
+      "definition": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "func_block",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "params": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "func_param_group",
             "named": true
           }
         ]
@@ -1664,34 +1708,10 @@
       },
       "flavour": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
-            "type": "func_flavour_entry",
-            "named": true
-          },
-          {
-            "type": "func_flavour_event",
-            "named": true
-          },
-          {
-            "type": "func_flavour_exec",
-            "named": true
-          },
-          {
-            "type": "func_flavour_function",
-            "named": true
-          },
-          {
-            "type": "func_flavour_quest",
-            "named": true
-          },
-          {
-            "type": "func_flavour_storyscene",
-            "named": true
-          },
-          {
-            "type": "func_flavour_timer",
+            "type": "func_flavour",
             "named": true
           }
         ]
@@ -1743,37 +1763,7 @@
     }
   },
   {
-    "type": "func_flavour_entry",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "func_flavour_event",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "func_flavour_exec",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "func_flavour_function",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "func_flavour_quest",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "func_flavour_storyscene",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "func_flavour_timer",
+    "type": "func_flavour",
     "named": true,
     "fields": {}
   },

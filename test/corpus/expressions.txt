@@ -17,7 +17,6 @@ function test() {
 
 (script
   (func_decl_stmt
-    flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
         (expr_stmt
@@ -55,7 +54,6 @@ function test() {
 
 (script
   (func_decl_stmt
-    flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
         (expr_stmt
@@ -100,7 +98,6 @@ function test() {
 
 (script
   (func_decl_stmt
-    flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
         (expr_stmt
@@ -200,7 +197,6 @@ function test() {
 
 (script
   (func_decl_stmt
-    flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
         (expr_stmt
@@ -261,7 +257,6 @@ function test() {
 
 (script
   (func_decl_stmt
-    flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
         (expr_stmt
@@ -333,7 +328,6 @@ function test() {
 
 (script
   (func_decl_stmt
-    flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
         (expr_stmt
@@ -373,7 +367,6 @@ function test() {
 
 (script
   (func_decl_stmt
-    flavour: (func_flavour_function)
     name: (ident)
     definition: (func_block
         (expr_stmt
