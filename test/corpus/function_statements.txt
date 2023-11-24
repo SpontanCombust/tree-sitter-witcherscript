@@ -1,0 +1,341 @@
+===================================================================================================
+Basic
+===================================================================================================
+
+function test() {
+    foo.bar = 1;
+    {
+        delete actors[i];
+        return;
+        return Value();
+        continue;
+        break;
+    };
+}
+
+---------------------------------------------------------------------------------------------------
+
+(script
+  (global_func_decl_stmt
+    name: (ident)
+    definition: (func_block
+      (expr_stmt
+        (assign_op_expr
+          left: (member_field_expr
+            accessor: (ident)
+            member: (ident))
+          op: (assign_op_direct)
+          right: (literal
+            (literal_int))))
+      (func_block
+        (delete_stmt
+          (array_expr
+            accessor: (ident)
+            index: (ident)))
+        (return_stmt)
+        (return_stmt
+          (func_call_expr
+            func: (ident)))
+        (continue_stmt)
+        (break_stmt))
+      (nop))))
+
+
+
+
+===================================================================================================
+Var declaration
+===================================================================================================
+
+function test() {
+    var item : SItemUniqueId;
+    var maxTox, toxicityOffset, adrenaline : float;
+    var atts    : array<name>;
+    var duration : float = 0.f;
+}
+
+---------------------------------------------------------------------------------------------------
+
+(script
+  (global_func_decl_stmt
+    name: (ident)
+    definition: (func_block
+      (var_decl_stmt
+        names: (ident)
+        var_type: (type_annot
+          type_name: (ident)))
+      (var_decl_stmt
+        names: (ident)
+        names: (ident)
+        names: (ident)
+        var_type: (type_annot
+          type_name: (ident)))
+      (var_decl_stmt
+        names: (ident)
+        var_type: (type_annot
+          type_name: (ident)
+          generic_arg: (ident)))
+      (var_decl_stmt
+        names: (ident)
+        var_type: (type_annot
+          type_name: (ident))
+        init_value: (literal
+          (literal_float))))))
+
+
+
+
+===================================================================================================
+Conditionals - if
+===================================================================================================
+
+function test() {
+    if ( id1 == id2 && id3 )
+    {
+        if ( this.method() )
+            func('baz');
+        
+        func();
+        
+        if ( !id )
+        {
+            func();   
+        }
+        else if (id1 != id2 )
+        {
+            if ( func1( func2(), this.id ) ); // <- NOP here
+                doAnyways();
+        }
+        else
+        {
+            id1 += 0;
+        }
+    }
+    else if ( true )
+    {
+        id = !id;
+    }
+}
+
+---------------------------------------------------------------------------------------------------
+
+(script
+  (global_func_decl_stmt
+    name: (ident)
+    definition: (func_block
+      (if_stmt
+        cond: (binary_op_expr
+          left: (binary_op_expr
+            left: (ident)
+            op: (binary_op_eq)
+            right: (ident))
+          op: (binary_op_and)
+          right: (ident))
+        body: (func_block
+          (if_stmt
+            cond: (member_func_call_expr
+              accessor: (this_expr)
+              func: (ident))
+            body: (expr_stmt
+              (func_call_expr
+                func: (ident)
+                args: (func_call_args
+                  (literal
+                    (literal_name))))))
+          (expr_stmt
+            (func_call_expr
+              func: (ident)))
+          (if_stmt
+            cond: (unary_op_expr
+              op: (unary_op_not)
+              right: (ident))
+            body: (func_block
+              (expr_stmt
+                (func_call_expr
+                  func: (ident))))
+            else: (if_stmt
+              cond: (binary_op_expr
+                left: (ident)
+                op: (binary_op_neq)
+                right: (ident))
+              body: (func_block
+                (if_stmt
+                  cond: (func_call_expr
+                    func: (ident)
+                    args: (func_call_args
+                      (func_call_expr
+                        func: (ident))
+                      (member_field_expr
+                        accessor: (this_expr)
+                        member: (ident))))
+                  body: (nop))
+                (comment)
+                (expr_stmt
+                  (func_call_expr
+                    func: (ident))))
+              else: (func_block
+                (expr_stmt
+                  (assign_op_expr
+                    left: (ident)
+                    op: (assign_op_sum)
+                    right: (literal
+                      (literal_int))))))))
+        else: (if_stmt
+          cond: (literal
+            (literal_bool))
+          body: (func_block
+            (expr_stmt
+              (assign_op_expr
+                left: (ident)
+                op: (assign_op_direct)
+                right: (unary_op_expr
+                  op: (unary_op_not)
+                  right: (ident))))))))))
+
+
+
+
+===================================================================================================
+Conditionals - switch
+===================================================================================================
+
+function test() {
+    switch ( action )
+    {
+        case CASE1:
+        {
+            func1();
+        } break;
+        case CASE2:
+            func2();
+            break;
+        case CASE3:
+        {
+            func3();
+        } break;
+        case CASE4 :
+        case CASE5:
+            ;
+        
+        default :
+            break;
+    }
+}
+
+---------------------------------------------------------------------------------------------------
+
+(script
+  (global_func_decl_stmt
+    name: (ident)
+    definition: (func_block
+      (switch_stmt
+        matched_expr: (ident)
+        cases: (switch_case
+          value: (ident)
+          body: (func_block
+            (expr_stmt
+              (func_call_expr
+                func: (ident))))
+          body: (break_stmt))
+        cases: (switch_case
+          value: (ident)
+          body: (expr_stmt
+            (func_call_expr
+              func: (ident)))
+          body: (break_stmt))
+        cases: (switch_case
+          value: (ident)
+          body: (func_block
+            (expr_stmt
+              (func_call_expr
+                func: (ident))))
+          body: (break_stmt))
+        cases: (switch_case
+          value: (ident))
+        cases: (switch_case
+          value: (ident)
+          body: (nop))
+        default: (switch_default
+          body: (break_stmt))))))
+
+
+
+
+===================================================================================================
+Loops
+===================================================================================================
+
+function test() {
+    while(true) {
+      if(something) {
+        break;
+      }
+    }
+
+    while(read_whitespace() > 0);
+
+    do 
+    {
+      something();
+    } while(cond);
+
+    for(i = 0; i < arr.Size(); i+=1) {
+      loop();
+    }
+
+    for(;false;) break;
+}
+
+---------------------------------------------------------------------------------------------------
+
+(script
+  (global_func_decl_stmt
+    name: (ident)
+    definition: (func_block
+      (while_stmt
+        cond: (literal
+          (literal_bool))
+        body: (func_block
+          (if_stmt
+            cond: (ident)
+            body: (func_block
+              (break_stmt)))))
+      (while_stmt
+        cond: (binary_op_expr
+          left: (func_call_expr
+            func: (ident))
+          op: (binary_op_gt)
+          right: (literal
+            (literal_int)))
+        body: (nop))
+      (do_while_stmt
+        body: (func_block
+          (expr_stmt
+            (func_call_expr
+              func: (ident))))
+        cond: (ident))
+      (for_stmt
+        init: (assign_op_expr
+          left: (ident)
+          op: (assign_op_direct)
+          right: (literal
+            (literal_int)))
+        cond: (binary_op_expr
+          left: (ident)
+          op: (binary_op_lt)
+          right: (member_func_call_expr
+            accessor: (ident)
+            func: (ident)))
+        iter: (assign_op_expr
+          left: (ident)
+          op: (assign_op_sum)
+          right: (literal
+            (literal_int)))
+        body: (func_block
+          (expr_stmt
+            (func_call_expr
+              func: (ident)))))
+      (for_stmt
+        cond: (literal
+          (literal_bool))
+        body: (break_stmt)))))
