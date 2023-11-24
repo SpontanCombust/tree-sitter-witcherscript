@@ -9,7 +9,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "func_decl_stmt"
+            "name": "global_func_decl_stmt"
           },
           {
             "type": "SYMBOL",
@@ -442,7 +442,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "func_decl_stmt"
+          "name": "member_func_decl_stmt"
         },
         {
           "type": "SYMBOL",
@@ -763,7 +763,7 @@
         }
       ]
     },
-    "func_decl_stmt": {
+    "member_func_decl_stmt": {
       "type": "SEQ",
       "members": [
         {
@@ -773,7 +773,7 @@
             "type": "REPEAT",
             "content": {
               "type": "SYMBOL",
-              "name": "func_specifier"
+              "name": "member_func_specifier"
             }
           }
         },
@@ -785,7 +785,129 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "func_flavour"
+                "name": "member_func_flavour"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "function"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "ident"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "params",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "func_param_group"
+                  },
+                  {
+                    "type": "REPEAT",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": ","
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "func_param_group"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "return_type",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "type_annot"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ";"
+            },
+            {
+              "type": "FIELD",
+              "name": "definition",
+              "content": {
+                "type": "SYMBOL",
+                "name": "func_block"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "global_func_decl_stmt": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "specifiers",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "global_func_specifier"
+            }
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "flavour",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "global_func_flavour"
               },
               {
                 "type": "BLANK"
@@ -951,7 +1073,7 @@
         }
       ]
     },
-    "func_flavour": {
+    "member_func_flavour": {
       "type": "CHOICE",
       "members": [
         {
@@ -960,23 +1082,11 @@
         },
         {
           "type": "STRING",
-          "value": "exec"
-        },
-        {
-          "type": "STRING",
-          "value": "quest"
-        },
-        {
-          "type": "STRING",
           "value": "timer"
-        },
-        {
-          "type": "STRING",
-          "value": "storyscene"
         }
       ]
     },
-    "func_specifier": {
+    "member_func_specifier": {
       "type": "CHOICE",
       "members": [
         {
@@ -1011,6 +1121,36 @@
         {
           "type": "STRING",
           "value": "public"
+        }
+      ]
+    },
+    "global_func_flavour": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "exec"
+        },
+        {
+          "type": "STRING",
+          "value": "quest"
+        },
+        {
+          "type": "STRING",
+          "value": "storyscene"
+        }
+      ]
+    },
+    "global_func_specifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "import"
+        },
+        {
+          "type": "STRING",
+          "value": "latent"
         }
       ]
     },
@@ -3045,7 +3185,7 @@
       "struct_specifier",
       "state_specifier",
       "class_specifier",
-      "func_specifier"
+      "global_func_specifier"
     ],
     [
       "state_specifier",
@@ -3053,12 +3193,12 @@
     ],
     [
       "member_var_specifier",
-      "func_specifier"
+      "member_func_specifier"
     ],
     [
       "class_autobind_specifier",
       "member_var_specifier",
-      "func_specifier"
+      "member_func_specifier"
     ]
   ],
   "precedences": [],

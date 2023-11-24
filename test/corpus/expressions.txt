@@ -16,7 +16,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (global_func_decl_stmt
     name: (ident)
     definition: (func_block
         (expr_stmt
@@ -53,7 +53,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (global_func_decl_stmt
     name: (ident)
     definition: (func_block
         (expr_stmt
@@ -97,7 +97,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (global_func_decl_stmt
     name: (ident)
     definition: (func_block
         (expr_stmt
@@ -196,7 +196,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (global_func_decl_stmt
     name: (ident)
     definition: (func_block
         (expr_stmt
@@ -256,7 +256,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (global_func_decl_stmt
     name: (ident)
     definition: (func_block
         (expr_stmt
@@ -327,7 +327,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (global_func_decl_stmt
     name: (ident)
     definition: (func_block
         (expr_stmt
@@ -366,7 +366,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (global_func_decl_stmt
     name: (ident)
     definition: (func_block
         (expr_stmt

@@ -100,10 +100,10 @@ module.exports = grammar({
 
   conflicts: $ => [
     [$._expr, $._paren_ident], // nested expr
-    [$.struct_specifier, $.state_specifier, $.class_specifier, $.func_specifier], // import
+    [$.struct_specifier, $.state_specifier, $.class_specifier, $.global_func_specifier], // import
     [$.state_specifier, $.class_specifier], // abstract
-    [$.member_var_specifier, $.func_specifier],
-    [$.class_autobind_specifier, $.member_var_specifier, $.func_specifier] // access_modifier
+    [$.member_var_specifier, $.member_func_specifier],
+    [$.class_autobind_specifier, $.member_var_specifier, $.member_func_specifier] // access_modifier
   ],
 
   rules: {
@@ -111,7 +111,7 @@ module.exports = grammar({
     // TOP LEVEL RULE ===============================================
     
     script: $ => repeat(choice(
-      $.func_decl_stmt,
+      $.global_func_decl_stmt,
       $.class_decl_stmt,
       $.state_decl_stmt,
       $.struct_decl_stmt,
@@ -214,7 +214,7 @@ module.exports = grammar({
       $.member_default_val_stmt,
       $.member_hint_stmt,
       $.class_autobind_stmt,
-      $.func_decl_stmt,
+      $.member_func_decl_stmt,
       $.event_decl_stmt,
       $.nop
     ),
@@ -282,9 +282,21 @@ module.exports = grammar({
       )
     ),
 
-    func_decl_stmt: $ => seq(
-      field('specifiers', repeat($.func_specifier)),
-      field('flavour', optional($.func_flavour)),
+    member_func_decl_stmt: $ => seq(
+      field('specifiers', repeat($.member_func_specifier)),
+      field('flavour', optional($.member_func_flavour)),
+      'function', field('name', $.ident),
+      '(', field('params', comma($.func_param_group)), ')',
+      field('return_type', optional($.type_annot)),
+      choice(
+        ';',
+        field('definition', $.func_block)
+      )
+    ),
+
+    global_func_decl_stmt: $ => seq(
+      field('specifiers', repeat($.global_func_specifier)),
+      field('flavour', optional($.global_func_flavour)),
       'function', field('name', $.ident),
       '(', field('params', comma($.func_param_group)), ')',
       field('return_type', optional($.type_annot)),
@@ -306,15 +318,13 @@ module.exports = grammar({
       'out'
     ),
 
-    func_flavour: $ => choice(
+
+    member_func_flavour: $ => choice(
       'entry',
-      'exec',
-      'quest',
       'timer',
-      'storyscene'
     ),
 
-    func_specifier: $ => choice(
+    member_func_specifier: $ => choice(
       $._access_modifier,
       'import',
       'latent',
@@ -325,6 +335,18 @@ module.exports = grammar({
       "private",
       "protected",
       "public"
+    ),
+
+
+    global_func_flavour: $ => choice(
+      'exec',
+      'quest',
+      'storyscene'
+    ),
+
+    global_func_specifier: $ => choice(
+      'import',
+      'latent',
     ),
 
 

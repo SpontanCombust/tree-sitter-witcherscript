@@ -757,11 +757,11 @@
           "named": true
         },
         {
-          "type": "func_decl_stmt",
+          "type": "member_default_val_stmt",
           "named": true
         },
         {
-          "type": "member_default_val_stmt",
+          "type": "member_func_decl_stmt",
           "named": true
         },
         {
@@ -1693,81 +1693,6 @@
     }
   },
   {
-    "type": "func_decl_stmt",
-    "named": true,
-    "fields": {
-      "definition": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "func_block",
-            "named": true
-          }
-        ]
-      },
-      "flavour": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "func_flavour",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "ident",
-            "named": true
-          }
-        ]
-      },
-      "params": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "func_param_group",
-            "named": true
-          }
-        ]
-      },
-      "return_type": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "type_annot",
-            "named": true
-          }
-        ]
-      },
-      "specifiers": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "func_specifier",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "func_flavour",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "func_param_group",
     "named": true,
     "fields": {
@@ -1813,7 +1738,82 @@
     "fields": {}
   },
   {
-    "type": "func_specifier",
+    "type": "global_func_decl_stmt",
+    "named": true,
+    "fields": {
+      "definition": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "func_block",
+            "named": true
+          }
+        ]
+      },
+      "flavour": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "global_func_flavour",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "params": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "func_param_group",
+            "named": true
+          }
+        ]
+      },
+      "return_type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_annot",
+            "named": true
+          }
+        ]
+      },
+      "specifiers": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "global_func_specifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "global_func_flavour",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "global_func_specifier",
     "named": true,
     "fields": {}
   },
@@ -2339,6 +2339,86 @@
     }
   },
   {
+    "type": "member_func_decl_stmt",
+    "named": true,
+    "fields": {
+      "definition": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "func_block",
+            "named": true
+          }
+        ]
+      },
+      "flavour": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "member_func_flavour",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "params": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "func_param_group",
+            "named": true
+          }
+        ]
+      },
+      "return_type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_annot",
+            "named": true
+          }
+        ]
+      },
+      "specifiers": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "member_func_specifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "member_func_flavour",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "member_func_specifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "member_hint_stmt",
     "named": true,
     "fields": {
@@ -2684,7 +2764,7 @@
           "named": true
         },
         {
-          "type": "func_decl_stmt",
+          "type": "global_func_decl_stmt",
           "named": true
         },
         {
