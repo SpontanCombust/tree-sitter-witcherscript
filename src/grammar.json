@@ -1082,6 +1082,10 @@
         },
         {
           "type": "STRING",
+          "value": "cleanup"
+        },
+        {
+          "type": "STRING",
           "value": "timer"
         }
       ]
@@ -1138,6 +1142,10 @@
         {
           "type": "STRING",
           "value": "storyscene"
+        },
+        {
+          "type": "STRING",
+          "value": "reward"
         }
       ]
     },
@@ -3233,6 +3241,10 @@
     },
     {
       "type": "STRING",
+      "value": "cleanup"
+    },
+    {
+      "type": "STRING",
       "value": "const"
     },
     {
@@ -3354,6 +3366,10 @@
     {
       "type": "STRING",
       "value": "return"
+    },
+    {
+      "type": "STRING",
+      "value": "reward"
     },
     {
       "type": "STRING",

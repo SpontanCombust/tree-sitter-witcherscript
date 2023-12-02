@@ -3981,6 +3981,10 @@
     "named": false
   },
   {
+    "type": "cleanup",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
@@ -4126,6 +4130,10 @@
   },
   {
     "type": "return",
+    "named": false
+  },
+  {
+    "type": "reward",
     "named": false
   },
   {

@@ -51,6 +51,7 @@ module.exports = grammar({
     'break',
     'case',
     'class',
+    'cleanup',
     'const',
     'continue', 
     'default',
@@ -82,6 +83,7 @@ module.exports = grammar({
     'public',
     'quest',
     'return',
+    'reward',
     'saved',
     'single',
     'state',
@@ -321,6 +323,7 @@ module.exports = grammar({
 
     member_func_flavour: $ => choice(
       'entry',
+      'cleanup',
       'timer',
     ),
 
@@ -341,7 +344,8 @@ module.exports = grammar({
     global_func_flavour: $ => choice(
       'exec',
       'quest',
-      'storyscene'
+      'storyscene',
+      'reward' // present in the code exactly once, LOL
     ),
 
     global_func_specifier: $ => choice(
