@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-witcherscript",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "WitcherScript grammar for tree-sitter",
   "main": "bindings/node",
   "keywords": [
