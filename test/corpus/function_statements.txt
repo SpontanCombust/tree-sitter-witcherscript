@@ -74,7 +74,8 @@ function test() {
         names: (ident)
         var_type: (type_annot
           type_name: (ident)
-          generic_arg: (ident)))
+          type_arg: (type_annot
+            type_name: (ident))))
       (var_decl_stmt
         names: (ident)
         var_type: (type_annot

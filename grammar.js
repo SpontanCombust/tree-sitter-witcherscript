@@ -225,6 +225,7 @@ module.exports = grammar({
       field('specifiers', repeat($.class_autobind_specifier)),
       'autobind',
       field('name', $.ident),
+      ':',
       field('autobind_type', $.type_annot),
       '=',
       field('value', choice(
@@ -259,6 +260,7 @@ module.exports = grammar({
       field('specifiers', repeat($.member_var_specifier)),
       'var',
       field('names', comma1($.ident)),
+      ':',
       field('var_type', $.type_annot),
       ';'
     ),
@@ -289,7 +291,10 @@ module.exports = grammar({
       field('flavour', optional($.member_func_flavour)),
       'function', field('name', $.ident),
       '(', field('params', comma($.func_param_group)), ')',
-      field('return_type', optional($.type_annot)),
+      optional(seq(
+        ':',
+        field('return_type', $.type_annot)
+      )),
       choice(
         ';',
         field('definition', $.func_block)
@@ -301,7 +306,10 @@ module.exports = grammar({
       field('flavour', optional($.global_func_flavour)),
       'function', field('name', $.ident),
       '(', field('params', comma($.func_param_group)), ')',
-      field('return_type', optional($.type_annot)),
+      optional(seq(
+        ':',
+        field('return_type', $.type_annot)
+      )),
       choice(
         ';',
         field('definition', $.func_block)
@@ -312,6 +320,7 @@ module.exports = grammar({
     func_param_group: $ => seq(
       field('specifiers', repeat($.func_param_specifier)),
       field('names', comma1($.ident)),
+      ':',
       field('param_type', $.type_annot),
     ),
 
@@ -375,6 +384,7 @@ module.exports = grammar({
     var_decl_stmt: $ => seq(
       'var',
       field('names', comma1($.ident)),
+      ':',
       field('var_type', $.type_annot),
       optional(seq(
         '=',
@@ -456,11 +466,10 @@ module.exports = grammar({
     nop: $ => ';',
 
     type_annot: $ => seq(
-      ':',
       field('type_name', $.ident),
       optional(seq(
         '<',
-        field('generic_arg', $.ident),
+        field('type_arg', $.type_annot),
         '>'
       ))
     ),

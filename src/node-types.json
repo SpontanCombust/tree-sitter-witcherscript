@@ -3455,12 +3455,12 @@
     "type": "type_annot",
     "named": true,
     "fields": {
-      "generic_arg": {
+      "type_arg": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "ident",
+            "type": "type_annot",
             "named": true
           }
         ]
