@@ -7,8 +7,11 @@ function test() {
     -2137;
     923762112;
     567.8;
+    0.;
     9.f;
     0.0000001;
+    .10;
+    .0f;
 }
 
 ---------------------------------------------------------------------------------------------------
@@ -26,6 +29,15 @@ function test() {
         (expr_stmt
           (literal
             (literal_int)))
+        (expr_stmt
+          (literal
+            (literal_float)))
+        (expr_stmt
+          (literal
+            (literal_float)))
+        (expr_stmt
+          (literal
+            (literal_float)))
         (expr_stmt
           (literal
             (literal_float)))

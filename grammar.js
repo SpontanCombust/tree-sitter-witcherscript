@@ -673,13 +673,25 @@ module.exports = grammar({
       const digit = /[0-9]/
       return token(seq(
         optional(choice('+', '-')),
-        repeat1(digit),
-        '.',
-        repeat(digit),
         choice(
-          digit,
-          'f'
-        )
+          // normal looking float literal
+          seq(
+            repeat1(digit),
+            '.',
+            // repeat() and not repeat1(), because forms like "0." are allowed
+            repeat(digit),
+          ),
+          // Goofy ass float without the integer part
+          // Why would they make their grammar more complex just to have this feature??
+          // Just because C/C++ has it doesn't mean WS would need it.
+          // "OMG guys, it's soooo hard having to type a single digit at the start of a number..."
+          // The same story with the 'f' suffix - it's completely pointless as there is only one floating point type in the language.
+          seq(
+            '.',
+            repeat1(digit),
+          )
+        ),
+        optional('f')
       ))
     },
 

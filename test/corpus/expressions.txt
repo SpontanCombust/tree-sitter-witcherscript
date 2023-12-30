@@ -247,7 +247,7 @@ function test() {
     (((a)(b)));
     arr[i];
     func(1, "a",, true);
-    thePlayer.inv;
+    player1.inv;
     thePlayer.IsCiri(false);
     (Type)func(arg);
     isTrue ? true : getFalse();
