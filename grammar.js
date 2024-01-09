@@ -128,8 +128,18 @@ module.exports = grammar({
     // ENUM DECLARATION ====================
 
     enum_decl_stmt: $ => seq(
-      'enum', field('name', $.ident),
+      $._enum_decl_intro,
       field('definition', $.enum_block)
+    ),
+
+    // TS seems to be doing error recovery best when it can work within shorter sequences.
+    // Specifically at the end of those sequences, at the last or second-last terminal.
+    // Making hidden rules as a part of a bigger rule can then improve it.
+    // So when possible chop rules up into smaller bits that are 2-3 tokens long.
+    // Grammar file will look a little uglier, but it will be for the greater benefit of the parser.
+    // This can be done reliably only when a rule contains distinguishable keywords/punctuation.
+    _enum_decl_intro: $ => seq(
+      'enum', field('name', $.ident),
     ),
 
     enum_block: $ => block_delim(
@@ -138,10 +148,12 @@ module.exports = grammar({
 
     enum_decl_value: $ => seq(
       field('name', $.ident),
-      optional(seq(
-        '=',
-        field('value', $.literal_int)
-      )),
+      // Error recovery with hidden rules is not so good when the rule is optional.
+      optional($._enum_decl_value_assign),
+    ),
+
+    _enum_decl_value_assign: $ => seq(
+      '=', field('value', $.literal_int)
     ),
 
   
@@ -149,8 +161,12 @@ module.exports = grammar({
 
     struct_decl_stmt: $ => seq(
       field('specifiers', repeat($.struct_specifier)),
-      'struct', field('name', $.ident),
+      $._struct_decl_intro,
       field('definition', $.struct_block)
+    ),
+
+    _struct_decl_intro: $ => seq(
+      'struct', field('name', $.ident),
     ),
 
     struct_block: $ => block(
@@ -173,10 +189,18 @@ module.exports = grammar({
 
     state_decl_stmt: $ => seq(
       field('specifiers', repeat($.state_specifier)),
-      'state', field('name', $.ident),
-      'in', field('parent', $.ident),
+      $._state_decl_intro,
+      $._state_decl_parent,
       optional($._class_base),
       field('definition', $.class_block)
+    ),
+
+    _state_decl_intro: $ => seq(
+      'state', field('name', $.ident),
+    ),
+
+    _state_decl_parent: $ => seq(
+      'in', field('parent', $.ident),
     ),
 
     state_specifier: $ => choice(
@@ -189,9 +213,13 @@ module.exports = grammar({
 
     class_decl_stmt: $ => seq(
       field('specifiers', repeat($.class_specifier)),
-      'class', field('name', $.ident),
+      $._class_decl_intro,
       optional($._class_base),
       field('definition', $.class_block)
+    ),
+
+    _class_decl_intro: $ => seq(
+      'class', field('name', $.ident),
     ),
 
     class_block: $ => block(
@@ -223,16 +251,23 @@ module.exports = grammar({
 
     class_autobind_stmt: $ => seq(
       field('specifiers', repeat($.class_autobind_specifier)),
-      'autobind',
-      field('name', $.ident),
+      $._class_autobind_intro,
       ':',
       field('autobind_type', $.type_annot),
+      $._class_autobind_assign,
+      ';'
+    ),
+
+    _class_autobind_intro: $ => seq(
+      'autobind', field('name', $.ident),
+    ),
+
+    _class_autobind_assign: $ => seq(
       '=',
       field('value', choice(
         'single',
         $.literal_string
-      )),
-      ';'
+      ))
     ),
 
     class_autobind_specifier: $ => choice(
@@ -241,25 +276,33 @@ module.exports = grammar({
     ),
 
     member_default_val_stmt: $ => seq(
-      'default',
-      field('member', $.ident),
+      $._member_default_val_intro,
       '=',
       field('value', $._expr),
       ';'
     ),
 
+    _member_default_val_intro: $ => seq(
+      'default', field('member', $.ident),
+    ),
+
     member_hint_stmt: $ => seq(
-      'hint',
-      field('member', $.ident),
-      '=',
-      field('value', $.literal_string),
+      $._member_hint_intro,
+      $._member_hint_assign,
       ';'
+    ),
+
+    _member_hint_intro: $ => seq(
+      'hint', field('member', $.ident),
+    ),
+
+    _member_hint_assign: $ => seq(
+      '=', field('value', $.literal_string)
     ),
 
     member_var_decl_stmt: $ => seq(
       field('specifiers', repeat($.member_var_specifier)),
-      'var',
-      field('names', comma1($.ident)),
+      $._var_decl_intro,
       ':',
       field('var_type', $.type_annot),
       ';'
@@ -278,7 +321,7 @@ module.exports = grammar({
     // FUNCTION DECLARATION ================
 
     event_decl_stmt: $ => seq(
-      'event', field('name', $.ident),
+      $._event_decl_intro,
       '(', field('params', comma($.func_param_group)), ')',
       choice(
         ';',
@@ -286,10 +329,14 @@ module.exports = grammar({
       )
     ),
 
+    _event_decl_intro: $ => seq(
+      'event', field('name', $.ident),
+    ),
+
     member_func_decl_stmt: $ => seq(
       field('specifiers', repeat($.member_func_specifier)),
       field('flavour', optional($.member_func_flavour)),
-      'function', field('name', $.ident),
+      $._func_decl_intro,
       '(', field('params', comma($.func_param_group)), ')',
       optional(seq(
         ':',
@@ -304,7 +351,7 @@ module.exports = grammar({
     global_func_decl_stmt: $ => seq(
       field('specifiers', repeat($.global_func_specifier)),
       field('flavour', optional($.global_func_flavour)),
-      'function', field('name', $.ident),
+      $._func_decl_intro,
       '(', field('params', comma($.func_param_group)), ')',
       optional(seq(
         ':',
@@ -314,6 +361,10 @@ module.exports = grammar({
         ';',
         field('definition', $.func_block)
       )
+    ),
+
+    _func_decl_intro: $ => seq(
+      'function', field('name', $.ident),
     ),
 
 
@@ -382,8 +433,7 @@ module.exports = grammar({
     ),
 
     var_decl_stmt: $ => seq(
-      'var',
-      field('names', comma1($.ident)),
+      $._var_decl_intro,
       ':',
       field('var_type', $.type_annot),
       optional(seq(
@@ -391,6 +441,10 @@ module.exports = grammar({
         field('init_value', $._expr)
       )),
       ';'
+    ),
+
+    _var_decl_intro: $ => seq(
+      'var', field('names', comma1($.ident))
     ),
 
     for_stmt: $ => seq(
@@ -573,11 +627,14 @@ module.exports = grammar({
     
 
     new_expr: $ => prec.right(PREC.NEW, seq(
-      'new',
-      field('class', $.ident),
+      $._new_expr_intro,
       'in',
       field('lifetime_obj', $._expr)
     )),
+
+    _new_expr_intro: $ => seq(
+      'new', field('class', $.ident),
+    ),
 
     unary_op_expr: $ => prec.right(PREC.UNARY, seq(
       field('op', choice(
