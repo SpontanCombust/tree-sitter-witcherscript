@@ -203,8 +203,7 @@ function test() {
           (assign_op_expr
             left: (ident)
             op: (assign_op_direct)
-            right: (literal
-              (literal_string))))
+            right: (literal_string)))
         (expr_stmt
           (assign_op_expr
             left: (ident)
@@ -224,14 +223,12 @@ function test() {
           (assign_op_expr
             left: (ident)
             op: (assign_op_div)
-            right: (literal
-              (literal_int))))
+            right: (literal_int)))
         (expr_stmt
           (assign_op_expr
             left: (ident)
             op: (assign_op_mod)
-            right: (literal
-              (literal_float)))))))
+            right: (literal_float))))))
 
 
 
@@ -281,12 +278,9 @@ function test() {
           (func_call_expr 
             func: (ident)
             args: (func_call_args
-              (literal 
-                (literal_int))
-              (literal 
-                (literal_string))
-              (literal 
-                (literal_bool)))))
+                (literal_int)
+                (literal_string)
+                (literal_bool))))
         (expr_stmt 
           (member_field_expr 
             accessor: (ident)
@@ -296,8 +290,7 @@ function test() {
             accessor: (ident)
             func: (ident)
             args: (func_call_args
-              (literal 
-                (literal_bool)))))
+                (literal_bool))))
         (expr_stmt 
           (cast_expr 
             type: (ident)
@@ -308,8 +301,7 @@ function test() {
         (expr_stmt 
           (ternary_cond_expr 
             cond: (ident)
-            conseq: (literal 
-              (literal_bool))
+            conseq: (literal_bool)
             alt: (func_call_expr 
               func: (ident)))))))
 
@@ -384,5 +376,5 @@ function test() {
                   func: (ident))))
             func: (ident)
             args: (func_call_args
-              (literal
-                (literal_bool))))))))
+              (literal_bool)))))))
+                

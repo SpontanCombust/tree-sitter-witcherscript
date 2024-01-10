@@ -549,7 +549,7 @@ module.exports = grammar({
       $.parent_expr,
       $.virtual_parent_expr,
       $.ident,
-      $.literal
+      $._literal
     ),
 
 
@@ -609,6 +609,7 @@ module.exports = grammar({
       )
     ),
 
+    // can't bring those under a single rule, because they have different precedense
     binary_op_or: $ => '||',
     binary_op_and: $ => '&&',
     binary_op_bitor: $ => '|',
@@ -715,7 +716,7 @@ module.exports = grammar({
     virtual_parent_expr: $ => 'virtual_parent',
 
 
-    literal: $ => choice(
+    _literal: $ => choice(
       $.literal_null,
       $.literal_float,
       $.literal_int,

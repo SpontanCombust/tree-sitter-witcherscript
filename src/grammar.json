@@ -1961,7 +1961,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "literal"
+          "name": "_literal"
         }
       ]
     },
@@ -3038,7 +3038,7 @@
       "type": "STRING",
       "value": "virtual_parent"
     },
-    "literal": {
+    "_literal": {
       "type": "CHOICE",
       "members": [
         {

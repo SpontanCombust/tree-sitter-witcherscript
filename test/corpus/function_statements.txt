@@ -25,8 +25,7 @@ function test() {
             accessor: (ident)
             member: (ident))
           op: (assign_op_direct)
-          right: (literal
-            (literal_int))))
+          right: (literal_int)))
       (func_block
         (delete_stmt
           (array_expr
@@ -80,8 +79,7 @@ function test() {
         names: (ident)
         var_type: (type_annot
           type_name: (ident))
-        init_value: (literal
-          (literal_float))))))
+        init_value: (literal_float)))))
 
 
 
@@ -141,8 +139,7 @@ function test() {
               (func_call_expr
                 func: (ident)
                 args: (func_call_args
-                  (literal
-                    (literal_name))))))
+                  (literal_name)))))
           (expr_stmt
             (func_call_expr
               func: (ident)))
@@ -179,11 +176,9 @@ function test() {
                   (assign_op_expr
                     left: (ident)
                     op: (assign_op_sum)
-                    right: (literal
-                      (literal_int))))))))
+                    right: (literal_int)))))))
         else: (if_stmt
-          cond: (literal
-            (literal_bool))
+          cond: (literal_bool)
           body: (func_block
             (expr_stmt
               (assign_op_expr
@@ -294,8 +289,7 @@ function test() {
     name: (ident)
     definition: (func_block
       (while_stmt
-        cond: (literal
-          (literal_bool))
+        cond: (literal_bool)
         body: (func_block
           (if_stmt
             cond: (ident)
@@ -306,8 +300,7 @@ function test() {
           left: (func_call_expr
             func: (ident))
           op: (binary_op_gt)
-          right: (literal
-            (literal_int)))
+          right: (literal_int))
         body: (nop))
       (do_while_stmt
         body: (func_block
@@ -319,8 +312,7 @@ function test() {
         init: (assign_op_expr
           left: (ident)
           op: (assign_op_direct)
-          right: (literal
-            (literal_int)))
+          right: (literal_int))
         cond: (binary_op_expr
           left: (ident)
           op: (binary_op_lt)
@@ -330,13 +322,11 @@ function test() {
         iter: (assign_op_expr
           left: (ident)
           op: (assign_op_sum)
-          right: (literal
-            (literal_int)))
+          right: (literal_int))
         body: (func_block
           (expr_stmt
             (func_call_expr
               func: (ident)))))
       (for_stmt
-        cond: (literal
-          (literal_bool))
+        cond: (literal_bool)
         body: (break_stmt)))))

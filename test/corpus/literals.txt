@@ -21,32 +21,23 @@ function test() {
     name: (ident)
     definition: (func_block
         (expr_stmt
-          (literal
-            (literal_int)))
+            (literal_int))
         (expr_stmt
-          (literal
-            (literal_int)))
+            (literal_int))
         (expr_stmt
-          (literal
-            (literal_int)))
+            (literal_int))
         (expr_stmt
-          (literal
-            (literal_float)))
+            (literal_float))
         (expr_stmt
-          (literal
-            (literal_float)))
+            (literal_float))
         (expr_stmt
-          (literal
-            (literal_float)))
+            (literal_float))
         (expr_stmt
-          (literal
-            (literal_float)))
+            (literal_float))
         (expr_stmt
-          (literal
-            (literal_float)))
+            (literal_float))
         (expr_stmt
-          (literal
-            (literal_float))))))
+            (literal_float)))))
 
 
 
@@ -67,8 +58,7 @@ function test() {
     name: (ident)
     definition: (func_block
         (expr_stmt
-          (literal
-            (literal_null))))))
+            (literal_null)))))
 
 
 
@@ -90,11 +80,9 @@ function test() {
     name: (ident)
     definition: (func_block
         (expr_stmt
-          (literal
-            (literal_bool)))
+            (literal_bool))
         (expr_stmt
-          (literal
-            (literal_bool))))))
+            (literal_bool)))))
 
 
 
@@ -117,11 +105,8 @@ function test() {
     name: (ident)
     definition: (func_block
         (expr_stmt
-          (literal
-            (literal_string)))
+            (literal_string))
         (expr_stmt
-          (literal
-            (literal_string)))
+            (literal_string))
         (expr_stmt
-          (literal
-            (literal_name))))))
+            (literal_name)))))
