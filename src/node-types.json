@@ -1305,10 +1305,14 @@
     "fields": {
       "definition": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "func_block",
+            "named": true
+          },
+          {
+            "type": "nop",
             "named": true
           }
         ]
@@ -2023,10 +2027,14 @@
     "fields": {
       "definition": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "func_block",
+            "named": true
+          },
+          {
+            "type": "nop",
             "named": true
           }
         ]
@@ -2669,10 +2677,14 @@
     "fields": {
       "definition": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "func_block",
+            "named": true
+          },
+          {
+            "type": "nop",
             "named": true
           }
         ]

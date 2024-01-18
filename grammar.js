@@ -323,10 +323,7 @@ module.exports = grammar({
     event_decl_stmt: $ => seq(
       $._event_decl_intro,
       '(', field('params', comma($.func_param_group)), ')',
-      choice(
-        ';',
-        field('definition', $.func_block)
-      )
+      field('definition', $._func_definition)
     ),
 
     _event_decl_intro: $ => seq(
@@ -342,10 +339,7 @@ module.exports = grammar({
         ':',
         field('return_type', $.type_annot)
       )),
-      choice(
-        ';',
-        field('definition', $.func_block)
-      )
+      field('definition', $._func_definition)
     ),
 
     global_func_decl_stmt: $ => seq(
@@ -357,16 +351,18 @@ module.exports = grammar({
         ':',
         field('return_type', $.type_annot)
       )),
-      choice(
-        ';',
-        field('definition', $.func_block)
-      )
+      field('definition', $._func_definition)
     ),
 
     _func_decl_intro: $ => seq(
       'function', field('name', $.ident),
     ),
 
+    
+    _func_definition: $ => choice(
+      $.func_block,
+      $.nop
+    ),
 
     func_param_group: $ => seq(
       field('specifiers', repeat($.func_param_specifier)),

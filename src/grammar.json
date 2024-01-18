@@ -810,21 +810,12 @@
           "value": ")"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": ";"
-            },
-            {
-              "type": "FIELD",
-              "name": "definition",
-              "content": {
-                "type": "SYMBOL",
-                "name": "func_block"
-              }
-            }
-          ]
+          "type": "FIELD",
+          "name": "definition",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_func_definition"
+          }
         }
       ]
     },
@@ -950,21 +941,12 @@
           ]
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": ";"
-            },
-            {
-              "type": "FIELD",
-              "name": "definition",
-              "content": {
-                "type": "SYMBOL",
-                "name": "func_block"
-              }
-            }
-          ]
+          "type": "FIELD",
+          "name": "definition",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_func_definition"
+          }
         }
       ]
     },
@@ -1073,21 +1055,12 @@
           ]
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": ";"
-            },
-            {
-              "type": "FIELD",
-              "name": "definition",
-              "content": {
-                "type": "SYMBOL",
-                "name": "func_block"
-              }
-            }
-          ]
+          "type": "FIELD",
+          "name": "definition",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_func_definition"
+          }
         }
       ]
     },
@@ -1105,6 +1078,19 @@
             "type": "SYMBOL",
             "name": "ident"
           }
+        }
+      ]
+    },
+    "_func_definition": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "func_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "nop"
         }
       ]
     },
