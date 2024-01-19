@@ -762,7 +762,7 @@ module.exports = grammar({
     literal_string: $ => token(seq(
       '"',
       repeat(choice(
-        token.immediate(prec(1, /[^\\"]+/)),
+        token.immediate(prec(1, /[^"]+/)),
         '\\"', // WS seems to handle only espaced quotes as the majority of formatting is done through HTML tags (e.g. <br>) in Flash
       )),
       '"',
@@ -771,7 +771,7 @@ module.exports = grammar({
     literal_name: $ => token(seq(
       '\'',
       repeat(choice(
-        token.immediate(prec(1, /[^\\']+/)),
+        token.immediate(prec(1, /[^']+/)),
         '\\\'',
       )),
       '\'',

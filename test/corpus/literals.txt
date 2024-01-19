@@ -95,7 +95,11 @@ string-likes
 function test() {
     "abrakadabra";
     "String with \"escaped quotes\"";
+    "movies\cutscenes\movie_player.w2scene";
+    "movies/cutscenes/movie_player.w2scene";
     '_alakazam123';
+    'hello\world.w2world';
+    'goodbye/world/';
 }
 
 ---------------------------------------------------------------------------------------------------
@@ -108,5 +112,13 @@ function test() {
             (literal_string))
         (expr_stmt
             (literal_string))
+        (expr_stmt
+            (literal_string))
+        (expr_stmt
+            (literal_string))
+        (expr_stmt
+            (literal_name))
+        (expr_stmt
+            (literal_name))
         (expr_stmt
             (literal_name)))))
