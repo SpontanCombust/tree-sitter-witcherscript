@@ -323,6 +323,10 @@ module.exports = grammar({
     event_decl_stmt: $ => seq(
       $._event_decl_intro,
       '(', field('params', comma($.func_param_group)), ')',
+      optional(seq(
+        ':',
+        field('return_type', $.type_annot)
+      )),
       field('definition', $._func_definition)
     ),
 
@@ -470,6 +474,7 @@ module.exports = grammar({
       ))
     )),
 
+    //TODO rework
     switch_stmt: $ => seq(
       'switch', '(', field('matched_expr', $._expr), ')',
       '{',
