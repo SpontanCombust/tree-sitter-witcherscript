@@ -1328,15 +1328,11 @@
         ]
       },
       "params": {
-        "multiple": true,
-        "required": false,
+        "multiple": false,
+        "required": true,
         "types": [
           {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "func_param_group",
+            "type": "func_params",
             "named": true
           }
         ]
@@ -2032,6 +2028,21 @@
     "fields": {}
   },
   {
+    "type": "func_params",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "func_param_group",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "global_func_decl_stmt",
     "named": true,
     "fields": {
@@ -2070,15 +2081,11 @@
         ]
       },
       "params": {
-        "multiple": true,
-        "required": false,
+        "multiple": false,
+        "required": true,
         "types": [
           {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "func_param_group",
+            "type": "func_params",
             "named": true
           }
         ]
@@ -2720,15 +2727,11 @@
         ]
       },
       "params": {
-        "multiple": true,
-        "required": false,
+        "multiple": false,
+        "required": true,
         "types": [
           {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "func_param_group",
+            "type": "func_params",
             "named": true
           }
         ]

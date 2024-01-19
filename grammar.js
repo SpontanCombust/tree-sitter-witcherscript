@@ -322,7 +322,7 @@ module.exports = grammar({
 
     event_decl_stmt: $ => seq(
       $._event_decl_intro,
-      '(', field('params', comma($.func_param_group)), ')',
+      field('params', $.func_params),
       optional(seq(
         ':',
         field('return_type', $.type_annot)
@@ -338,7 +338,7 @@ module.exports = grammar({
       field('specifiers', repeat($.member_func_specifier)),
       field('flavour', optional($.member_func_flavour)),
       $._func_decl_intro,
-      '(', field('params', comma($.func_param_group)), ')',
+      field('params', $.func_params),
       optional(seq(
         ':',
         field('return_type', $.type_annot)
@@ -350,7 +350,7 @@ module.exports = grammar({
       field('specifiers', repeat($.global_func_specifier)),
       field('flavour', optional($.global_func_flavour)),
       $._func_decl_intro,
-      '(', field('params', comma($.func_param_group)), ')',
+      field('params', $.func_params),
       optional(seq(
         ':',
         field('return_type', $.type_annot)
@@ -367,6 +367,10 @@ module.exports = grammar({
       $.func_block,
       $.nop
     ),
+
+    func_params: $ => seq(
+      '(', comma($.func_param_group), ')'
+    ), 
 
     func_param_group: $ => seq(
       field('specifiers', repeat($.func_param_specifier)),
@@ -731,6 +735,7 @@ module.exports = grammar({
     literal_float: $ => {
       const digit = /[0-9]/
       return token(seq(
+        //TODO remove plus
         optional(choice('+', '-')),
         choice(
           // normal looking float literal
