@@ -451,6 +451,7 @@ module.exports = grammar({
       'var', field('names', comma1($.ident))
     ),
 
+
     for_stmt: $ => seq(
       'for', '(',
       field('init', optional($._expr)), ';',
@@ -470,6 +471,7 @@ module.exports = grammar({
       'while', '(', field('cond', $._expr), ')', ';'
     ),
 
+
     if_stmt: $ => prec.right(seq(
       'if', '(', field('cond', $._expr), ')',
       field('body', $._func_stmt),
@@ -478,25 +480,35 @@ module.exports = grammar({
       ))
     )),
 
-    //TODO rework
     switch_stmt: $ => seq(
-      'switch', '(', field('matched_expr', $._expr), ')',
+      'switch', '(', field('cond', $._expr), ')',
+      field('body', $.switch_block),
+    ),
+
+    switch_block: $ => seq(
       '{',
-      field('cases', repeat($.switch_case)),
-      field('default', optional($.switch_default)),
+      repeat($._switch_section),
       '}'
     ),
 
-    switch_case: $ => seq(
-      'case', field('value', $._expr), ':',
-      field('body', repeat($._func_stmt))
+    _switch_section: $ => prec.right(seq(
+      repeat(choice(
+        $.switch_case_label,
+        // default labels should be checked after syntax analysis so there is only one
+        $.switch_default_label
+      )),
+      repeat1($._func_stmt)
+    )),
+
+    switch_case_label: $ => seq(
+      'case', field('value', $._expr), ':'
     ),
 
-    switch_default: $ => seq(
+    switch_default_label: $ => seq(
       'default', ':',
-      field('body', repeat1($._func_stmt))
     ),
 
+    
     break_stmt: $ => seq(
       'break', ';'
     ),

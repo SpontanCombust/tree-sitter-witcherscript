@@ -3327,67 +3327,80 @@
     "fields": {}
   },
   {
-    "type": "switch_case",
+    "type": "switch_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "break_stmt",
+          "named": true
+        },
+        {
+          "type": "continue_stmt",
+          "named": true
+        },
+        {
+          "type": "delete_stmt",
+          "named": true
+        },
+        {
+          "type": "do_while_stmt",
+          "named": true
+        },
+        {
+          "type": "expr_stmt",
+          "named": true
+        },
+        {
+          "type": "for_stmt",
+          "named": true
+        },
+        {
+          "type": "func_block",
+          "named": true
+        },
+        {
+          "type": "if_stmt",
+          "named": true
+        },
+        {
+          "type": "nop",
+          "named": true
+        },
+        {
+          "type": "return_stmt",
+          "named": true
+        },
+        {
+          "type": "switch_case_label",
+          "named": true
+        },
+        {
+          "type": "switch_default_label",
+          "named": true
+        },
+        {
+          "type": "switch_stmt",
+          "named": true
+        },
+        {
+          "type": "var_decl_stmt",
+          "named": true
+        },
+        {
+          "type": "while_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "switch_case_label",
     "named": true,
     "fields": {
-      "body": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "break_stmt",
-            "named": true
-          },
-          {
-            "type": "continue_stmt",
-            "named": true
-          },
-          {
-            "type": "delete_stmt",
-            "named": true
-          },
-          {
-            "type": "do_while_stmt",
-            "named": true
-          },
-          {
-            "type": "expr_stmt",
-            "named": true
-          },
-          {
-            "type": "for_stmt",
-            "named": true
-          },
-          {
-            "type": "func_block",
-            "named": true
-          },
-          {
-            "type": "if_stmt",
-            "named": true
-          },
-          {
-            "type": "nop",
-            "named": true
-          },
-          {
-            "type": "return_stmt",
-            "named": true
-          },
-          {
-            "type": "switch_stmt",
-            "named": true
-          },
-          {
-            "type": "var_decl_stmt",
-            "named": true
-          },
-          {
-            "type": "while_stmt",
-            "named": true
-          }
-        ]
-      },
       "value": {
         "multiple": false,
         "required": true,
@@ -3485,94 +3498,25 @@
     }
   },
   {
-    "type": "switch_default",
+    "type": "switch_default_label",
     "named": true,
-    "fields": {
-      "body": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "break_stmt",
-            "named": true
-          },
-          {
-            "type": "continue_stmt",
-            "named": true
-          },
-          {
-            "type": "delete_stmt",
-            "named": true
-          },
-          {
-            "type": "do_while_stmt",
-            "named": true
-          },
-          {
-            "type": "expr_stmt",
-            "named": true
-          },
-          {
-            "type": "for_stmt",
-            "named": true
-          },
-          {
-            "type": "func_block",
-            "named": true
-          },
-          {
-            "type": "if_stmt",
-            "named": true
-          },
-          {
-            "type": "nop",
-            "named": true
-          },
-          {
-            "type": "return_stmt",
-            "named": true
-          },
-          {
-            "type": "switch_stmt",
-            "named": true
-          },
-          {
-            "type": "var_decl_stmt",
-            "named": true
-          },
-          {
-            "type": "while_stmt",
-            "named": true
-          }
-        ]
-      }
-    }
+    "fields": {}
   },
   {
     "type": "switch_stmt",
     "named": true,
     "fields": {
-      "cases": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "switch_case",
-            "named": true
-          }
-        ]
-      },
-      "default": {
+      "body": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
-            "type": "switch_default",
+            "type": "switch_block",
             "named": true
           }
         ]
       },
-      "matched_expr": {
+      "cond": {
         "multiple": false,
         "required": true,
         "types": [
