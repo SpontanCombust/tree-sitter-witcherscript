@@ -19,6 +19,7 @@ function test() {
 (script
   (global_func_decl_stmt
     name: (ident)
+    params: (func_params)
     definition: (func_block
         (expr_stmt
             (literal_int))
@@ -56,6 +57,7 @@ function test() {
 (script
   (global_func_decl_stmt
     name: (ident)
+    params: (func_params)
     definition: (func_block
         (expr_stmt
             (literal_null)))))
@@ -78,6 +80,7 @@ function test() {
 (script
   (global_func_decl_stmt
     name: (ident)
+    params: (func_params)
     definition: (func_block
         (expr_stmt
             (literal_bool))
@@ -107,6 +110,7 @@ function test() {
 (script
   (global_func_decl_stmt
     name: (ident)
+    params: (func_params)
     definition: (func_block
         (expr_stmt
             (literal_string))
