@@ -15,8 +15,9 @@ function foo() { // comment after some code
 (script
   (comment)
   (global_func_decl_stmt
-  name: (ident)
-  definition: (func_block
+    name: (ident)
+    params: (func_params)
+    definition: (func_block
       (comment)
       (comment)))
   (comment))

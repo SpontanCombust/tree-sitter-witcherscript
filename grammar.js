@@ -322,7 +322,11 @@ module.exports = grammar({
 
     event_decl_stmt: $ => seq(
       $._event_decl_intro,
-      '(', field('params', comma($.func_param_group)), ')',
+      field('params', $.func_params),
+      optional(seq(
+        ':',
+        field('return_type', $.type_annot)
+      )),
       field('definition', $._func_definition)
     ),
 
@@ -334,7 +338,7 @@ module.exports = grammar({
       field('specifiers', repeat($.member_func_specifier)),
       field('flavour', optional($.member_func_flavour)),
       $._func_decl_intro,
-      '(', field('params', comma($.func_param_group)), ')',
+      field('params', $.func_params),
       optional(seq(
         ':',
         field('return_type', $.type_annot)
@@ -346,7 +350,7 @@ module.exports = grammar({
       field('specifiers', repeat($.global_func_specifier)),
       field('flavour', optional($.global_func_flavour)),
       $._func_decl_intro,
-      '(', field('params', comma($.func_param_group)), ')',
+      field('params', $.func_params),
       optional(seq(
         ':',
         field('return_type', $.type_annot)
@@ -363,6 +367,10 @@ module.exports = grammar({
       $.func_block,
       $.nop
     ),
+
+    func_params: $ => seq(
+      '(', comma($.func_param_group), ')'
+    ), 
 
     func_param_group: $ => seq(
       field('specifiers', repeat($.func_param_specifier)),
@@ -443,6 +451,7 @@ module.exports = grammar({
       'var', field('names', comma1($.ident))
     ),
 
+
     for_stmt: $ => seq(
       'for', '(',
       field('init', optional($._expr)), ';',
@@ -462,6 +471,7 @@ module.exports = grammar({
       'while', '(', field('cond', $._expr), ')', ';'
     ),
 
+
     if_stmt: $ => prec.right(seq(
       'if', '(', field('cond', $._expr), ')',
       field('body', $._func_stmt),
@@ -471,23 +481,34 @@ module.exports = grammar({
     )),
 
     switch_stmt: $ => seq(
-      'switch', '(', field('matched_expr', $._expr), ')',
+      'switch', '(', field('cond', $._expr), ')',
+      field('body', $.switch_block),
+    ),
+
+    switch_block: $ => seq(
       '{',
-      field('cases', repeat($.switch_case)),
-      field('default', optional($.switch_default)),
+      repeat($._switch_section),
       '}'
     ),
 
-    switch_case: $ => seq(
-      'case', field('value', $._expr), ':',
-      field('body', repeat($._func_stmt))
+    _switch_section: $ => prec.right(seq(
+      repeat(choice(
+        $.switch_case_label,
+        // default labels should be checked after syntax analysis so there is only one
+        $.switch_default_label
+      )),
+      repeat1($._func_stmt)
+    )),
+
+    switch_case_label: $ => seq(
+      'case', field('value', $._expr), ':'
     ),
 
-    switch_default: $ => seq(
+    switch_default_label: $ => seq(
       'default', ':',
-      field('body', repeat1($._func_stmt))
     ),
 
+    
     break_stmt: $ => seq(
       'break', ';'
     ),
@@ -736,15 +757,12 @@ module.exports = grammar({
             repeat(digit),
           ),
           // Goofy ass float without the integer part
-          // Why would they make their grammar more complex just to have this feature??
-          // Just because C/C++ has it doesn't mean WS would need it.
-          // "OMG guys, it's soooo hard having to type a single digit at the start of a number..."
-          // The same story with the 'f' suffix - it's completely pointless as there is only one floating point type in the language.
           seq(
             '.',
             repeat1(digit),
           )
         ),
+        // This optional suffix is completely pointless as there is only one floating point type in the language.
         optional('f')
       ))
     },

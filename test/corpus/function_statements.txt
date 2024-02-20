@@ -4,6 +4,7 @@ Basic
 
 function test() {
     foo.bar = 1;
+    foo.Bar();
     {
         delete actors[i];
         return;
@@ -18,6 +19,7 @@ function test() {
 (script
   (global_func_decl_stmt
     name: (ident)
+    params: (func_params)
     definition: (func_block
       (expr_stmt
         (assign_op_expr
@@ -26,6 +28,10 @@ function test() {
             member: (ident))
           op: (assign_op_direct)
           right: (literal_int)))
+      (expr_stmt
+        (member_func_call_expr
+          accessor: (ident)    
+          func: (ident)))
       (func_block
         (delete_stmt
           (array_expr
@@ -58,6 +64,7 @@ function test() {
 (script
   (global_func_decl_stmt
     name: (ident)
+    params: (func_params)
     definition: (func_block
       (var_decl_stmt
         names: (ident)
@@ -121,6 +128,7 @@ function test() {
 (script
   (global_func_decl_stmt
     name: (ident)
+    params: (func_params)
     definition: (func_block
       (if_stmt
         cond: (binary_op_expr
@@ -203,7 +211,7 @@ function test() {
             func1();
         } break;
         case CASE2:
-            func2();
+            i += 1;
             break;
         case CASE3:
         {
@@ -223,36 +231,40 @@ function test() {
 (script
   (global_func_decl_stmt
     name: (ident)
+    params: (func_params)
     definition: (func_block
       (switch_stmt
-        matched_expr: (ident)
-        cases: (switch_case
-          value: (ident)
-          body: (func_block
+        cond: (ident)
+        body: (switch_block
+          (switch_case_label
+            value: (ident))
+          (func_block
             (expr_stmt
               (func_call_expr
                 func: (ident))))
-          body: (break_stmt))
-        cases: (switch_case
-          value: (ident)
-          body: (expr_stmt
-            (func_call_expr
-              func: (ident)))
-          body: (break_stmt))
-        cases: (switch_case
-          value: (ident)
-          body: (func_block
+          (break_stmt)
+          (switch_case_label
+            value: (ident))
+          (expr_stmt
+            (assign_op_expr
+              left: (ident)
+              op: (assign_op_sum)
+              right: (literal_int)))
+          (break_stmt)
+          (switch_case_label
+            value: (ident))
+          (func_block
             (expr_stmt
               (func_call_expr
                 func: (ident))))
-          body: (break_stmt))
-        cases: (switch_case
-          value: (ident))
-        cases: (switch_case
-          value: (ident)
-          body: (nop))
-        default: (switch_default
-          body: (break_stmt))))))
+          (break_stmt)
+          (switch_case_label
+            value: (ident))
+          (switch_case_label
+            value: (ident))
+          (nop)
+          (switch_default_label)
+          (break_stmt))))))
 
 
 
@@ -287,6 +299,7 @@ function test() {
 (script
   (global_func_decl_stmt
     name: (ident)
+    params: (func_params)
     definition: (func_block
       (while_stmt
         cond: (literal_bool)
