@@ -495,15 +495,11 @@ module.exports = grammar({
       '}'
     ),
 
-    //TODO losen the rules
-    _switch_section: $ => prec.right(seq(
-      repeat(choice(
-        $.switch_case_label,
-        // default labels should be checked after syntax analysis so there is only one
-        $.switch_default_label
-      )),
-      repeat1($._func_stmt)
-    )),
+    _switch_section: $ =>choice(
+      $.switch_case_label,
+      $.switch_default_label,
+      $._func_stmt
+    ),
 
     switch_case_label: $ => seq(
       'case', field('value', $._expr), ':'
