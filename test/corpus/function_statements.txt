@@ -29,9 +29,10 @@ function test() {
           op: (assign_op_direct)
           right: (literal_int)))
       (expr_stmt
-        (member_func_call_expr
-          accessor: (ident)    
-          func: (ident)))
+        (func_call_expr
+          func: (member_field_expr
+            accessor: (ident)
+            member: (ident))))
       (func_block
         (delete_stmt
           (array_expr
@@ -140,9 +141,10 @@ function test() {
           right: (ident))
         body: (func_block
           (if_stmt
-            cond: (member_func_call_expr
-              accessor: (this_expr)
-              func: (ident))
+            cond: (func_call_expr
+              func: (member_field_expr
+                accessor: (this_expr)
+                member: (ident)))
             body: (expr_stmt
               (func_call_expr
                 func: (ident)
@@ -321,6 +323,7 @@ function test() {
             (func_call_expr
               func: (ident))))
         cond: (ident))
+      (nop)
       (for_stmt
         init: (assign_op_expr
           left: (ident)
@@ -329,9 +332,10 @@ function test() {
         cond: (binary_op_expr
           left: (ident)
           op: (binary_op_lt)
-          right: (member_func_call_expr
-            accessor: (ident)
-            func: (ident)))
+          right: (func_call_expr
+            func: (member_field_expr
+              accessor: (ident)
+              member: (ident))))
         iter: (assign_op_expr
           left: (ident)
           op: (assign_op_sum)

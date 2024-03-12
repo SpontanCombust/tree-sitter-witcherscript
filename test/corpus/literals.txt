@@ -12,6 +12,9 @@ function test() {
     0.0000001;
     .10;
     .0f;
+    0x0;
+    0xffffff;
+    0XABCDEF01;
 }
 
 ---------------------------------------------------------------------------------------------------
@@ -38,7 +41,13 @@ function test() {
         (expr_stmt
             (literal_float))
         (expr_stmt
-            (literal_float)))))
+            (literal_float))
+        (expr_stmt
+            (literal_hex))
+        (expr_stmt
+            (literal_hex))
+        (expr_stmt
+            (literal_hex)))))
 
 
 

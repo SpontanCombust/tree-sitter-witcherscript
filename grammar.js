@@ -28,8 +28,7 @@ const PREC = {
   CAST: 11,
   MEMBER: 12,
   CALL: 12,
-  ARRAY: 12,
-  MEMBER_CALL: 13,
+  ARRAY: 12
 };
 
 module.exports = grammar({
@@ -55,6 +54,7 @@ module.exports = grammar({
     'const',
     'continue', 
     'default',
+    'defaults',
     'delete',
     'do',
     'editable',
@@ -143,17 +143,21 @@ module.exports = grammar({
     ),
 
     enum_block: $ => block_delim(
-      $.enum_decl_value, ','
+      $.enum_decl_variant, ','
     ),
 
-    enum_decl_value: $ => seq(
+    enum_decl_variant: $ => seq(
       field('name', $.ident),
       // Error recovery with hidden rules is not so good when the rule is optional.
-      optional($._enum_decl_value_assign),
+      optional($._enum_decl_variant_assign),
     ),
 
-    _enum_decl_value_assign: $ => seq(
-      '=', field('value', $.literal_int)
+    _enum_decl_variant_assign: $ => seq(
+      '=', 
+      field('value', choice(
+        $.literal_int,
+        $.literal_hex
+      ))
     ),
 
   
@@ -180,6 +184,7 @@ module.exports = grammar({
     _struct_stmt: $ => choice(
       $.member_var_decl_stmt,
       $.member_default_val_stmt,
+      $.member_defaults_block_stmt,
       $.member_hint_stmt,
       $.nop
     ),
@@ -242,6 +247,7 @@ module.exports = grammar({
     _class_stmt: $ => choice(
       $.member_var_decl_stmt,
       $.member_default_val_stmt,
+      $.member_defaults_block_stmt,
       $.member_hint_stmt,
       $.class_autobind_stmt,
       $.member_func_decl_stmt,
@@ -273,6 +279,18 @@ module.exports = grammar({
     class_autobind_specifier: $ => choice(
       $._access_modifier,
       'optional',
+    ),
+
+    member_defaults_block_stmt: $ => seq(
+      'defaults',
+      block($.member_defaults_block_assign)
+    ),
+
+    member_defaults_block_assign: $ => seq(
+      field('member', $.ident),
+      '=',
+      field('value', $._expr),
+      ';'
     ),
 
     member_default_val_stmt: $ => seq(
@@ -468,7 +486,7 @@ module.exports = grammar({
 
     do_while_stmt: $ => seq(
       'do', field('body', $._func_stmt),
-      'while', '(', field('cond', $._expr), ')', ';'
+      'while', '(', field('cond', $._expr), ')'
     ),
 
 
@@ -491,14 +509,11 @@ module.exports = grammar({
       '}'
     ),
 
-    _switch_section: $ => prec.right(seq(
-      repeat(choice(
-        $.switch_case_label,
-        // default labels should be checked after syntax analysis so there is only one
-        $.switch_default_label
-      )),
-      repeat1($._func_stmt)
-    )),
+    _switch_section: $ =>choice(
+      $.switch_case_label,
+      $.switch_default_label,
+      $._func_stmt
+    ),
 
     switch_case_label: $ => seq(
       'case', field('value', $._expr), ':'
@@ -556,7 +571,6 @@ module.exports = grammar({
       $.new_expr,
       $.unary_op_expr,
       $.cast_expr,
-      $.member_func_call_expr,
       $.member_field_expr,
       $.func_call_expr,
       $.array_expr,
@@ -646,12 +660,15 @@ module.exports = grammar({
 
     new_expr: $ => prec.right(PREC.NEW, seq(
       $._new_expr_intro,
-      'in',
-      field('lifetime_obj', $._expr)
+      optional($._new_expr_lifetime_obj)
     )),
 
     _new_expr_intro: $ => seq(
       'new', field('class', $.ident),
+    ),
+
+    _new_expr_lifetime_obj: $ => seq(
+      'in', field('lifetime_obj', $._expr)
     ),
 
     unary_op_expr: $ => prec.right(PREC.UNARY, seq(
@@ -676,15 +693,6 @@ module.exports = grammar({
     )),
 
 
-    member_func_call_expr: $ => prec.left(PREC.MEMBER_CALL, seq(
-      field('accessor', $._expr),
-      '.',
-      field('func', $.ident),
-      '(',
-      field('args', optional($.func_call_args)),
-      ')'
-    )),
-
     member_field_expr: $ => prec.left(PREC.MEMBER, seq(
       field('accessor', $._expr),
       '.',
@@ -692,7 +700,7 @@ module.exports = grammar({
     )),
 
     func_call_expr: $ => prec.left(PREC.CALL, seq(
-      field('func', $.ident),
+      field('func', $._expr),
       '(',
       field('args', optional($.func_call_args)),
       ')'
@@ -737,6 +745,7 @@ module.exports = grammar({
       $.literal_null,
       $.literal_float,
       $.literal_int,
+      $.literal_hex,
       $.literal_bool,
       $.literal_string,
       $.literal_name
@@ -771,6 +780,10 @@ module.exports = grammar({
       optional(choice('+', '-')),
       repeat1(/[0-9]/)
     )),
+
+    literal_hex: $ => token(
+      /0[xX][0-9a-fA-F]+/,
+    ),
 
     literal_bool: $ => choice(
       'true',

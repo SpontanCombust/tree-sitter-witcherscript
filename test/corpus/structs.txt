@@ -1,0 +1,56 @@
+===================================================================================================
+Struct
+===================================================================================================
+
+import struct Foo {
+    import var X,Y,Z : float;
+    var next: Foo;
+
+    defaults {
+        X = 0;
+        Y = 0.0;
+        Z = 0x0;
+    }
+
+    default next = NULL;
+
+    hint next = "No idea";
+    ;
+};
+
+---------------------------------------------------------------------------------------------------
+
+(script
+  (struct_decl_stmt
+    specifiers: (struct_specifier)
+    name: (ident)
+    definition: (struct_block
+      (member_var_decl_stmt
+        specifiers: (member_var_specifier)
+        names: (ident)
+        names: (ident)
+        names: (ident)
+        var_type: (type_annot
+          type_name: (ident)))
+      (member_var_decl_stmt
+        names: (ident)
+        var_type: (type_annot
+          type_name: (ident)))
+      (member_defaults_block_stmt
+        (member_defaults_block_assign
+          member: (ident)
+          value: (literal_int))
+        (member_defaults_block_assign
+          member: (ident)
+          value: (literal_float))
+        (member_defaults_block_assign
+          member: (ident)
+          value: (literal_hex)))
+      (member_default_val_stmt
+        member: (ident)
+        value: (literal_null))
+      (member_hint_stmt
+        member: (ident)
+        value: (literal_string))
+      (nop)))
+  (nop))
