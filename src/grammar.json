@@ -269,6 +269,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "member_defaults_block_stmt"
+        },
+        {
+          "type": "SYMBOL",
           "name": "member_hint_stmt"
         },
         {
@@ -492,6 +496,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "member_defaults_block_stmt"
+        },
+        {
+          "type": "SYMBOL",
           "name": "member_hint_stmt"
         },
         {
@@ -642,7 +650,7 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "name",
+          "name": "member",
           "content": {
             "type": "SYMBOL",
             "name": "ident"

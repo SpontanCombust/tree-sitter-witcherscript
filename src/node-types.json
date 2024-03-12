@@ -901,6 +901,10 @@
           "named": true
         },
         {
+          "type": "member_defaults_block_stmt",
+          "named": true
+        },
+        {
           "type": "member_func_decl_stmt",
           "named": true
         },
@@ -2550,7 +2554,7 @@
     "type": "member_defaults_block_assign",
     "named": true,
     "fields": {
-      "name": {
+      "member": {
         "multiple": false,
         "required": true,
         "types": [
@@ -2654,6 +2658,21 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "member_defaults_block_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "member_defaults_block_assign",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -3341,6 +3360,10 @@
       "types": [
         {
           "type": "member_default_val_stmt",
+          "named": true
+        },
+        {
+          "type": "member_defaults_block_stmt",
           "named": true
         },
         {

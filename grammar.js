@@ -184,6 +184,7 @@ module.exports = grammar({
     _struct_stmt: $ => choice(
       $.member_var_decl_stmt,
       $.member_default_val_stmt,
+      $.member_defaults_block_stmt,
       $.member_hint_stmt,
       $.nop
     ),
@@ -246,6 +247,7 @@ module.exports = grammar({
     _class_stmt: $ => choice(
       $.member_var_decl_stmt,
       $.member_default_val_stmt,
+      $.member_defaults_block_stmt,
       $.member_hint_stmt,
       $.class_autobind_stmt,
       $.member_func_decl_stmt,
@@ -285,7 +287,7 @@ module.exports = grammar({
     ),
 
     member_defaults_block_assign: $ => seq(
-      field('name', $.ident),
+      field('member', $.ident),
       '=',
       field('value', $._expr),
       ';'
