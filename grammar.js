@@ -153,7 +153,11 @@ module.exports = grammar({
     ),
 
     _enum_decl_value_assign: $ => seq(
-      '=', field('value', $.literal_int)
+      '=', 
+      field('value', choice(
+        $.literal_int,
+        $.literal_hex
+      ))
     ),
 
   
@@ -491,6 +495,7 @@ module.exports = grammar({
       '}'
     ),
 
+    //TODO losen the rules
     _switch_section: $ => prec.right(seq(
       repeat(choice(
         $.switch_case_label,
@@ -740,6 +745,7 @@ module.exports = grammar({
       $.literal_null,
       $.literal_float,
       $.literal_int,
+      $.literal_hex,
       $.literal_bool,
       $.literal_string,
       $.literal_name
@@ -773,6 +779,11 @@ module.exports = grammar({
     literal_int: $ => token(seq(
       optional(choice('+', '-')),
       repeat1(/[0-9]/)
+    )),
+
+    literal_hex: $ => token(seq(
+      '0', /[xX]/,
+      repeat1(/[0-9a-fA-F]+/)
     )),
 
     literal_bool: $ => choice(

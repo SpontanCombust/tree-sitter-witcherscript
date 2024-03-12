@@ -167,8 +167,17 @@
           "type": "FIELD",
           "name": "value",
           "content": {
-            "type": "SYMBOL",
-            "name": "literal_int"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "literal_int"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "literal_hex"
+              }
+            ]
           }
         }
       ]
@@ -3017,6 +3026,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "literal_hex"
+        },
+        {
+          "type": "SYMBOL",
           "name": "literal_bool"
         },
         {
@@ -3149,6 +3162,29 @@
             "content": {
               "type": "PATTERN",
               "value": "[0-9]"
+            }
+          }
+        ]
+      }
+    },
+    "literal_hex": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "0"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[xX]"
+          },
+          {
+            "type": "REPEAT1",
+            "content": {
+              "type": "PATTERN",
+              "value": "[0-9a-fA-F]+"
             }
           }
         ]
