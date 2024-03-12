@@ -781,10 +781,9 @@ module.exports = grammar({
       repeat1(/[0-9]/)
     )),
 
-    literal_hex: $ => token(seq(
-      '0', /[xX]/,
-      repeat1(/[0-9a-fA-F]+/)
-    )),
+    literal_hex: $ => token(
+      /0[xX][0-9a-fA-F]+/,
+    ),
 
     literal_bool: $ => choice(
       'true',
