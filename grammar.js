@@ -468,7 +468,7 @@ module.exports = grammar({
 
     do_while_stmt: $ => seq(
       'do', field('body', $._func_stmt),
-      'while', '(', field('cond', $._expr), ')', ';'
+      'while', '(', field('cond', $._expr), ')'
     ),
 
 

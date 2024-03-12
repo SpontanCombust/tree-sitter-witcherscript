@@ -321,6 +321,7 @@ function test() {
             (func_call_expr
               func: (ident))))
         cond: (ident))
+      (nop)
       (for_stmt
         init: (assign_op_expr
           left: (ident)
