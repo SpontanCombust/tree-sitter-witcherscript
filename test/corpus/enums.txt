@@ -1,0 +1,27 @@
+===================================================================================================
+Enum
+===================================================================================================
+
+enum SomeEnum {
+  SomeEnum_Var1,
+  SomeEnum_Var2 = 1,
+  SomeEnum_Var3,
+  SomeEnum_Var4 = 0x11,
+}
+
+---------------------------------------------------------------------------------------------------
+
+(script
+  (enum_decl_stmt
+    name: (ident)
+    definition: (enum_block
+      (enum_decl_variant
+        name: (ident))
+      (enum_decl_variant
+        name: (ident)
+        value: (literal_int))
+      (enum_decl_variant
+        name: (ident))
+      (enum_decl_variant
+        name: (ident)
+        value: (literal_hex)))))

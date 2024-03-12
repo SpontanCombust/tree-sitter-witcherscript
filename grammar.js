@@ -143,16 +143,16 @@ module.exports = grammar({
     ),
 
     enum_block: $ => block_delim(
-      $.enum_decl_value, ','
-    ),
-    //TODO rename to enum_decl_variant
-    enum_decl_value: $ => seq(
-      field('name', $.ident),
-      // Error recovery with hidden rules is not so good when the rule is optional.
-      optional($._enum_decl_value_assign),
+      $.enum_decl_variant, ','
     ),
 
-    _enum_decl_value_assign: $ => seq(
+    enum_decl_variant: $ => seq(
+      field('name', $.ident),
+      // Error recovery with hidden rules is not so good when the rule is optional.
+      optional($._enum_decl_variant_assign),
+    ),
+
+    _enum_decl_variant_assign: $ => seq(
       '=', 
       field('value', choice(
         $.literal_int,

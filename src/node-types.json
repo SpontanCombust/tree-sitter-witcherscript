@@ -1241,7 +1241,7 @@
       "required": false,
       "types": [
         {
-          "type": "enum_decl_value",
+          "type": "enum_decl_variant",
           "named": true
         }
       ]
@@ -1274,7 +1274,7 @@
     }
   },
   {
-    "type": "enum_decl_value",
+    "type": "enum_decl_variant",
     "named": true,
     "fields": {
       "name": {

@@ -86,7 +86,7 @@
                   "members": [
                     {
                       "type": "SYMBOL",
-                      "name": "enum_decl_value"
+                      "name": "enum_decl_variant"
                     },
                     {
                       "type": "REPEAT",
@@ -99,7 +99,7 @@
                           },
                           {
                             "type": "SYMBOL",
-                            "name": "enum_decl_value"
+                            "name": "enum_decl_variant"
                           }
                         ]
                       }
@@ -131,7 +131,7 @@
         }
       ]
     },
-    "enum_decl_value": {
+    "enum_decl_variant": {
       "type": "SEQ",
       "members": [
         {
@@ -147,7 +147,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "_enum_decl_value_assign"
+              "name": "_enum_decl_variant_assign"
             },
             {
               "type": "BLANK"
@@ -156,7 +156,7 @@
         }
       ]
     },
-    "_enum_decl_value_assign": {
+    "_enum_decl_variant_assign": {
       "type": "SEQ",
       "members": [
         {
