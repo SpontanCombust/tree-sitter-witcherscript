@@ -28,8 +28,7 @@ const PREC = {
   CAST: 11,
   MEMBER: 12,
   CALL: 12,
-  ARRAY: 12,
-  MEMBER_CALL: 13,
+  ARRAY: 12
 };
 
 module.exports = grammar({
@@ -570,7 +569,6 @@ module.exports = grammar({
       $.new_expr,
       $.unary_op_expr,
       $.cast_expr,
-      $.member_func_call_expr,
       $.member_field_expr,
       $.func_call_expr,
       $.array_expr,
@@ -693,15 +691,6 @@ module.exports = grammar({
     )),
 
 
-    member_func_call_expr: $ => prec.left(PREC.MEMBER_CALL, seq(
-      field('accessor', $._expr),
-      '.',
-      field('func', $.ident),
-      '(',
-      field('args', optional($.func_call_args)),
-      ')'
-    )),
-
     member_field_expr: $ => prec.left(PREC.MEMBER, seq(
       field('accessor', $._expr),
       '.',
@@ -709,7 +698,7 @@ module.exports = grammar({
     )),
 
     func_call_expr: $ => prec.left(PREC.CALL, seq(
-      field('func', $.ident),
+      field('func', $._expr),
       '(',
       field('args', optional($.func_call_args)),
       ')'

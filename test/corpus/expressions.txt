@@ -294,9 +294,10 @@ function test() {
             accessor: (ident)
             member: (ident)))
         (expr_stmt 
-          (member_func_call_expr 
-            accessor: (ident)
-            func: (ident)
+          (func_call_expr
+            func: (member_field_expr
+              accessor: (ident)
+              member: (ident))
             args: (func_call_args
                 (literal_bool))))
         (expr_stmt 
@@ -371,11 +372,13 @@ function test() {
 
 
 ===================================================================================================
-Complex
+Real examples
 ===================================================================================================
 
 function test() {
     ((CMovingPhysicalAgentComponent)((CNewNPC)results[i]).GetMovingAgentComponent()).SetAnimatedMovement( false );
+
+    l_flashArray = GetModuleFlashValueStorage()().CreateTempFlashArray();
 }
 
 ---------------------------------------------------------------------------------------------------
@@ -386,19 +389,31 @@ function test() {
     params: (func_params)
     definition: (func_block
         (expr_stmt
-          (member_func_call_expr
-            accessor: (nested_expr
-              (cast_expr
-                type: (ident)
-                value: (member_func_call_expr
-                  accessor: (nested_expr
-                    (cast_expr
-                      type: (ident)
-                      value: (array_expr
-                        accessor: (ident)
-                        index: (ident))))
-                  func: (ident))))
-            func: (ident)
+          (func_call_expr
+            func: (member_field_expr
+              accessor: (nested_expr
+                (cast_expr
+                  type: (ident)
+                  value: (func_call_expr
+                    func: (member_field_expr
+                      accessor: (nested_expr
+                        (cast_expr
+                          type: (ident)
+                          value: (array_expr
+                            accessor: (ident)
+                            index: (ident))))
+                      member: (ident)))))
+              member: (ident))
             args: (func_call_args
-              (literal_bool)))))))
+              (literal_bool))))
+        (expr_stmt
+          (assign_op_expr
+            left: (ident)
+            op: (assign_op_direct)
+            right: (func_call_expr
+              func: (member_field_expr
+                accessor: (func_call_expr
+                  func: (func_call_expr
+                    func: (ident)))
+                member: (ident))))))))
                 
