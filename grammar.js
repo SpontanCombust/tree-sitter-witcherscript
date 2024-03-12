@@ -55,6 +55,7 @@ module.exports = grammar({
     'const',
     'continue', 
     'default',
+    'defaults',
     'delete',
     'do',
     'editable',
@@ -145,7 +146,7 @@ module.exports = grammar({
     enum_block: $ => block_delim(
       $.enum_decl_value, ','
     ),
-
+    //TODO rename to enum_decl_variant
     enum_decl_value: $ => seq(
       field('name', $.ident),
       // Error recovery with hidden rules is not so good when the rule is optional.
@@ -277,6 +278,18 @@ module.exports = grammar({
     class_autobind_specifier: $ => choice(
       $._access_modifier,
       'optional',
+    ),
+
+    member_defaults_block_stmt: $ => seq(
+      'defaults',
+      block($.member_defaults_block_assign)
+    ),
+
+    member_defaults_block_assign: $ => seq(
+      field('name', $.ident),
+      '=',
+      field('value', $._expr),
+      ';'
     ),
 
     member_default_val_stmt: $ => seq(
