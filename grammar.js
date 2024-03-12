@@ -646,12 +646,15 @@ module.exports = grammar({
 
     new_expr: $ => prec.right(PREC.NEW, seq(
       $._new_expr_intro,
-      'in',
-      field('lifetime_obj', $._expr)
+      optional($._new_expr_lifetime_obj)
     )),
 
     _new_expr_intro: $ => seq(
       'new', field('class', $.ident),
+    ),
+
+    _new_expr_lifetime_obj: $ => seq(
+      'in', field('lifetime_obj', $._expr)
     ),
 
     unary_op_expr: $ => prec.right(PREC.UNARY, seq(

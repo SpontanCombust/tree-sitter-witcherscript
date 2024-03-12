@@ -2604,16 +2604,16 @@
             "name": "_new_expr_intro"
           },
           {
-            "type": "STRING",
-            "value": "in"
-          },
-          {
-            "type": "FIELD",
-            "name": "lifetime_obj",
-            "content": {
-              "type": "SYMBOL",
-              "name": "_expr"
-            }
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_new_expr_lifetime_obj"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           }
         ]
       }
@@ -2631,6 +2631,23 @@
           "content": {
             "type": "SYMBOL",
             "name": "ident"
+          }
+        }
+      ]
+    },
+    "_new_expr_lifetime_obj": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "in"
+        },
+        {
+          "type": "FIELD",
+          "name": "lifetime_obj",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expr"
           }
         }
       ]

@@ -252,6 +252,9 @@ function test() {
     thePlayer.IsCiri(false);
     (Type)func(arg);
     isTrue ? true : getFalse();
+    new Foo;
+    new Bar in this;
+    baz = new Baz in theGame;
 }
 
 ---------------------------------------------------------------------------------------------------
@@ -308,7 +311,21 @@ function test() {
             cond: (ident)
             conseq: (literal_bool)
             alt: (func_call_expr 
-              func: (ident)))))))
+              func: (ident))))
+        (expr_stmt
+          (new_expr
+            class: (ident)))
+        (expr_stmt
+          (new_expr
+            class: (ident)
+            lifetime_obj: (this_expr)))
+        (expr_stmt
+          (assign_op_expr
+            left: (ident)
+            op: (assign_op_direct)
+            right: (new_expr
+              class: (ident)
+              lifetime_obj: (ident)))))))
 
 
 

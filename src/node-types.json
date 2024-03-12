@@ -2954,7 +2954,7 @@
       },
       "lifetime_obj": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "array_expr",
