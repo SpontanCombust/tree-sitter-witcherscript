@@ -504,7 +504,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "class_autobind_stmt"
+          "name": "autobind_stmt"
         },
         {
           "type": "SYMBOL",
@@ -520,7 +520,7 @@
         }
       ]
     },
-    "class_autobind_stmt": {
+    "autobind_stmt": {
       "type": "SEQ",
       "members": [
         {
@@ -530,13 +530,13 @@
             "type": "REPEAT",
             "content": {
               "type": "SYMBOL",
-              "name": "class_autobind_specifier"
+              "name": "autobind_specifier"
             }
           }
         },
         {
           "type": "SYMBOL",
-          "name": "_class_autobind_intro"
+          "name": "_autobind_intro"
         },
         {
           "type": "STRING",
@@ -552,7 +552,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_class_autobind_assign"
+          "name": "_autobind_assign"
         },
         {
           "type": "STRING",
@@ -560,7 +560,7 @@
         }
       ]
     },
-    "_class_autobind_intro": {
+    "_autobind_intro": {
       "type": "SEQ",
       "members": [
         {
@@ -577,7 +577,7 @@
         }
       ]
     },
-    "_class_autobind_assign": {
+    "_autobind_assign": {
       "type": "SEQ",
       "members": [
         {
@@ -588,22 +588,30 @@
           "type": "FIELD",
           "name": "value",
           "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "single"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "literal_string"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "_autobind_value"
           }
         }
       ]
     },
-    "class_autobind_specifier": {
+    "_autobind_value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "autobind_single"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "literal_string"
+        }
+      ]
+    },
+    "autobind_single": {
+      "type": "STRING",
+      "value": "single"
+    },
+    "autobind_specifier": {
       "type": "CHOICE",
       "members": [
         {
@@ -3328,7 +3336,7 @@
       "member_func_specifier"
     ],
     [
-      "class_autobind_specifier",
+      "autobind_specifier",
       "member_var_specifier",
       "member_func_specifier"
     ]
