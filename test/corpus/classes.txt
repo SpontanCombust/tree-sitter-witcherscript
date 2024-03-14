@@ -1,0 +1,121 @@
+===================================================================================================
+Classes
+===================================================================================================
+
+abstract statemachine class Player extends Actor {
+    public import const var HEALTH: int;
+    default HEALTH = 100;
+    hint HEALTH = "Player's health";
+
+    protected saved editable var foo, bar, baz: float;
+    private inlined var matrix: array<array<float>>; 
+
+    defaults {
+        foo = 0.;
+        bar = .1;
+        baz = 1.f;
+    }
+
+    public autobind autobind1: Component1 = "Component1"; 
+    protected optional autobind autobind2: Component2 = single;
+
+
+    event OnSpawned(spawnInfo: SSpawnInfo) {
+
+    }
+
+    import public function SomeFunction(param1: int, optional param2, param3: float): void {
+
+    }
+}
+
+---------------------------------------------------------------------------------------------------
+
+(script
+  (class_decl_stmt
+    specifiers: (class_specifier)
+    specifiers: (class_specifier)
+    name: (ident)
+    base: (ident)
+    definition: (class_block
+      (member_var_decl_stmt
+        specifiers: (member_var_specifier)
+        specifiers: (member_var_specifier)
+        specifiers: (member_var_specifier)
+        names: (ident)
+        var_type: (type_annot
+          type_name: (ident)))
+      (member_default_val_stmt
+        member: (ident)
+        value: (literal_int))
+      (member_hint_stmt
+        member: (ident)
+        value: (literal_string))
+      (member_var_decl_stmt
+        specifiers: (member_var_specifier)
+        specifiers: (member_var_specifier)
+        specifiers: (member_var_specifier)
+        names: (ident)
+        names: (ident)
+        names: (ident)
+        var_type: (type_annot
+          type_name: (ident)))
+      (member_var_decl_stmt
+        specifiers: (member_var_specifier)
+        specifiers: (member_var_specifier)
+        names: (ident)
+        var_type: (type_annot
+          type_name: (ident)
+          type_arg: (type_annot
+            type_name: (ident)
+            type_arg: (type_annot
+              type_name: (ident)))))
+      (member_defaults_block_stmt
+        (member_defaults_block_assign
+          member: (ident)
+          value: (literal_float))
+        (member_defaults_block_assign
+          member: (ident)
+          value: (literal_float))
+        (member_defaults_block_assign
+          member: (ident)
+          value: (literal_float)))
+      (autobind_stmt
+        specifiers: (autobind_specifier)
+        name: (ident)
+        autobind_type: (type_annot
+          type_name: (ident))
+        value: (literal_string))
+      (autobind_stmt
+        specifiers: (autobind_specifier)
+        specifiers: (autobind_specifier)
+        name: (ident)
+        autobind_type: (type_annot
+          type_name: (ident))
+        value: (autobind_single))
+      (event_decl_stmt
+        name: (ident)
+        params: (func_params
+          (func_param_group
+            names: (ident)
+            param_type: (type_annot
+              type_name: (ident))))
+        definition: (func_block))
+      (member_func_decl_stmt
+        specifiers: (member_func_specifier)
+        specifiers: (member_func_specifier)
+        name: (ident)
+        params: (func_params
+          (func_param_group
+            names: (ident)
+            param_type: (type_annot
+              type_name: (ident)))
+          (func_param_group
+            specifiers: (func_param_specifier)
+            names: (ident)
+            names: (ident)
+            param_type: (type_annot
+              type_name: (ident))))
+        return_type: (type_annot
+          type_name: (ident))
+        definition: (func_block)))))
