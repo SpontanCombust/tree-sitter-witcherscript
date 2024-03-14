@@ -105,7 +105,7 @@ module.exports = grammar({
     [$.struct_specifier, $.state_specifier, $.class_specifier, $.global_func_specifier], // import
     [$.state_specifier, $.class_specifier], // abstract
     [$.member_var_specifier, $.member_func_specifier],
-    [$.class_autobind_specifier, $.member_var_specifier, $.member_func_specifier] // access_modifier
+    [$.autobind_specifier, $.member_var_specifier, $.member_func_specifier] // access_modifier
   ],
 
   rules: {
@@ -249,34 +249,38 @@ module.exports = grammar({
       $.member_default_val_stmt,
       $.member_defaults_block_stmt,
       $.member_hint_stmt,
-      $.class_autobind_stmt,
+      $.autobind_stmt,
       $.member_func_decl_stmt,
       $.event_decl_stmt,
       $.nop
     ),
 
-    class_autobind_stmt: $ => seq(
-      field('specifiers', repeat($.class_autobind_specifier)),
-      $._class_autobind_intro,
+    autobind_stmt: $ => seq(
+      field('specifiers', repeat($.autobind_specifier)),
+      $._autobind_intro,
       ':',
       field('autobind_type', $.type_annot),
-      $._class_autobind_assign,
+      $._autobind_assign,
       ';'
     ),
 
-    _class_autobind_intro: $ => seq(
+    _autobind_intro: $ => seq(
       'autobind', field('name', $.ident),
     ),
 
-    _class_autobind_assign: $ => seq(
+    _autobind_assign: $ => seq(
       '=',
-      field('value', choice(
-        'single',
-        $.literal_string
-      ))
+      field('value', $._autobind_value)
     ),
 
-    class_autobind_specifier: $ => choice(
+    _autobind_value: $ => choice(
+      $.autobind_single,
+      $.literal_string
+    ),
+
+    autobind_single: $ => 'single',
+
+    autobind_specifier: $ => choice(
       $._access_modifier,
       'optional',
     ),

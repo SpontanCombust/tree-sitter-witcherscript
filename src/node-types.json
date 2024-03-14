@@ -423,6 +423,66 @@
     }
   },
   {
+    "type": "autobind_single",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "autobind_specifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "autobind_stmt",
+    "named": true,
+    "fields": {
+      "autobind_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_annot",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "specifiers": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "autobind_specifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "autobind_single",
+            "named": true
+          },
+          {
+            "type": "literal_string",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "binary_op_diff",
     "named": true,
     "fields": {}
@@ -826,61 +886,6 @@
     }
   },
   {
-    "type": "class_autobind_specifier",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "class_autobind_stmt",
-    "named": true,
-    "fields": {
-      "autobind_type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type_annot",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "ident",
-            "named": true
-          }
-        ]
-      },
-      "specifiers": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "class_autobind_specifier",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "literal_string",
-            "named": true
-          },
-          {
-            "type": "single",
-            "named": false
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "class_block",
     "named": true,
     "fields": {},
@@ -889,7 +894,7 @@
       "required": false,
       "types": [
         {
-          "type": "class_autobind_stmt",
+          "type": "autobind_stmt",
           "named": true
         },
         {
