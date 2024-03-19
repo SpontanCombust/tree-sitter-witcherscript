@@ -184,7 +184,7 @@ static bool scan_ident(TSLexer *lexer, char* buffer, int buffer_size) {
     }
 
     // skip leading whitespace
-    while (iswspace(lexer->lookahead)) {
+    while (isspace(lexer->lookahead)) {
         lexer->advance(lexer, true);
     }
 
