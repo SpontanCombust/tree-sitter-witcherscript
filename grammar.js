@@ -35,7 +35,7 @@ module.exports = grammar({
   name: 'witcherscript',
   
   extras: $ => [
-    /\s|\\\r?\n/,
+    /\s/,
     $.comment,
   ],
 

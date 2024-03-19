@@ -184,7 +184,7 @@ static bool scan_ident(TSLexer *lexer, char* buffer, int buffer_size) {
     }
 
     // skip leading whitespace
-    while (iswspace(lexer->lookahead)) {
+    while (isspace(lexer->lookahead)) {
         lexer->advance(lexer, true);
     }
 
@@ -227,8 +227,7 @@ bool tree_sitter_witcherscript_external_scanner_scan(void *payload, TSLexer *lex
     }
 
     if(expected_ident || expected_keyword) {
-        static char buffer[MAX_IDENT_LENGTH];
-        memset(buffer, '\0', MAX_IDENT_LENGTH);
+        char buffer[MAX_IDENT_LENGTH] = {0};
 
         if(scan_ident(lexer, buffer, MAX_IDENT_LENGTH)) {
             // check whether this identifier is actually a reserved keyword
