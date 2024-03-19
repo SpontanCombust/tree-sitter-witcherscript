@@ -1,7 +1,7 @@
 [package]
 name = "tree-sitter-witcherscript"
 description = "WitcherScript grammar for the tree-sitter parsing library"
-version = "0.9.0"
+version = "0.9.1"
 keywords = ["incremental", "parsing", "witcherscript"]
 categories = ["parsing", "text-editors"]
 repository = "https://github.com/tree-sitter/tree-sitter-witcherscript"
