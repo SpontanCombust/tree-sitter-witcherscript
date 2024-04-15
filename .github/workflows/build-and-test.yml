@@ -1,0 +1,39 @@
+name: build-and-test
+
+on:
+  push:
+    branches: 
+      - '*'
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup
+      uses: actions/setup-node@v4
+      run: npm install
+    - name: Generate
+      run: npm run generate
+    - uses: tj-actions/changed-files@v44
+    - name: Commit changes if there are any
+      if: steps.changed-files.outputs.test_any_changed == 'true'
+      run: |
+        git config user.name 'github-actions[bot]'
+        git config user.email 'github-actions[bot]@users.noreply.github.com'
+        git commit -am "ci: update parser"
+        git push
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup
+      uses: actions/setup-node@v4
+      run: npm install
+    - name: Test
+      run: npm run test
