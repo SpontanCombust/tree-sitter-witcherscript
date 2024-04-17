@@ -17,14 +17,9 @@ jobs:
     - run: npm install
     - name: Generate
       run: npm run generate
-    - uses: tj-actions/changed-files@v44
-    - name: Commit changes if there are any
-      if: steps.changed-files.outputs.test_any_changed == 'true'
-      run: |
-        git config user.name 'github-actions[bot]'
-        git config user.email 'github-actions[bot]@users.noreply.github.com'
-        git commit -am "ci: update parser"
-        git push
+    - uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "ci: parser"
 
   test:
     needs: build
