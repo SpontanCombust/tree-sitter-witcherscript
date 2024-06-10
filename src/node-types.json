@@ -428,11 +428,6 @@
     "fields": {}
   },
   {
-    "type": "autobind_specifier",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "autobind_stmt",
     "named": true,
     "fields": {
@@ -461,7 +456,7 @@
         "required": false,
         "types": [
           {
-            "type": "autobind_specifier",
+            "type": "specifier",
             "named": true
           }
         ]
@@ -902,15 +897,15 @@
           "named": true
         },
         {
+          "type": "func_decl_stmt",
+          "named": true
+        },
+        {
           "type": "member_default_val_stmt",
           "named": true
         },
         {
           "type": "member_defaults_block_stmt",
-          "named": true
-        },
-        {
-          "type": "member_func_decl_stmt",
           "named": true
         },
         {
@@ -967,17 +962,12 @@
         "required": false,
         "types": [
           {
-            "type": "class_specifier",
+            "type": "specifier",
             "named": true
           }
         ]
       }
     }
-  },
-  {
-    "type": "class_specifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "continue_stmt",
@@ -2080,67 +2070,7 @@
     }
   },
   {
-    "type": "func_param_group",
-    "named": true,
-    "fields": {
-      "names": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "ident",
-            "named": true
-          }
-        ]
-      },
-      "param_type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type_annot",
-            "named": true
-          }
-        ]
-      },
-      "specifiers": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "func_param_specifier",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "func_param_specifier",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "func_params",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "func_param_group",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "global_func_decl_stmt",
+    "type": "func_decl_stmt",
     "named": true,
     "fields": {
       "definition": {
@@ -2162,7 +2092,7 @@
         "required": false,
         "types": [
           {
-            "type": "global_func_flavour",
+            "type": "func_flavour",
             "named": true
           }
         ]
@@ -2202,7 +2132,7 @@
         "required": false,
         "types": [
           {
-            "type": "global_func_specifier",
+            "type": "specifier",
             "named": true
           }
         ]
@@ -2210,14 +2140,64 @@
     }
   },
   {
-    "type": "global_func_flavour",
+    "type": "func_flavour",
     "named": true,
     "fields": {}
   },
   {
-    "type": "global_func_specifier",
+    "type": "func_param_group",
     "named": true,
-    "fields": {}
+    "fields": {
+      "names": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "param_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_annot",
+            "named": true
+          }
+        ]
+      },
+      "specifiers": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "specifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "func_params",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "func_param_group",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "if_stmt",
@@ -2791,86 +2771,6 @@
     }
   },
   {
-    "type": "member_func_decl_stmt",
-    "named": true,
-    "fields": {
-      "definition": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "func_block",
-            "named": true
-          },
-          {
-            "type": "nop",
-            "named": true
-          }
-        ]
-      },
-      "flavour": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "member_func_flavour",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "ident",
-            "named": true
-          }
-        ]
-      },
-      "params": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "func_params",
-            "named": true
-          }
-        ]
-      },
-      "return_type": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "type_annot",
-            "named": true
-          }
-        ]
-      },
-      "specifiers": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "member_func_specifier",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "member_func_flavour",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "member_func_specifier",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "member_hint_stmt",
     "named": true,
     "fields": {
@@ -2919,7 +2819,7 @@
         "required": false,
         "types": [
           {
-            "type": "member_var_specifier",
+            "type": "specifier",
             "named": true
           }
         ]
@@ -2935,11 +2835,6 @@
         ]
       }
     }
-  },
-  {
-    "type": "member_var_specifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "nested_expr",
@@ -3276,7 +3171,7 @@
           "named": true
         },
         {
-          "type": "global_func_decl_stmt",
+          "type": "func_decl_stmt",
           "named": true
         },
         {
@@ -3293,6 +3188,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "specifier",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "state_decl_stmt",
@@ -3343,17 +3243,12 @@
         "required": false,
         "types": [
           {
-            "type": "state_specifier",
+            "type": "specifier",
             "named": true
           }
         ]
       }
     }
-  },
-  {
-    "type": "state_specifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "struct_block",
@@ -3415,17 +3310,12 @@
         "required": false,
         "types": [
           {
-            "type": "struct_specifier",
+            "type": "specifier",
             "named": true
           }
         ]
       }
     }
-  },
-  {
-    "type": "struct_specifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "super_expr",
