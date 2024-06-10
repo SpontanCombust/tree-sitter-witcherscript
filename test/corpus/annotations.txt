@@ -1,0 +1,113 @@
+===================================================================================================
+Annotations
+===================================================================================================
+
+
+@wrapMethod(CPlayer) 
+function CheatGod2(on : bool)
+{
+	wrappedMethod(on); // this will call the original CheatGod2
+	thePlayer.AddMoney(300);
+}
+
+@addMethod(CPlayer) 
+public function scriptextAdd()
+{
+	dummy = 12345;
+}
+
+@replaceMethod(CPlayer) 
+function CheatGod2(on : bool)
+{
+	thePlayer.AddMoney(2000);
+}
+
+@replaceMethod 
+function klapaucius()
+{
+    thePlayer.AddMoney(1000);
+}
+
+@addField(CPlayer)
+public var dummy: int;
+
+
+---------------------------------------------------------------------------------------------------
+
+(script
+  (func_decl
+    annotation: (annotation
+      name: (annotation_ident)
+      arg: (ident))
+    name: (ident)
+    params: (func_params
+      (func_param_group
+        names: (ident)
+        param_type: (type_annot
+          type_name: (ident))))
+    definition: (func_def
+      (expr_stmt
+        (func_call_expr
+          func: (ident)
+          args: (func_call_args
+            (ident))))
+      (comment)
+      (expr_stmt
+        (func_call_expr
+          func: (member_access_expr
+            accessor: (ident)
+            member: (ident))
+          args: (func_call_args
+            (literal_int))))))
+  (func_decl
+    annotation: (annotation
+      name: (annotation_ident)
+      arg: (ident))
+    specifiers: (specifier)
+    name: (ident)
+    params: (func_params)
+    definition: (func_def
+      (expr_stmt
+        (assign_op_expr
+          left: (ident)
+          op: (assign_op_direct)
+          right: (literal_int)))))
+  (func_decl
+    annotation: (annotation
+      name: (annotation_ident)
+      arg: (ident))
+    name: (ident)
+    params: (func_params
+      (func_param_group
+        names: (ident)
+        param_type: (type_annot
+          type_name: (ident))))
+    definition: (func_def
+      (expr_stmt
+        (func_call_expr
+          func: (member_access_expr
+            accessor: (ident)
+            member: (ident))
+          args: (func_call_args
+            (literal_int))))))
+  (func_decl
+    annotation: (annotation
+      name: (annotation_ident))
+    name: (ident)
+    params: (func_params)
+    definition: (func_def
+      (expr_stmt
+        (func_call_expr
+          func: (member_access_expr
+            accessor: (ident)
+            member: (ident))
+          args: (func_call_args
+            (literal_int))))))
+  (member_var_decl
+    annotation: (annotation
+      name: (annotation_ident)
+      arg: (ident))
+    specifiers: (specifier)
+    names: (ident)
+    var_type: (type_annot
+      type_name: (ident))))

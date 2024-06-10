@@ -14,10 +14,10 @@ function foo() { // comment after some code
 
 (script
   (comment)
-  (global_func_decl_stmt
+  (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
       (comment)
       (comment)))
   (comment))
@@ -65,11 +65,11 @@ class /* you get a comment */ Foo  /* and YOU get a comment */ {
     (comment)
     (comment)
     (comment)
-    (class_decl_stmt
+    (class_decl
       (comment)
       name: (ident)
       (comment)
-      definition: (class_block
+      definition: (class_def
         (comment)))
     (comment)
     (comment)
