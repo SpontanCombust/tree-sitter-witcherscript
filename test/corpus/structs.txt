@@ -22,11 +22,11 @@ import struct Foo {
 
 (script
   (struct_decl_stmt
-    specifiers: (struct_specifier)
+    specifiers: (specifier)
     name: (ident)
     definition: (struct_block
       (member_var_decl_stmt
-        specifiers: (member_var_specifier)
+        specifiers: (specifier)
         names: (ident)
         names: (ident)
         names: (ident)

@@ -16,7 +16,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (global_func_decl_stmt
+  (func_decl_stmt
     name: (ident)
     params: (func_params)
     definition: (func_block
@@ -54,7 +54,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (global_func_decl_stmt
+  (func_decl_stmt
     name: (ident)
     params: (func_params)
     definition: (func_block
@@ -99,7 +99,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (global_func_decl_stmt
+  (func_decl_stmt
     name: (ident)
     params: (func_params)
     definition: (func_block
@@ -199,7 +199,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (global_func_decl_stmt
+  (func_decl_stmt
     name: (ident)
     params: (func_params)
     definition: (func_block
@@ -260,7 +260,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (global_func_decl_stmt
+  (func_decl_stmt
     name: (ident)
     params: (func_params)
     definition: (func_block
@@ -342,7 +342,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (global_func_decl_stmt
+  (func_decl_stmt
     name: (ident)
     params: (func_params)
     definition: (func_block
@@ -384,7 +384,7 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (global_func_decl_stmt
+  (func_decl_stmt
     name: (ident)
     params: (func_params)
     definition: (func_block

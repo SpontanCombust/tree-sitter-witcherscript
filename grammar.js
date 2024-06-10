@@ -102,10 +102,6 @@ module.exports = grammar({
 
   conflicts: $ => [
     [$._expr, $._paren_ident], // nested expr
-    [$.struct_specifier, $.state_specifier, $.class_specifier, $.global_func_specifier], // import
-    [$.state_specifier, $.class_specifier], // abstract
-    [$.member_var_specifier, $.member_func_specifier],
-    [$.autobind_specifier, $.member_var_specifier, $.member_func_specifier] // access_modifier
   ],
 
   rules: {
@@ -113,7 +109,7 @@ module.exports = grammar({
     // TOP LEVEL RULE ===============================================
     
     script: $ => repeat(choice(
-      $.global_func_decl_stmt,
+      $.func_decl_stmt,
       $.class_decl_stmt,
       $.state_decl_stmt,
       $.struct_decl_stmt,
@@ -164,7 +160,7 @@ module.exports = grammar({
     // STRUCT DECLARATION ==================
 
     struct_decl_stmt: $ => seq(
-      field('specifiers', repeat($.struct_specifier)),
+      field('specifiers', repeat($.specifier)),
       $._struct_decl_intro,
       field('definition', $.struct_block)
     ),
@@ -175,10 +171,6 @@ module.exports = grammar({
 
     struct_block: $ => block(
       $._struct_stmt
-    ),
-
-    struct_specifier: $ => choice(
-      'import'
     ),
 
     _struct_stmt: $ => choice(
@@ -193,7 +185,7 @@ module.exports = grammar({
     // STATE DECLARATION ===================
 
     state_decl_stmt: $ => seq(
-      field('specifiers', repeat($.state_specifier)),
+      field('specifiers', repeat($.specifier)),
       $._state_decl_intro,
       $._state_decl_parent,
       optional($._class_base),
@@ -208,16 +200,11 @@ module.exports = grammar({
       'in', field('parent', $.ident),
     ),
 
-    state_specifier: $ => choice(
-      'import',
-      'abstract'
-    ),
-
 
     // CLASS DECLARATION ===================
 
     class_decl_stmt: $ => seq(
-      field('specifiers', repeat($.class_specifier)),
+      field('specifiers', repeat($.specifier)),
       $._class_decl_intro,
       optional($._class_base),
       field('definition', $.class_block)
@@ -235,12 +222,6 @@ module.exports = grammar({
       'extends', field('base', $.ident)
     ),
 
-    class_specifier: $ => choice(
-      'import',
-      'abstract',
-      'statemachine'
-    ),
-
 
     // CLASS ===============================
 
@@ -250,13 +231,13 @@ module.exports = grammar({
       $.member_defaults_block_stmt,
       $.member_hint_stmt,
       $.autobind_stmt,
-      $.member_func_decl_stmt,
+      $.func_decl_stmt,
       $.event_decl_stmt,
       $.nop
     ),
 
     autobind_stmt: $ => seq(
-      field('specifiers', repeat($.autobind_specifier)),
+      field('specifiers', repeat($.specifier)),
       $._autobind_intro,
       ':',
       field('autobind_type', $.type_annot),
@@ -279,11 +260,6 @@ module.exports = grammar({
     ),
 
     autobind_single: $ => 'single',
-
-    autobind_specifier: $ => choice(
-      $._access_modifier,
-      'optional',
-    ),
 
     member_defaults_block_stmt: $ => seq(
       'defaults',
@@ -323,20 +299,11 @@ module.exports = grammar({
     ),
 
     member_var_decl_stmt: $ => seq(
-      field('specifiers', repeat($.member_var_specifier)),
+      field('specifiers', repeat($.specifier)),
       $._var_decl_intro,
       ':',
       field('var_type', $.type_annot),
       ';'
-    ),
-
-    member_var_specifier: $ => choice(
-      $._access_modifier,
-      'import',
-      'const',
-      'editable',
-      'inlined',
-      'saved',
     ),
 
 
@@ -356,21 +323,9 @@ module.exports = grammar({
       'event', field('name', $.ident),
     ),
 
-    member_func_decl_stmt: $ => seq(
-      field('specifiers', repeat($.member_func_specifier)),
-      field('flavour', optional($.member_func_flavour)),
-      $._func_decl_intro,
-      field('params', $.func_params),
-      optional(seq(
-        ':',
-        field('return_type', $.type_annot)
-      )),
-      field('definition', $._func_definition)
-    ),
-
-    global_func_decl_stmt: $ => seq(
-      field('specifiers', repeat($.global_func_specifier)),
-      field('flavour', optional($.global_func_flavour)),
+    func_decl_stmt: $ => seq(
+      field('specifiers', repeat($.specifier)),
+      field('flavour', optional($.func_flavour)),
       $._func_decl_intro,
       field('params', $.func_params),
       optional(seq(
@@ -395,48 +350,38 @@ module.exports = grammar({
     ), 
 
     func_param_group: $ => seq(
-      field('specifiers', repeat($.func_param_specifier)),
+      field('specifiers', repeat($.specifier)),
       field('names', comma1($.ident)),
       ':',
       field('param_type', $.type_annot),
     ),
 
-    func_param_specifier: $ => choice(
-      'optional',
-      'out'
-    ),
 
-
-    member_func_flavour: $ => choice(
-      'entry',
+    func_flavour: $ => choice(
       'cleanup',
+      'entry',
+      'exec',
+      'quest',
+      'reward',
+      'storyscene',
       'timer',
     ),
 
-    member_func_specifier: $ => choice(
-      $._access_modifier,
-      'import',
-      'latent',
+    specifier: $ => choice(
+      'abstract',
+      'const',
+      'editable',
       'final',
-    ),
-
-    _access_modifier: $ => choice(
-      "private",
-      "protected",
-      "public"
-    ),
-
-
-    global_func_flavour: $ => choice(
-      'exec',
-      'quest',
-      'storyscene',
-      'reward' // present in the code exactly once, LOL
-    ),
-
-    global_func_specifier: $ => choice(
       'import',
+      'inlined',
       'latent',
+      'optional',
+      'out',
+      'private',
+      'protected',
+      'public',
+      'saved',
+      'statemachine'
     ),
 
 
