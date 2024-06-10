@@ -17,23 +17,23 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (global_func_decl_stmt
+  (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
       (expr_stmt
         (assign_op_expr
-          left: (member_field_expr
+          left: (member_access_expr
             accessor: (ident)
             member: (ident))
           op: (assign_op_direct)
           right: (literal_int)))
       (expr_stmt
         (func_call_expr
-          func: (member_field_expr
+          func: (member_access_expr
             accessor: (ident)
             member: (ident))))
-      (func_block
+      (compound_stmt
         (delete_stmt
           (array_expr
             accessor: (ident)
@@ -63,27 +63,27 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (global_func_decl_stmt
+  (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_block
-      (var_decl_stmt
+    definition: (func_def
+      (local_var_decl_stmt
         names: (ident)
         var_type: (type_annot
           type_name: (ident)))
-      (var_decl_stmt
+      (local_var_decl_stmt
         names: (ident)
         names: (ident)
         names: (ident)
         var_type: (type_annot
           type_name: (ident)))
-      (var_decl_stmt
+      (local_var_decl_stmt
         names: (ident)
         var_type: (type_annot
           type_name: (ident)
           type_arg: (type_annot
             type_name: (ident))))
-      (var_decl_stmt
+      (local_var_decl_stmt
         names: (ident)
         var_type: (type_annot
           type_name: (ident))
@@ -127,10 +127,10 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (global_func_decl_stmt
+  (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
       (if_stmt
         cond: (binary_op_expr
           left: (binary_op_expr
@@ -139,10 +139,10 @@ function test() {
             right: (ident))
           op: (binary_op_and)
           right: (ident))
-        body: (func_block
+        body: (compound_stmt
           (if_stmt
             cond: (func_call_expr
-              func: (member_field_expr
+              func: (member_access_expr
                 accessor: (this_expr)
                 member: (ident)))
             body: (expr_stmt
@@ -157,7 +157,7 @@ function test() {
             cond: (unary_op_expr
               op: (unary_op_not)
               right: (ident))
-            body: (func_block
+            body: (compound_stmt
               (expr_stmt
                 (func_call_expr
                   func: (ident))))
@@ -166,14 +166,14 @@ function test() {
                 left: (ident)
                 op: (binary_op_neq)
                 right: (ident))
-              body: (func_block
+              body: (compound_stmt
                 (if_stmt
                   cond: (func_call_expr
                     func: (ident)
                     args: (func_call_args
                       (func_call_expr
                         func: (ident))
-                      (member_field_expr
+                      (member_access_expr
                         accessor: (this_expr)
                         member: (ident))))
                   body: (nop))
@@ -181,7 +181,7 @@ function test() {
                 (expr_stmt
                   (func_call_expr
                     func: (ident))))
-              else: (func_block
+              else: (compound_stmt
                 (expr_stmt
                   (assign_op_expr
                     left: (ident)
@@ -189,7 +189,7 @@ function test() {
                     right: (literal_int)))))))
         else: (if_stmt
           cond: (literal_bool)
-          body: (func_block
+          body: (compound_stmt
             (expr_stmt
               (assign_op_expr
                 left: (ident)
@@ -231,16 +231,16 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (global_func_decl_stmt
+  (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
       (switch_stmt
         cond: (ident)
         body: (switch_block
           (switch_case_label
             value: (ident))
-          (func_block
+          (compound_stmt
             (expr_stmt
               (func_call_expr
                 func: (ident))))
@@ -255,7 +255,7 @@ function test() {
           (break_stmt)
           (switch_case_label
             value: (ident))
-          (func_block
+          (compound_stmt
             (expr_stmt
               (func_call_expr
                 func: (ident))))
@@ -299,16 +299,16 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (global_func_decl_stmt
+  (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
       (while_stmt
         cond: (literal_bool)
-        body: (func_block
+        body: (compound_stmt
           (if_stmt
             cond: (ident)
-            body: (func_block
+            body: (compound_stmt
               (break_stmt)))))
       (while_stmt
         cond: (binary_op_expr
@@ -318,7 +318,7 @@ function test() {
           right: (literal_int))
         body: (nop))
       (do_while_stmt
-        body: (func_block
+        body: (compound_stmt
           (expr_stmt
             (func_call_expr
               func: (ident))))
@@ -333,14 +333,14 @@ function test() {
           left: (ident)
           op: (binary_op_lt)
           right: (func_call_expr
-            func: (member_field_expr
+            func: (member_access_expr
               accessor: (ident)
               member: (ident))))
         iter: (assign_op_expr
           left: (ident)
           op: (assign_op_sum)
           right: (literal_int))
-        body: (func_block
+        body: (compound_stmt
           (expr_stmt
             (func_call_expr
               func: (ident)))))

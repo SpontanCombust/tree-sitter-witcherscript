@@ -1,5 +1,31 @@
 [
   {
+    "type": "annotation",
+    "named": true,
+    "fields": {
+      "arg": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "annotation_ident",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "array_expr",
     "named": true,
     "fields": {
@@ -60,7 +86,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -154,7 +180,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -259,7 +285,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -383,7 +409,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -423,17 +449,7 @@
     }
   },
   {
-    "type": "autobind_single",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "autobind_specifier",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "autobind_stmt",
+    "type": "autobind_decl",
     "named": true,
     "fields": {
       "autobind_type": {
@@ -461,7 +477,7 @@
         "required": false,
         "types": [
           {
-            "type": "autobind_specifier",
+            "type": "specifier",
             "named": true
           }
         ]
@@ -481,6 +497,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "autobind_single",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "binary_op_diff",
@@ -548,7 +569,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -708,7 +729,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -846,7 +867,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -886,50 +907,7 @@
     }
   },
   {
-    "type": "class_block",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "autobind_stmt",
-          "named": true
-        },
-        {
-          "type": "event_decl_stmt",
-          "named": true
-        },
-        {
-          "type": "member_default_val_stmt",
-          "named": true
-        },
-        {
-          "type": "member_defaults_block_stmt",
-          "named": true
-        },
-        {
-          "type": "member_func_decl_stmt",
-          "named": true
-        },
-        {
-          "type": "member_hint_stmt",
-          "named": true
-        },
-        {
-          "type": "member_var_decl_stmt",
-          "named": true
-        },
-        {
-          "type": "nop",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "class_decl_stmt",
+    "type": "class_decl",
     "named": true,
     "fields": {
       "base": {
@@ -947,7 +925,7 @@
         "required": true,
         "types": [
           {
-            "type": "class_block",
+            "type": "class_def",
             "named": true
           }
         ]
@@ -967,7 +945,7 @@
         "required": false,
         "types": [
           {
-            "type": "class_specifier",
+            "type": "specifier",
             "named": true
           }
         ]
@@ -975,9 +953,110 @@
     }
   },
   {
-    "type": "class_specifier",
+    "type": "class_def",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "autobind_decl",
+          "named": true
+        },
+        {
+          "type": "event_decl",
+          "named": true
+        },
+        {
+          "type": "func_decl",
+          "named": true
+        },
+        {
+          "type": "member_default_val",
+          "named": true
+        },
+        {
+          "type": "member_default_val_block",
+          "named": true
+        },
+        {
+          "type": "member_hint",
+          "named": true
+        },
+        {
+          "type": "member_var_decl",
+          "named": true
+        },
+        {
+          "type": "nop",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "compound_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "break_stmt",
+          "named": true
+        },
+        {
+          "type": "compound_stmt",
+          "named": true
+        },
+        {
+          "type": "continue_stmt",
+          "named": true
+        },
+        {
+          "type": "delete_stmt",
+          "named": true
+        },
+        {
+          "type": "do_while_stmt",
+          "named": true
+        },
+        {
+          "type": "expr_stmt",
+          "named": true
+        },
+        {
+          "type": "for_stmt",
+          "named": true
+        },
+        {
+          "type": "if_stmt",
+          "named": true
+        },
+        {
+          "type": "local_var_decl_stmt",
+          "named": true
+        },
+        {
+          "type": "nop",
+          "named": true
+        },
+        {
+          "type": "return_stmt",
+          "named": true
+        },
+        {
+          "type": "switch_stmt",
+          "named": true
+        },
+        {
+          "type": "while_stmt",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "continue_stmt",
@@ -1045,7 +1124,7 @@
           "named": true
         },
         {
-          "type": "member_field_expr",
+          "type": "member_access_expr",
           "named": true
         },
         {
@@ -1096,6 +1175,10 @@
             "named": true
           },
           {
+            "type": "compound_stmt",
+            "named": true
+          },
+          {
             "type": "continue_stmt",
             "named": true
           },
@@ -1116,11 +1199,11 @@
             "named": true
           },
           {
-            "type": "func_block",
+            "type": "if_stmt",
             "named": true
           },
           {
-            "type": "if_stmt",
+            "type": "local_var_decl_stmt",
             "named": true
           },
           {
@@ -1133,10 +1216,6 @@
           },
           {
             "type": "switch_stmt",
-            "named": true
-          },
-          {
-            "type": "var_decl_stmt",
             "named": true
           },
           {
@@ -1202,7 +1281,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -1242,22 +1321,7 @@
     }
   },
   {
-    "type": "enum_block",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "enum_decl_variant",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "enum_decl_stmt",
+    "type": "enum_decl",
     "named": true,
     "fields": {
       "definition": {
@@ -1265,7 +1329,7 @@
         "required": true,
         "types": [
           {
-            "type": "enum_block",
+            "type": "enum_def",
             "named": true
           }
         ]
@@ -1313,15 +1377,40 @@
     }
   },
   {
-    "type": "event_decl_stmt",
+    "type": "enum_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "enum_decl_variant",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "event_decl",
     "named": true,
     "fields": {
+      "annotation": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "annotation",
+            "named": true
+          }
+        ]
+      },
       "definition": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "func_block",
+            "type": "func_def",
             "named": true
           },
           {
@@ -1423,7 +1512,7 @@
           "named": true
         },
         {
-          "type": "member_field_expr",
+          "type": "member_access_expr",
           "named": true
         },
         {
@@ -1474,6 +1563,10 @@
             "named": true
           },
           {
+            "type": "compound_stmt",
+            "named": true
+          },
+          {
             "type": "continue_stmt",
             "named": true
           },
@@ -1494,11 +1587,11 @@
             "named": true
           },
           {
-            "type": "func_block",
+            "type": "if_stmt",
             "named": true
           },
           {
-            "type": "if_stmt",
+            "type": "local_var_decl_stmt",
             "named": true
           },
           {
@@ -1511,10 +1604,6 @@
           },
           {
             "type": "switch_stmt",
-            "named": true
-          },
-          {
-            "type": "var_decl_stmt",
             "named": true
           },
           {
@@ -1580,7 +1669,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -1674,7 +1763,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -1768,7 +1857,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -1805,69 +1894,6 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "func_block",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "break_stmt",
-          "named": true
-        },
-        {
-          "type": "continue_stmt",
-          "named": true
-        },
-        {
-          "type": "delete_stmt",
-          "named": true
-        },
-        {
-          "type": "do_while_stmt",
-          "named": true
-        },
-        {
-          "type": "expr_stmt",
-          "named": true
-        },
-        {
-          "type": "for_stmt",
-          "named": true
-        },
-        {
-          "type": "func_block",
-          "named": true
-        },
-        {
-          "type": "if_stmt",
-          "named": true
-        },
-        {
-          "type": "nop",
-          "named": true
-        },
-        {
-          "type": "return_stmt",
-          "named": true
-        },
-        {
-          "type": "switch_stmt",
-          "named": true
-        },
-        {
-          "type": "var_decl_stmt",
-          "named": true
-        },
-        {
-          "type": "while_stmt",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -1931,7 +1957,7 @@
           "named": true
         },
         {
-          "type": "member_field_expr",
+          "type": "member_access_expr",
           "named": true
         },
         {
@@ -2040,7 +2066,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -2080,75 +2106,25 @@
     }
   },
   {
-    "type": "func_param_group",
+    "type": "func_decl",
     "named": true,
     "fields": {
-      "names": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "ident",
-            "named": true
-          }
-        ]
-      },
-      "param_type": {
+      "annotation": {
         "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type_annot",
-            "named": true
-          }
-        ]
-      },
-      "specifiers": {
-        "multiple": true,
         "required": false,
         "types": [
           {
-            "type": "func_param_specifier",
+            "type": "annotation",
             "named": true
           }
         ]
-      }
-    }
-  },
-  {
-    "type": "func_param_specifier",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "func_params",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "func_param_group",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "global_func_decl_stmt",
-    "named": true,
-    "fields": {
+      },
       "definition": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "func_block",
+            "type": "func_def",
             "named": true
           },
           {
@@ -2162,7 +2138,7 @@
         "required": false,
         "types": [
           {
-            "type": "global_func_flavour",
+            "type": "func_flavour",
             "named": true
           }
         ]
@@ -2202,7 +2178,7 @@
         "required": false,
         "types": [
           {
-            "type": "global_func_specifier",
+            "type": "specifier",
             "named": true
           }
         ]
@@ -2210,14 +2186,127 @@
     }
   },
   {
-    "type": "global_func_flavour",
+    "type": "func_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "break_stmt",
+          "named": true
+        },
+        {
+          "type": "compound_stmt",
+          "named": true
+        },
+        {
+          "type": "continue_stmt",
+          "named": true
+        },
+        {
+          "type": "delete_stmt",
+          "named": true
+        },
+        {
+          "type": "do_while_stmt",
+          "named": true
+        },
+        {
+          "type": "expr_stmt",
+          "named": true
+        },
+        {
+          "type": "for_stmt",
+          "named": true
+        },
+        {
+          "type": "if_stmt",
+          "named": true
+        },
+        {
+          "type": "local_var_decl_stmt",
+          "named": true
+        },
+        {
+          "type": "nop",
+          "named": true
+        },
+        {
+          "type": "return_stmt",
+          "named": true
+        },
+        {
+          "type": "switch_stmt",
+          "named": true
+        },
+        {
+          "type": "while_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "func_flavour",
     "named": true,
     "fields": {}
   },
   {
-    "type": "global_func_specifier",
+    "type": "func_param_group",
     "named": true,
-    "fields": {}
+    "fields": {
+      "names": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "param_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_annot",
+            "named": true
+          }
+        ]
+      },
+      "specifiers": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "specifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "func_params",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "func_param_group",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "if_stmt",
@@ -2229,6 +2318,10 @@
         "types": [
           {
             "type": "break_stmt",
+            "named": true
+          },
+          {
+            "type": "compound_stmt",
             "named": true
           },
           {
@@ -2252,11 +2345,11 @@
             "named": true
           },
           {
-            "type": "func_block",
+            "type": "if_stmt",
             "named": true
           },
           {
-            "type": "if_stmt",
+            "type": "local_var_decl_stmt",
             "named": true
           },
           {
@@ -2269,10 +2362,6 @@
           },
           {
             "type": "switch_stmt",
-            "named": true
-          },
-          {
-            "type": "var_decl_stmt",
             "named": true
           },
           {
@@ -2338,7 +2427,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -2384,6 +2473,10 @@
             "named": true
           },
           {
+            "type": "compound_stmt",
+            "named": true
+          },
+          {
             "type": "continue_stmt",
             "named": true
           },
@@ -2404,11 +2497,11 @@
             "named": true
           },
           {
-            "type": "func_block",
+            "type": "if_stmt",
             "named": true
           },
           {
-            "type": "if_stmt",
+            "type": "local_var_decl_stmt",
             "named": true
           },
           {
@@ -2421,10 +2514,6 @@
           },
           {
             "type": "switch_stmt",
-            "named": true
-          },
-          {
-            "type": "var_decl_stmt",
             "named": true
           },
           {
@@ -2446,22 +2535,12 @@
     "fields": {}
   },
   {
-    "type": "member_default_val_stmt",
+    "type": "local_var_decl_stmt",
     "named": true,
     "fields": {
-      "member": {
+      "init_value": {
         "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "ident",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "array_expr",
@@ -2516,7 +2595,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -2552,113 +2631,27 @@
             "named": true
           }
         ]
-      }
-    }
-  },
-  {
-    "type": "member_defaults_block_assign",
-    "named": true,
-    "fields": {
-      "member": {
-        "multiple": false,
+      },
+      "names": {
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": ",",
+            "named": false
+          },
           {
             "type": "ident",
             "named": true
           }
         ]
       },
-      "value": {
+      "var_type": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "array_expr",
-            "named": true
-          },
-          {
-            "type": "assign_op_expr",
-            "named": true
-          },
-          {
-            "type": "binary_op_expr",
-            "named": true
-          },
-          {
-            "type": "cast_expr",
-            "named": true
-          },
-          {
-            "type": "func_call_expr",
-            "named": true
-          },
-          {
-            "type": "ident",
-            "named": true
-          },
-          {
-            "type": "literal_bool",
-            "named": true
-          },
-          {
-            "type": "literal_float",
-            "named": true
-          },
-          {
-            "type": "literal_hex",
-            "named": true
-          },
-          {
-            "type": "literal_int",
-            "named": true
-          },
-          {
-            "type": "literal_name",
-            "named": true
-          },
-          {
-            "type": "literal_null",
-            "named": true
-          },
-          {
-            "type": "literal_string",
-            "named": true
-          },
-          {
-            "type": "member_field_expr",
-            "named": true
-          },
-          {
-            "type": "nested_expr",
-            "named": true
-          },
-          {
-            "type": "new_expr",
-            "named": true
-          },
-          {
-            "type": "parent_expr",
-            "named": true
-          },
-          {
-            "type": "super_expr",
-            "named": true
-          },
-          {
-            "type": "ternary_cond_expr",
-            "named": true
-          },
-          {
-            "type": "this_expr",
-            "named": true
-          },
-          {
-            "type": "unary_op_expr",
-            "named": true
-          },
-          {
-            "type": "virtual_parent_expr",
+            "type": "type_annot",
             "named": true
           }
         ]
@@ -2666,22 +2659,7 @@
     }
   },
   {
-    "type": "member_defaults_block_stmt",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "member_defaults_block_assign",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "member_field_expr",
+    "type": "member_access_expr",
     "named": true,
     "fields": {
       "accessor": {
@@ -2741,7 +2719,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -2791,34 +2769,10 @@
     }
   },
   {
-    "type": "member_func_decl_stmt",
+    "type": "member_default_val",
     "named": true,
     "fields": {
-      "definition": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "func_block",
-            "named": true
-          },
-          {
-            "type": "nop",
-            "named": true
-          }
-        ]
-      },
-      "flavour": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "member_func_flavour",
-            "named": true
-          }
-        ]
-      },
-      "name": {
+      "member": {
         "multiple": false,
         "required": true,
         "types": [
@@ -2828,32 +2782,96 @@
           }
         ]
       },
-      "params": {
+      "value": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "func_params",
+            "type": "array_expr",
             "named": true
-          }
-        ]
-      },
-      "return_type": {
-        "multiple": false,
-        "required": false,
-        "types": [
+          },
           {
-            "type": "type_annot",
+            "type": "assign_op_expr",
             "named": true
-          }
-        ]
-      },
-      "specifiers": {
-        "multiple": true,
-        "required": false,
-        "types": [
+          },
           {
-            "type": "member_func_specifier",
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal_bool",
+            "named": true
+          },
+          {
+            "type": "literal_float",
+            "named": true
+          },
+          {
+            "type": "literal_hex",
+            "named": true
+          },
+          {
+            "type": "literal_int",
+            "named": true
+          },
+          {
+            "type": "literal_name",
+            "named": true
+          },
+          {
+            "type": "literal_null",
+            "named": true
+          },
+          {
+            "type": "literal_string",
+            "named": true
+          },
+          {
+            "type": "member_access_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
             "named": true
           }
         ]
@@ -2861,17 +2879,132 @@
     }
   },
   {
-    "type": "member_func_flavour",
+    "type": "member_default_val_block",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "member_default_val_block_assign",
+          "named": true
+        }
+      ]
+    }
   },
   {
-    "type": "member_func_specifier",
+    "type": "member_default_val_block_assign",
     "named": true,
-    "fields": {}
+    "fields": {
+      "member": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array_expr",
+            "named": true
+          },
+          {
+            "type": "assign_op_expr",
+            "named": true
+          },
+          {
+            "type": "binary_op_expr",
+            "named": true
+          },
+          {
+            "type": "cast_expr",
+            "named": true
+          },
+          {
+            "type": "func_call_expr",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "literal_bool",
+            "named": true
+          },
+          {
+            "type": "literal_float",
+            "named": true
+          },
+          {
+            "type": "literal_hex",
+            "named": true
+          },
+          {
+            "type": "literal_int",
+            "named": true
+          },
+          {
+            "type": "literal_name",
+            "named": true
+          },
+          {
+            "type": "literal_null",
+            "named": true
+          },
+          {
+            "type": "literal_string",
+            "named": true
+          },
+          {
+            "type": "member_access_expr",
+            "named": true
+          },
+          {
+            "type": "nested_expr",
+            "named": true
+          },
+          {
+            "type": "new_expr",
+            "named": true
+          },
+          {
+            "type": "parent_expr",
+            "named": true
+          },
+          {
+            "type": "super_expr",
+            "named": true
+          },
+          {
+            "type": "ternary_cond_expr",
+            "named": true
+          },
+          {
+            "type": "this_expr",
+            "named": true
+          },
+          {
+            "type": "unary_op_expr",
+            "named": true
+          },
+          {
+            "type": "virtual_parent_expr",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
-    "type": "member_hint_stmt",
+    "type": "member_hint",
     "named": true,
     "fields": {
       "member": {
@@ -2897,9 +3030,19 @@
     }
   },
   {
-    "type": "member_var_decl_stmt",
+    "type": "member_var_decl",
     "named": true,
     "fields": {
+      "annotation": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "annotation",
+            "named": true
+          }
+        ]
+      },
       "names": {
         "multiple": true,
         "required": true,
@@ -2919,7 +3062,7 @@
         "required": false,
         "types": [
           {
-            "type": "member_var_specifier",
+            "type": "specifier",
             "named": true
           }
         ]
@@ -2935,11 +3078,6 @@
         ]
       }
     }
-  },
-  {
-    "type": "member_var_specifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "nested_expr",
@@ -3002,7 +3140,7 @@
           "named": true
         },
         {
-          "type": "member_field_expr",
+          "type": "member_access_expr",
           "named": true
         },
         {
@@ -3111,7 +3249,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -3221,7 +3359,7 @@
           "named": true
         },
         {
-          "type": "member_field_expr",
+          "type": "member_access_expr",
           "named": true
         },
         {
@@ -3268,15 +3406,19 @@
       "required": false,
       "types": [
         {
-          "type": "class_decl_stmt",
+          "type": "class_decl",
           "named": true
         },
         {
-          "type": "enum_decl_stmt",
+          "type": "enum_decl",
           "named": true
         },
         {
-          "type": "global_func_decl_stmt",
+          "type": "func_decl",
+          "named": true
+        },
+        {
+          "type": "member_var_decl",
           "named": true
         },
         {
@@ -3284,18 +3426,23 @@
           "named": true
         },
         {
-          "type": "state_decl_stmt",
+          "type": "state_decl",
           "named": true
         },
         {
-          "type": "struct_decl_stmt",
+          "type": "struct_decl",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "state_decl_stmt",
+    "type": "specifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "state_decl",
     "named": true,
     "fields": {
       "base": {
@@ -3313,7 +3460,7 @@
         "required": true,
         "types": [
           {
-            "type": "class_block",
+            "type": "state_def",
             "named": true
           }
         ]
@@ -3343,7 +3490,7 @@
         "required": false,
         "types": [
           {
-            "type": "state_specifier",
+            "type": "specifier",
             "named": true
           }
         ]
@@ -3351,12 +3498,7 @@
     }
   },
   {
-    "type": "state_specifier",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "struct_block",
+    "type": "state_def",
     "named": true,
     "fields": {},
     "children": {
@@ -3364,19 +3506,31 @@
       "required": false,
       "types": [
         {
-          "type": "member_default_val_stmt",
+          "type": "autobind_decl",
           "named": true
         },
         {
-          "type": "member_defaults_block_stmt",
+          "type": "event_decl",
           "named": true
         },
         {
-          "type": "member_hint_stmt",
+          "type": "func_decl",
           "named": true
         },
         {
-          "type": "member_var_decl_stmt",
+          "type": "member_default_val",
+          "named": true
+        },
+        {
+          "type": "member_default_val_block",
+          "named": true
+        },
+        {
+          "type": "member_hint",
+          "named": true
+        },
+        {
+          "type": "member_var_decl",
           "named": true
         },
         {
@@ -3387,7 +3541,7 @@
     }
   },
   {
-    "type": "struct_decl_stmt",
+    "type": "struct_decl",
     "named": true,
     "fields": {
       "definition": {
@@ -3395,7 +3549,7 @@
         "required": true,
         "types": [
           {
-            "type": "struct_block",
+            "type": "struct_def",
             "named": true
           }
         ]
@@ -3415,7 +3569,7 @@
         "required": false,
         "types": [
           {
-            "type": "struct_specifier",
+            "type": "specifier",
             "named": true
           }
         ]
@@ -3423,9 +3577,35 @@
     }
   },
   {
-    "type": "struct_specifier",
+    "type": "struct_def",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "member_default_val",
+          "named": true
+        },
+        {
+          "type": "member_default_val_block",
+          "named": true
+        },
+        {
+          "type": "member_hint",
+          "named": true
+        },
+        {
+          "type": "member_var_decl",
+          "named": true
+        },
+        {
+          "type": "nop",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "super_expr",
@@ -3442,6 +3622,10 @@
       "types": [
         {
           "type": "break_stmt",
+          "named": true
+        },
+        {
+          "type": "compound_stmt",
           "named": true
         },
         {
@@ -3465,11 +3649,11 @@
           "named": true
         },
         {
-          "type": "func_block",
+          "type": "if_stmt",
           "named": true
         },
         {
-          "type": "if_stmt",
+          "type": "local_var_decl_stmt",
           "named": true
         },
         {
@@ -3490,10 +3674,6 @@
         },
         {
           "type": "switch_stmt",
-          "named": true
-        },
-        {
-          "type": "var_decl_stmt",
           "named": true
         },
         {
@@ -3564,7 +3744,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -3679,7 +3859,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -3779,7 +3959,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -3873,7 +4053,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -3967,7 +4147,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -4120,7 +4300,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -4170,130 +4350,6 @@
     "fields": {}
   },
   {
-    "type": "var_decl_stmt",
-    "named": true,
-    "fields": {
-      "init_value": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "array_expr",
-            "named": true
-          },
-          {
-            "type": "assign_op_expr",
-            "named": true
-          },
-          {
-            "type": "binary_op_expr",
-            "named": true
-          },
-          {
-            "type": "cast_expr",
-            "named": true
-          },
-          {
-            "type": "func_call_expr",
-            "named": true
-          },
-          {
-            "type": "ident",
-            "named": true
-          },
-          {
-            "type": "literal_bool",
-            "named": true
-          },
-          {
-            "type": "literal_float",
-            "named": true
-          },
-          {
-            "type": "literal_hex",
-            "named": true
-          },
-          {
-            "type": "literal_int",
-            "named": true
-          },
-          {
-            "type": "literal_name",
-            "named": true
-          },
-          {
-            "type": "literal_null",
-            "named": true
-          },
-          {
-            "type": "literal_string",
-            "named": true
-          },
-          {
-            "type": "member_field_expr",
-            "named": true
-          },
-          {
-            "type": "nested_expr",
-            "named": true
-          },
-          {
-            "type": "new_expr",
-            "named": true
-          },
-          {
-            "type": "parent_expr",
-            "named": true
-          },
-          {
-            "type": "super_expr",
-            "named": true
-          },
-          {
-            "type": "ternary_cond_expr",
-            "named": true
-          },
-          {
-            "type": "this_expr",
-            "named": true
-          },
-          {
-            "type": "unary_op_expr",
-            "named": true
-          },
-          {
-            "type": "virtual_parent_expr",
-            "named": true
-          }
-        ]
-      },
-      "names": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "ident",
-            "named": true
-          }
-        ]
-      },
-      "var_type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type_annot",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "virtual_parent_expr",
     "named": true,
     "fields": {}
@@ -4308,6 +4364,10 @@
         "types": [
           {
             "type": "break_stmt",
+            "named": true
+          },
+          {
+            "type": "compound_stmt",
             "named": true
           },
           {
@@ -4331,11 +4391,11 @@
             "named": true
           },
           {
-            "type": "func_block",
+            "type": "if_stmt",
             "named": true
           },
           {
-            "type": "if_stmt",
+            "type": "local_var_decl_stmt",
             "named": true
           },
           {
@@ -4348,10 +4408,6 @@
           },
           {
             "type": "switch_stmt",
-            "named": true
-          },
-          {
-            "type": "var_decl_stmt",
             "named": true
           },
           {
@@ -4417,7 +4473,7 @@
             "named": true
           },
           {
-            "type": "member_field_expr",
+            "type": "member_access_expr",
             "named": true
           },
           {
@@ -4519,6 +4575,10 @@
   {
     "type": "abstract",
     "named": false
+  },
+  {
+    "type": "annotation_ident",
+    "named": true
   },
   {
     "type": "assign_op_diff",

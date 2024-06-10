@@ -32,37 +32,37 @@ abstract statemachine class Player extends Actor {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (class_decl_stmt
-    specifiers: (class_specifier)
-    specifiers: (class_specifier)
+  (class_decl
+    specifiers: (specifier)
+    specifiers: (specifier)
     name: (ident)
     base: (ident)
-    definition: (class_block
-      (member_var_decl_stmt
-        specifiers: (member_var_specifier)
-        specifiers: (member_var_specifier)
-        specifiers: (member_var_specifier)
+    definition: (class_def
+      (member_var_decl
+        specifiers: (specifier)
+        specifiers: (specifier)
+        specifiers: (specifier)
         names: (ident)
         var_type: (type_annot
           type_name: (ident)))
-      (member_default_val_stmt
+      (member_default_val
         member: (ident)
         value: (literal_int))
-      (member_hint_stmt
+      (member_hint
         member: (ident)
         value: (literal_string))
-      (member_var_decl_stmt
-        specifiers: (member_var_specifier)
-        specifiers: (member_var_specifier)
-        specifiers: (member_var_specifier)
+      (member_var_decl
+        specifiers: (specifier)
+        specifiers: (specifier)
+        specifiers: (specifier)
         names: (ident)
         names: (ident)
         names: (ident)
         var_type: (type_annot
           type_name: (ident)))
-      (member_var_decl_stmt
-        specifiers: (member_var_specifier)
-        specifiers: (member_var_specifier)
+      (member_var_decl
+        specifiers: (specifier)
+        specifiers: (specifier)
         names: (ident)
         var_type: (type_annot
           type_name: (ident)
@@ -70,40 +70,40 @@ abstract statemachine class Player extends Actor {
             type_name: (ident)
             type_arg: (type_annot
               type_name: (ident)))))
-      (member_defaults_block_stmt
-        (member_defaults_block_assign
+      (member_default_val_block
+        (member_default_val_block_assign
           member: (ident)
           value: (literal_float))
-        (member_defaults_block_assign
+        (member_default_val_block_assign
           member: (ident)
           value: (literal_float))
-        (member_defaults_block_assign
+        (member_default_val_block_assign
           member: (ident)
           value: (literal_float)))
-      (autobind_stmt
-        specifiers: (autobind_specifier)
+      (autobind_decl
+        specifiers: (specifier)
         name: (ident)
         autobind_type: (type_annot
           type_name: (ident))
         value: (literal_string))
-      (autobind_stmt
-        specifiers: (autobind_specifier)
-        specifiers: (autobind_specifier)
+      (autobind_decl
+        specifiers: (specifier)
+        specifiers: (specifier)
         name: (ident)
         autobind_type: (type_annot
           type_name: (ident))
         value: (autobind_single))
-      (event_decl_stmt
+      (event_decl
         name: (ident)
         params: (func_params
           (func_param_group
             names: (ident)
             param_type: (type_annot
               type_name: (ident))))
-        definition: (func_block))
-      (member_func_decl_stmt
-        specifiers: (member_func_specifier)
-        specifiers: (member_func_specifier)
+        definition: (func_def))
+      (func_decl
+        specifiers: (specifier)
+        specifiers: (specifier)
         name: (ident)
         params: (func_params
           (func_param_group
@@ -111,11 +111,11 @@ abstract statemachine class Player extends Actor {
             param_type: (type_annot
               type_name: (ident)))
           (func_param_group
-            specifiers: (func_param_specifier)
+            specifiers: (specifier)
             names: (ident)
             names: (ident)
             param_type: (type_annot
               type_name: (ident))))
         return_type: (type_annot
           type_name: (ident))
-        definition: (func_block)))))
+        definition: (func_def)))))
