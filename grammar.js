@@ -240,23 +240,23 @@ module.exports = grammar({
 
     autobind_decl: $ => seq(
       field('specifiers', repeat($.specifier)),
-      $._autobind_intro,
+      $._autobind_decl_intro,
       ':',
       field('autobind_type', $.type_annot),
-      $._autobind_assign,
+      $._autobind_decl_assign,
       ';'
     ),
 
-    _autobind_intro: $ => seq(
+    _autobind_decl_intro: $ => seq(
       'autobind', field('name', $.ident),
     ),
 
-    _autobind_assign: $ => seq(
+    _autobind_decl_assign: $ => seq(
       '=',
-      field('value', $._autobind_value)
+      field('value', $._autobind_decl_value)
     ),
 
-    _autobind_value: $ => choice(
+    _autobind_decl_value: $ => choice(
       $.autobind_single,
       $.literal_string
     ),
