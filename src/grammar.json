@@ -9,27 +9,27 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "func_decl_stmt"
+            "name": "func_decl"
           },
           {
             "type": "SYMBOL",
-            "name": "class_decl_stmt"
+            "name": "class_decl"
           },
           {
             "type": "SYMBOL",
-            "name": "state_decl_stmt"
+            "name": "state_decl"
           },
           {
             "type": "SYMBOL",
-            "name": "struct_decl_stmt"
+            "name": "struct_decl"
           },
           {
             "type": "SYMBOL",
-            "name": "enum_decl_stmt"
+            "name": "enum_decl"
           },
           {
             "type": "SYMBOL",
-            "name": "member_var_decl_stmt"
+            "name": "member_var_decl"
           },
           {
             "type": "SYMBOL",
@@ -38,7 +38,7 @@
         ]
       }
     },
-    "enum_decl_stmt": {
+    "enum_decl": {
       "type": "SEQ",
       "members": [
         {
@@ -50,7 +50,7 @@
           "name": "definition",
           "content": {
             "type": "SYMBOL",
-            "name": "enum_block"
+            "name": "enum_def"
           }
         }
       ]
@@ -72,7 +72,7 @@
         }
       ]
     },
-    "enum_block": {
+    "enum_def": {
       "type": "SEQ",
       "members": [
         {
@@ -186,7 +186,7 @@
         }
       ]
     },
-    "struct_decl_stmt": {
+    "struct_decl": {
       "type": "SEQ",
       "members": [
         {
@@ -209,7 +209,7 @@
           "name": "definition",
           "content": {
             "type": "SYMBOL",
-            "name": "struct_block"
+            "name": "struct_def"
           }
         }
       ]
@@ -231,7 +231,7 @@
         }
       ]
     },
-    "struct_block": {
+    "struct_def": {
       "type": "SEQ",
       "members": [
         {
@@ -242,7 +242,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_struct_stmt"
+            "name": "_struct_prop"
           }
         },
         {
@@ -251,24 +251,24 @@
         }
       ]
     },
-    "_struct_stmt": {
+    "_struct_prop": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "member_var_decl_stmt"
+          "name": "member_var_decl"
         },
         {
           "type": "SYMBOL",
-          "name": "member_default_val_stmt"
+          "name": "member_default_val"
         },
         {
           "type": "SYMBOL",
-          "name": "member_defaults_block_stmt"
+          "name": "member_default_val_block"
         },
         {
           "type": "SYMBOL",
-          "name": "member_hint_stmt"
+          "name": "member_hint"
         },
         {
           "type": "SYMBOL",
@@ -276,7 +276,7 @@
         }
       ]
     },
-    "state_decl_stmt": {
+    "state_decl": {
       "type": "SEQ",
       "members": [
         {
@@ -314,8 +314,13 @@
           "type": "FIELD",
           "name": "definition",
           "content": {
-            "type": "SYMBOL",
-            "name": "class_block"
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "class_def"
+            },
+            "named": true,
+            "value": "state_def"
           }
         }
       ]
@@ -354,7 +359,7 @@
         }
       ]
     },
-    "class_decl_stmt": {
+    "class_decl": {
       "type": "SEQ",
       "members": [
         {
@@ -389,7 +394,7 @@
           "name": "definition",
           "content": {
             "type": "SYMBOL",
-            "name": "class_block"
+            "name": "class_def"
           }
         }
       ]
@@ -411,7 +416,7 @@
         }
       ]
     },
-    "class_block": {
+    "class_def": {
       "type": "SEQ",
       "members": [
         {
@@ -422,7 +427,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_class_stmt"
+            "name": "_class_prop"
           }
         },
         {
@@ -448,36 +453,36 @@
         }
       ]
     },
-    "_class_stmt": {
+    "_class_prop": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "member_var_decl_stmt"
+          "name": "member_var_decl"
         },
         {
           "type": "SYMBOL",
-          "name": "member_default_val_stmt"
+          "name": "member_default_val"
         },
         {
           "type": "SYMBOL",
-          "name": "member_defaults_block_stmt"
+          "name": "member_default_val_block"
         },
         {
           "type": "SYMBOL",
-          "name": "member_hint_stmt"
+          "name": "member_hint"
         },
         {
           "type": "SYMBOL",
-          "name": "autobind_stmt"
+          "name": "autobind_decl"
         },
         {
           "type": "SYMBOL",
-          "name": "func_decl_stmt"
+          "name": "func_decl"
         },
         {
           "type": "SYMBOL",
-          "name": "event_decl_stmt"
+          "name": "event_decl"
         },
         {
           "type": "SYMBOL",
@@ -485,7 +490,7 @@
         }
       ]
     },
-    "autobind_stmt": {
+    "autobind_decl": {
       "type": "SEQ",
       "members": [
         {
@@ -576,7 +581,7 @@
       "type": "STRING",
       "value": "single"
     },
-    "member_defaults_block_stmt": {
+    "member_default_val_block": {
       "type": "SEQ",
       "members": [
         {
@@ -594,7 +599,7 @@
               "type": "REPEAT",
               "content": {
                 "type": "SYMBOL",
-                "name": "member_defaults_block_assign"
+                "name": "member_default_val_block_assign"
               }
             },
             {
@@ -605,7 +610,7 @@
         }
       ]
     },
-    "member_defaults_block_assign": {
+    "member_default_val_block_assign": {
       "type": "SEQ",
       "members": [
         {
@@ -634,7 +639,7 @@
         }
       ]
     },
-    "member_default_val_stmt": {
+    "member_default_val": {
       "type": "SEQ",
       "members": [
         {
@@ -676,7 +681,7 @@
         }
       ]
     },
-    "member_hint_stmt": {
+    "member_hint": {
       "type": "SEQ",
       "members": [
         {
@@ -727,7 +732,7 @@
         }
       ]
     },
-    "member_var_decl_stmt": {
+    "member_var_decl": {
       "type": "SEQ",
       "members": [
         {
@@ -779,7 +784,7 @@
         }
       ]
     },
-    "event_decl_stmt": {
+    "event_decl": {
       "type": "SEQ",
       "members": [
         {
@@ -862,7 +867,7 @@
         }
       ]
     },
-    "func_decl_stmt": {
+    "func_decl": {
       "type": "SEQ",
       "members": [
         {
@@ -976,8 +981,13 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "func_block"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "func_block"
+          },
+          "named": true,
+          "value": "func_def"
         },
         {
           "type": "SYMBOL",
@@ -1233,7 +1243,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "var_decl_stmt"
+          "name": "local_var_decl_stmt"
         },
         {
           "type": "SYMBOL",
@@ -1272,8 +1282,13 @@
           "name": "delete_stmt"
         },
         {
-          "type": "SYMBOL",
-          "name": "func_block"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "func_block"
+          },
+          "named": true,
+          "value": "compound_stmt"
         },
         {
           "type": "SYMBOL",
@@ -1285,7 +1300,7 @@
         }
       ]
     },
-    "var_decl_stmt": {
+    "local_var_decl_stmt": {
       "type": "SEQ",
       "members": [
         {
@@ -1866,7 +1881,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "member_field_expr"
+          "name": "member_access_expr"
         },
         {
           "type": "SYMBOL",
@@ -2731,7 +2746,7 @@
         ]
       }
     },
-    "member_field_expr": {
+    "member_access_expr": {
       "type": "PREC_LEFT",
       "value": 12,
       "content": {
