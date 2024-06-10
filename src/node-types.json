@@ -1,5 +1,31 @@
 [
   {
+    "type": "annotation",
+    "named": true,
+    "fields": {
+      "arg": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "annotation_ident",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "array_expr",
     "named": true,
     "fields": {
@@ -1306,6 +1332,16 @@
     "type": "event_decl_stmt",
     "named": true,
     "fields": {
+      "annotation": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "annotation",
+            "named": true
+          }
+        ]
+      },
       "definition": {
         "multiple": false,
         "required": true,
@@ -2073,6 +2109,16 @@
     "type": "func_decl_stmt",
     "named": true,
     "fields": {
+      "annotation": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "annotation",
+            "named": true
+          }
+        ]
+      },
       "definition": {
         "multiple": false,
         "required": true,
@@ -2800,6 +2846,16 @@
     "type": "member_var_decl_stmt",
     "named": true,
     "fields": {
+      "annotation": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "annotation",
+            "named": true
+          }
+        ]
+      },
       "names": {
         "multiple": true,
         "required": true,
@@ -3172,6 +3228,10 @@
         },
         {
           "type": "func_decl_stmt",
+          "named": true
+        },
+        {
+          "type": "member_var_decl_stmt",
           "named": true
         },
         {
@@ -4409,6 +4469,10 @@
   {
     "type": "abstract",
     "named": false
+  },
+  {
+    "type": "annotation_ident",
+    "named": true
   },
   {
     "type": "assign_op_diff",
