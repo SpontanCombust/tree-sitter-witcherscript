@@ -12,9 +12,9 @@ enum SomeEnum {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (enum_decl_stmt
+  (enum_decl
     name: (ident)
-    definition: (enum_block
+    definition: (enum_def
       (enum_decl_variant
         name: (ident))
       (enum_decl_variant

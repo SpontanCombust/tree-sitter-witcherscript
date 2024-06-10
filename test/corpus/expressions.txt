@@ -16,10 +16,10 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
         (expr_stmt
           (ident))
         (expr_stmt
@@ -54,10 +54,10 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
         (expr_stmt
           (unary_op_expr
             op: (unary_op_neg)
@@ -99,10 +99,10 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
         (expr_stmt
           (binary_op_expr
             left: (ident)
@@ -199,10 +199,10 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
         (expr_stmt
           (assign_op_expr
             left: (ident)
@@ -260,10 +260,10 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
         (expr_stmt
           (nested_expr
             (ident)))
@@ -290,12 +290,12 @@ function test() {
                 (literal_string)
                 (literal_bool))))
         (expr_stmt 
-          (member_field_expr 
+          (member_access_expr 
             accessor: (ident)
             member: (ident)))
         (expr_stmt 
           (func_call_expr
-            func: (member_field_expr
+            func: (member_access_expr
               accessor: (ident)
               member: (ident))
             args: (func_call_args
@@ -342,13 +342,13 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
         (expr_stmt
           (assign_op_expr
-            left: (member_field_expr
+            left: (member_access_expr
               accessor: (ident)
               member: (ident))
             op: (assign_op_direct)
@@ -384,18 +384,18 @@ function test() {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
         (expr_stmt
           (func_call_expr
-            func: (member_field_expr
+            func: (member_access_expr
               accessor: (nested_expr
                 (cast_expr
                   type: (ident)
                   value: (func_call_expr
-                    func: (member_field_expr
+                    func: (member_access_expr
                       accessor: (nested_expr
                         (cast_expr
                           type: (ident)
@@ -411,7 +411,7 @@ function test() {
             left: (ident)
             op: (assign_op_direct)
             right: (func_call_expr
-              func: (member_field_expr
+              func: (member_access_expr
                 accessor: (func_call_expr
                   func: (func_call_expr
                     func: (ident)))

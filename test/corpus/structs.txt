@@ -21,35 +21,35 @@ import struct Foo {
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (struct_decl_stmt
+  (struct_decl
     specifiers: (specifier)
     name: (ident)
-    definition: (struct_block
-      (member_var_decl_stmt
+    definition: (struct_def
+      (member_var_decl
         specifiers: (specifier)
         names: (ident)
         names: (ident)
         names: (ident)
         var_type: (type_annot
           type_name: (ident)))
-      (member_var_decl_stmt
+      (member_var_decl
         names: (ident)
         var_type: (type_annot
           type_name: (ident)))
-      (member_defaults_block_stmt
-        (member_defaults_block_assign
+      (member_default_val_block
+        (member_default_val_block_assign
           member: (ident)
           value: (literal_int))
-        (member_defaults_block_assign
+        (member_default_val_block_assign
           member: (ident)
           value: (literal_float))
-        (member_defaults_block_assign
+        (member_default_val_block_assign
           member: (ident)
           value: (literal_hex)))
-      (member_default_val_stmt
+      (member_default_val
         member: (ident)
         value: (literal_null))
-      (member_hint_stmt
+      (member_hint
         member: (ident)
         value: (literal_string))
       (nop)))

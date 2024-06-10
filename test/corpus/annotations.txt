@@ -35,7 +35,7 @@ public var dummy: int;
 ---------------------------------------------------------------------------------------------------
 
 (script
-  (func_decl_stmt
+  (func_decl
     annotation: (annotation
       name: (annotation_ident)
       arg: (ident))
@@ -45,7 +45,7 @@ public var dummy: int;
         names: (ident)
         param_type: (type_annot
           type_name: (ident))))
-    definition: (func_block
+    definition: (func_def
       (expr_stmt
         (func_call_expr
           func: (ident)
@@ -54,25 +54,25 @@ public var dummy: int;
       (comment)
       (expr_stmt
         (func_call_expr
-          func: (member_field_expr
+          func: (member_access_expr
             accessor: (ident)
             member: (ident))
           args: (func_call_args
             (literal_int))))))
-  (func_decl_stmt
+  (func_decl
     annotation: (annotation
       name: (annotation_ident)
       arg: (ident))
     specifiers: (specifier)
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
       (expr_stmt
         (assign_op_expr
           left: (ident)
           op: (assign_op_direct)
           right: (literal_int)))))
-  (func_decl_stmt
+  (func_decl
     annotation: (annotation
       name: (annotation_ident)
       arg: (ident))
@@ -82,28 +82,28 @@ public var dummy: int;
         names: (ident)
         param_type: (type_annot
           type_name: (ident))))
-    definition: (func_block
+    definition: (func_def
       (expr_stmt
         (func_call_expr
-          func: (member_field_expr
+          func: (member_access_expr
             accessor: (ident)
             member: (ident))
           args: (func_call_args
             (literal_int))))))
-  (func_decl_stmt
+  (func_decl
     annotation: (annotation
       name: (annotation_ident))
     name: (ident)
     params: (func_params)
-    definition: (func_block
+    definition: (func_def
       (expr_stmt
         (func_call_expr
-          func: (member_field_expr
+          func: (member_access_expr
             accessor: (ident)
             member: (ident))
           args: (func_call_args
             (literal_int))))))
-  (member_var_decl_stmt
+  (member_var_decl
     annotation: (annotation
       name: (annotation_ident)
       arg: (ident))
