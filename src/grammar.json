@@ -506,7 +506,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_autobind_intro"
+          "name": "_autobind_decl_intro"
         },
         {
           "type": "STRING",
@@ -522,7 +522,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_autobind_assign"
+          "name": "_autobind_decl_assign"
         },
         {
           "type": "STRING",
@@ -530,7 +530,7 @@
         }
       ]
     },
-    "_autobind_intro": {
+    "_autobind_decl_intro": {
       "type": "SEQ",
       "members": [
         {
@@ -547,7 +547,7 @@
         }
       ]
     },
-    "_autobind_assign": {
+    "_autobind_decl_assign": {
       "type": "SEQ",
       "members": [
         {
@@ -559,12 +559,12 @@
           "name": "value",
           "content": {
             "type": "SYMBOL",
-            "name": "_autobind_value"
+            "name": "_autobind_decl_value"
           }
         }
       ]
     },
-    "_autobind_value": {
+    "_autobind_decl_value": {
       "type": "CHOICE",
       "members": [
         {
