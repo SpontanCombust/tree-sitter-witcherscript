@@ -31,10 +31,11 @@
 
 // Do NOT change the order of values in TokenType and KEYWORDS
 // Keywords have to be sorted according to the ASCII table for the binary search to work (so those with capital letters have to go first)
-// Non keyword tokens go first (here it's just IDENT)
+// Non keyword tokens go first
 
 enum TokenType {
     IDENT,
+    ANNOTATION_IDENT,
 
     KW_NULL,
     KW_ABSTRACT,
@@ -94,7 +95,8 @@ enum TokenType {
     _MAX_TOKENS
 };
 
-#define KEYWORD_COUNT _MAX_TOKENS - 1
+#define FIRST_KEYWORD KW_NULL
+#define KEYWORD_COUNT _MAX_TOKENS - FIRST_KEYWORD
 static const char * const KEYWORDS[KEYWORD_COUNT] = {
     "NULL",
     "abstract",
@@ -188,7 +190,7 @@ static bool scan_ident(TSLexer *lexer, char* buffer, int buffer_size) {
         lexer->advance(lexer, true);
     }
 
-    if (lexer->eof(lexer) || !(isalpha(lexer->lookahead) || lexer->lookahead == '_')) {
+    if (lexer->eof(lexer) || !(isalpha(lexer->lookahead) || lexer->lookahead == '_' || lexer->lookahead == '@')) {
         return false;
     }
 
@@ -202,6 +204,10 @@ static bool scan_ident(TSLexer *lexer, char* buffer, int buffer_size) {
         }
         buffer[i] = (char)lexer->lookahead;
         lexer->advance(lexer, false);
+    }
+
+    if (i == 1 && buffer[0] == '@') {
+        return false;
     }
 
     return true;
@@ -218,15 +224,16 @@ void tree_sitter_witcherscript_external_scanner_deserialize(void *p, const char 
 
 bool tree_sitter_witcherscript_external_scanner_scan(void *payload, TSLexer *lexer, const bool *valid_symbols) {
     bool expected_ident = valid_symbols[IDENT];
+    bool expected_annot_ident = valid_symbols[ANNOTATION_IDENT];
     bool expected_keyword = false;
-    for(int i = IDENT + 1; i < _MAX_TOKENS; i++) {
+    for(int i = FIRST_KEYWORD; i < _MAX_TOKENS; i++) {
         if(valid_symbols[i]) {
             expected_keyword = true;
             break;
         }
     }
 
-    if(expected_ident || expected_keyword) {
+    if(expected_ident || expected_annot_ident || expected_keyword) {
         char buffer[MAX_IDENT_LENGTH] = {0};
 
         if(scan_ident(lexer, buffer, MAX_IDENT_LENGTH)) {
@@ -243,7 +250,10 @@ bool tree_sitter_witcherscript_external_scanner_scan(void *payload, TSLexer *lex
                 } else {
                     return false;
                 }
-            } else if (expected_ident) {
+            } else if (expected_annot_ident && buffer[0] == '@') {
+                lexer->result_symbol = ANNOTATION_IDENT;
+                return true;
+            } else if (expected_ident && buffer[0] != '@') {
                 lexer->result_symbol = IDENT;
                 return true;
             }

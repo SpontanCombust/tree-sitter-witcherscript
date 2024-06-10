@@ -43,6 +43,7 @@ module.exports = grammar({
 
   externals: $ => [
     $.ident,
+    $.annotation_ident,
 
     'NULL',
     'abstract',
@@ -114,6 +115,7 @@ module.exports = grammar({
       $.state_decl_stmt,
       $.struct_decl_stmt,
       $.enum_decl_stmt,
+      $.member_var_decl_stmt, // needed for @addField annotation
       $.nop
     )),
     
@@ -299,6 +301,7 @@ module.exports = grammar({
     ),
 
     member_var_decl_stmt: $ => seq(
+      field('annotation', optional($.annotation)),
       field('specifiers', repeat($.specifier)),
       $._var_decl_intro,
       ':',
@@ -310,6 +313,7 @@ module.exports = grammar({
     // FUNCTION DECLARATION ================
 
     event_decl_stmt: $ => seq(
+      field('annotation', optional($.annotation)),
       $._event_decl_intro,
       field('params', $.func_params),
       optional(seq(
@@ -324,6 +328,7 @@ module.exports = grammar({
     ),
 
     func_decl_stmt: $ => seq(
+      field('annotation', optional($.annotation)),
       field('specifiers', repeat($.specifier)),
       field('flavour', optional($.func_flavour)),
       $._func_decl_intro,
@@ -356,6 +361,13 @@ module.exports = grammar({
       field('param_type', $.type_annot),
     ),
 
+
+    annotation: $ => seq(
+      field('name', $.annotation_ident),
+      optional($._annotation_arg)
+    ),
+
+    _annotation_arg: $ => seq('(', field('arg', $.ident), ')'),
 
     func_flavour: $ => choice(
       'cleanup',
