@@ -1395,16 +1395,6 @@
     "type": "event_decl",
     "named": true,
     "fields": {
-      "annotation": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "annotation",
-            "named": true
-          }
-        ]
-      },
       "definition": {
         "multiple": false,
         "required": true,
