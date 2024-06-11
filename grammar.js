@@ -313,7 +313,6 @@ module.exports = grammar({
     // FUNCTION DECLARATION ================
 
     event_decl: $ => seq(
-      field('annotation', optional($.annotation)),
       $._event_decl_intro,
       field('params', $.func_params),
       optional(seq(
