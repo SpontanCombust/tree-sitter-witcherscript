@@ -83,6 +83,7 @@ function test() {
     a && b;
     a | b;
     a & b;
+    a ^ b;
     a == b;
     a != b;
     a > b;
@@ -122,6 +123,11 @@ function test() {
           (binary_op_expr
             left: (ident)
             op: (binary_op_bitand)
+            right: (ident)))
+        (expr_stmt
+          (binary_op_expr
+            left: (ident)
+            op: (binary_op_bitxor)
             right: (ident)))
         (expr_stmt
           (binary_op_expr
