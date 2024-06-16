@@ -199,7 +199,6 @@ function test() {
     a -= b;
     a *= CONSTANT;
     a /= 2;
-    dt %= 0.01667;
 }
 
 ---------------------------------------------------------------------------------------------------
@@ -233,12 +232,7 @@ function test() {
           (assign_op_expr
             left: (ident)
             op: (assign_op_div)
-            right: (literal_int)))
-        (expr_stmt
-          (assign_op_expr
-            left: (ident)
-            op: (assign_op_mod)
-            right: (literal_float))))))
+            right: (literal_int))))))
 
 
 
