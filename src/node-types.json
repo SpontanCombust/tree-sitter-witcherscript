@@ -327,6 +327,14 @@
         "required": true,
         "types": [
           {
+            "type": "assign_op_bitand",
+            "named": true
+          },
+          {
+            "type": "assign_op_bitor",
+            "named": true
+          },
+          {
             "type": "assign_op_diff",
             "named": true
           },
@@ -336,10 +344,6 @@
           },
           {
             "type": "assign_op_div",
-            "named": true
-          },
-          {
-            "type": "assign_op_mod",
             "named": true
           },
           {
@@ -620,6 +624,10 @@
           },
           {
             "type": "binary_op_bitor",
+            "named": true
+          },
+          {
+            "type": "binary_op_bitxor",
             "named": true
           },
           {
@@ -4571,15 +4579,19 @@
     "named": true
   },
   {
+    "type": "assign_op_bitand",
+    "named": true
+  },
+  {
+    "type": "assign_op_bitor",
+    "named": true
+  },
+  {
     "type": "assign_op_diff",
     "named": true
   },
   {
     "type": "assign_op_div",
-    "named": true
-  },
-  {
-    "type": "assign_op_mod",
     "named": true
   },
   {
@@ -4604,6 +4616,10 @@
   },
   {
     "type": "binary_op_bitor",
+    "named": true
+  },
+  {
+    "type": "binary_op_bitxor",
     "named": true
   },
   {

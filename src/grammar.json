@@ -1947,7 +1947,11 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "assign_op_mod"
+                  "name": "assign_op_bitand"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "assign_op_bitor"
                 }
               ]
             }
@@ -1983,9 +1987,13 @@
       "type": "STRING",
       "value": "/="
     },
-    "assign_op_mod": {
+    "assign_op_bitand": {
       "type": "STRING",
-      "value": "%="
+      "value": "&="
+    },
+    "assign_op_bitor": {
+      "type": "STRING",
+      "value": "|="
     },
     "ternary_cond_expr": {
       "type": "PREC_RIGHT",
@@ -2132,7 +2140,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 6,
+          "value": 7,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2165,7 +2173,40 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 7,
+          "value": 6,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "left",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expr"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "op",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "binary_op_bitxor"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "right",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expr"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 8,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2198,7 +2239,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 7,
+          "value": 8,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2231,7 +2272,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 8,
+          "value": 9,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2264,7 +2305,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 8,
+          "value": 9,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2297,7 +2338,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 8,
+          "value": 9,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2330,7 +2371,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 8,
+          "value": 9,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2363,7 +2404,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 9,
+          "value": 10,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2396,7 +2437,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 9,
+          "value": 10,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2429,7 +2470,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 10,
+          "value": 11,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2462,7 +2503,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 10,
+          "value": 11,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2495,7 +2536,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 10,
+          "value": 11,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2544,6 +2585,10 @@
       "type": "STRING",
       "value": "&"
     },
+    "binary_op_bitxor": {
+      "type": "STRING",
+      "value": "^"
+    },
     "binary_op_eq": {
       "type": "STRING",
       "value": "=="
@@ -2590,7 +2635,7 @@
     },
     "new_expr": {
       "type": "PREC_RIGHT",
-      "value": 11,
+      "value": 12,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2649,7 +2694,7 @@
     },
     "unary_op_expr": {
       "type": "PREC_RIGHT",
-      "value": 11,
+      "value": 12,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2707,7 +2752,7 @@
     },
     "cast_expr": {
       "type": "PREC_RIGHT",
-      "value": 11,
+      "value": 12,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2732,7 +2777,7 @@
     },
     "member_access_expr": {
       "type": "PREC_LEFT",
-      "value": 12,
+      "value": 13,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2761,7 +2806,7 @@
     },
     "func_call_expr": {
       "type": "PREC_LEFT",
-      "value": 12,
+      "value": 13,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2852,7 +2897,7 @@
     },
     "array_expr": {
       "type": "PREC_LEFT",
-      "value": 12,
+      "value": 13,
       "content": {
         "type": "SEQ",
         "members": [
