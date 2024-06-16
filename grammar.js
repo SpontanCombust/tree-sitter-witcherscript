@@ -15,20 +15,21 @@ const PREC = {
   OR: 3,
   AND: 4,
   BIT_OR: 5,
-  BIT_AND: 6,
-  EQ: 7,
-  RELATION: 8,
-  SUM: 9,
-  DIFF: 9,
-  MULT: 10,
-  DIV: 10,
-  MODULO: 10,
-  NEW: 11,
-  UNARY: 11,
-  CAST: 11,
-  MEMBER: 12,
-  CALL: 12,
-  ARRAY: 12
+  BIT_XOR: 6,
+  BIT_AND: 7,
+  EQ: 8,
+  RELATION: 9,
+  SUM: 10,
+  DIFF: 10,
+  MULT: 11,
+  DIV: 11,
+  MODULO: 11,
+  NEW: 12,
+  UNARY: 12,
+  CAST: 12,
+  MEMBER: 13,
+  CALL: 13,
+  ARRAY: 13
 };
 
 module.exports = grammar({
@@ -552,7 +553,8 @@ module.exports = grammar({
         $.assign_op_diff,
         $.assign_op_mult,
         $.assign_op_div,
-        $.assign_op_mod
+        $.assign_op_bitand,
+        $.assign_op_bitor
       )),
       field('right', $._expr)
     )),
@@ -562,7 +564,8 @@ module.exports = grammar({
     assign_op_diff: $ => '-=',
     assign_op_mult: $ => '*=',
     assign_op_div: $ => '/=',
-    assign_op_mod: $ => '%=', 
+    assign_op_bitand: $ => '&=',
+    assign_op_bitor: $ => '|=',
 
 
     ternary_cond_expr: $ => prec.right(PREC.TERNARY, seq(
@@ -580,6 +583,7 @@ module.exports = grammar({
         [$.binary_op_and, PREC.AND],
         [$.binary_op_bitor, PREC.BIT_OR],
         [$.binary_op_bitand, PREC.BIT_AND],
+        [$.binary_op_bitxor, PREC.BIT_XOR],
         [$.binary_op_eq, PREC.EQ],
         [$.binary_op_neq, PREC.EQ],
         [$.binary_op_gt, PREC.RELATION],
@@ -605,6 +609,7 @@ module.exports = grammar({
     binary_op_and: $ => '&&',
     binary_op_bitor: $ => '|',
     binary_op_bitand: $ => '&',
+    binary_op_bitxor: $ => '^',
     binary_op_eq: $ => '==',
     binary_op_neq: $ => '!=',
     binary_op_gt: $ => '>',
