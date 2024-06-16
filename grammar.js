@@ -553,6 +553,8 @@ module.exports = grammar({
         $.assign_op_diff,
         $.assign_op_mult,
         $.assign_op_div,
+        $.assign_op_bitand,
+        $.assign_op_bitor
       )),
       field('right', $._expr)
     )),
@@ -562,6 +564,8 @@ module.exports = grammar({
     assign_op_diff: $ => '-=',
     assign_op_mult: $ => '*=',
     assign_op_div: $ => '/=',
+    assign_op_bitand: $ => '&=',
+    assign_op_bitor: $ => '|=',
 
 
     ternary_cond_expr: $ => prec.right(PREC.TERNARY, seq(

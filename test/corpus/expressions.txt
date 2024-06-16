@@ -199,6 +199,8 @@ function test() {
     a -= b;
     a *= CONSTANT;
     a /= 2;
+    a &= FLAG;
+    a |= 0x00001111;
 }
 
 ---------------------------------------------------------------------------------------------------
@@ -232,7 +234,17 @@ function test() {
           (assign_op_expr
             left: (ident)
             op: (assign_op_div)
-            right: (literal_int))))))
+            right: (literal_int)))
+        (expr_stmt
+          (assign_op_expr
+            left: (ident)
+            op: (assign_op_bitand)
+            right: (ident)))
+        (expr_stmt
+          (assign_op_expr
+            left: (ident)
+            op: (assign_op_bitor)
+            right: (literal_hex))))))
 
 
 
