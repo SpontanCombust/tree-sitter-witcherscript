@@ -267,6 +267,8 @@ function test() {
     new Foo;
     new Bar in this;
     baz = new Baz in theGame;
+    list1 = {{1.0, 2, 3}, {4, 5}};
+    list2 = {};
 }
 
 ---------------------------------------------------------------------------------------------------
@@ -338,7 +340,24 @@ function test() {
             op: (assign_op_direct)
             right: (new_expr
               class: (ident)
-              lifetime_obj: (ident)))))))
+              lifetime_obj: (ident))))
+        (expr_stmt
+          (assign_op_expr
+            left: (ident)
+            op: (assign_op_direct)
+            right: (array_init_expr
+              (array_init_expr
+                (literal_float)
+                (literal_int)
+                (literal_int))
+              (array_init_expr
+                (literal_int)
+                (literal_int)))))
+        (expr_stmt
+          (assign_op_expr
+            left: (ident)
+            op: (assign_op_direct)
+            right: (array_init_expr))))))
 
 
 

@@ -1758,24 +1758,28 @@
       ]
     },
     "func_block": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "{"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_func_stmt"
+      "type": "PREC",
+      "value": 15,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "{"
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_func_stmt"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "}"
           }
-        },
-        {
-          "type": "STRING",
-          "value": "}"
-        }
-      ]
+        ]
+      }
     },
     "expr_stmt": {
       "type": "SEQ",
@@ -1841,6 +1845,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "array_init_expr"
+        },
+        {
+          "type": "SYMBOL",
           "name": "assign_op_expr"
         },
         {
@@ -1904,6 +1912,73 @@
           "name": "_literal"
         }
       ]
+    },
+    "array_init_expr": {
+      "type": "PREC",
+      "value": 14,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "{"
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_expr"
+                      },
+                      {
+                        "type": "REPEAT",
+                        "content": {
+                          "type": "SEQ",
+                          "members": [
+                            {
+                              "type": "STRING",
+                              "value": ","
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "_expr"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": "}"
+          }
+        ]
+      }
     },
     "assign_op_expr": {
       "type": "PREC_LEFT",
@@ -3528,4 +3603,3 @@
   "inline": [],
   "supertypes": []
 }
-
