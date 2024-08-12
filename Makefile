@@ -1,4 +1,4 @@
-VERSION := 0.10.1
+VERSION := 0.12.0
 
 LANGUAGE_NAME := tree-sitter-witcherscript
 
