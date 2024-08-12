@@ -29,7 +29,9 @@ const PREC = {
   CAST: 12,
   MEMBER: 13,
   CALL: 13,
-  ARRAY: 13
+  ARRAY: 13,
+  ARRAY_INIT: 14,
+  FUNC_BLOCK: 15
 };
 
 module.exports = grammar({
@@ -501,9 +503,9 @@ module.exports = grammar({
       'delete', $._expr, ';'
     ),
 
-    func_block: $ => block(
+    func_block: $ => prec(PREC.FUNC_BLOCK, block(
       $._func_stmt
-    ),
+    )),
 
     expr_stmt: $ => seq(
       $._expr, ';'
@@ -526,6 +528,7 @@ module.exports = grammar({
     // EXPRESSIONS ==================================================
 
     _expr: $ => choice(
+      $.array_init_expr,
       $.assign_op_expr,
       $.ternary_cond_expr,
       $.binary_op_expr,
@@ -544,6 +547,8 @@ module.exports = grammar({
       $._literal
     ),
 
+
+    array_init_expr: $ => prec(PREC.ARRAY_INIT, block_delim($._expr, ',')),
 
     assign_op_expr: $ => prec.left(PREC.ASSIGN, seq(
       field('left', $._expr),

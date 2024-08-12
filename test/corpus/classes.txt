@@ -14,6 +14,7 @@ abstract statemachine class Player extends Actor {
         foo = 0.;
         bar = .1;
         baz = 1.f;
+        arr = { ENUM0, ENUM1, ENUM2, ENUM3, };
     }
 
     public autobind autobind1: Component1 = "Component1"; 
@@ -79,7 +80,14 @@ abstract statemachine class Player extends Actor {
           value: (literal_float))
         (member_default_val_block_assign
           member: (ident)
-          value: (literal_float)))
+          value: (literal_float))
+        (member_default_val_block_assign
+          member: (ident)
+          value: (array_init_expr
+            (ident)
+            (ident)
+            (ident)
+            (ident))))
       (autobind_decl
         specifiers: (specifier)
         name: (ident)
