@@ -45,7 +45,7 @@ public var dummy: int;
         names: (ident)
         param_type: (type_annot
           type_name: (ident))))
-    definition: (func_def
+    definition: (func_block
       (expr_stmt
         (func_call_expr
           func: (ident)
@@ -66,7 +66,7 @@ public var dummy: int;
     specifiers: (specifier)
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
       (expr_stmt
         (assign_op_expr
           left: (ident)
@@ -82,7 +82,7 @@ public var dummy: int;
         names: (ident)
         param_type: (type_annot
           type_name: (ident))))
-    definition: (func_def
+    definition: (func_block
       (expr_stmt
         (func_call_expr
           func: (member_access_expr
@@ -95,7 +95,7 @@ public var dummy: int;
       name: (annotation_ident))
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
       (expr_stmt
         (func_call_expr
           func: (member_access_expr

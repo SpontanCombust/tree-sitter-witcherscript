@@ -17,7 +17,7 @@ function foo() { // comment after some code
   (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
       (comment)
       (comment)))
   (comment))

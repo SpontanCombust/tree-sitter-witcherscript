@@ -16,9 +16,9 @@ jobs:
       uses: actions/setup-node@v4
     - run: npm install
     - name: Generate
-      run: npm run generate
+      run: npx tree-sitter generate
     - name: Test
-      run: npm run test
+      run: npx tree-sitter test
     - name: Commit parser changes
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
