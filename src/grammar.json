@@ -314,13 +314,8 @@
           "type": "FIELD",
           "name": "definition",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "SYMBOL",
-              "name": "class_def"
-            },
-            "named": true,
-            "value": "state_def"
+            "type": "SYMBOL",
+            "name": "class_def"
           }
         }
       ]
@@ -965,13 +960,8 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "func_block"
-          },
-          "named": true,
-          "value": "func_def"
+          "type": "SYMBOL",
+          "name": "func_block"
         },
         {
           "type": "SYMBOL",
@@ -1266,13 +1256,8 @@
           "name": "delete_stmt"
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "func_block"
-          },
-          "named": true,
-          "value": "compound_stmt"
+          "type": "SYMBOL",
+          "name": "func_block"
         },
         {
           "type": "SYMBOL",

@@ -1135,69 +1135,6 @@
     }
   },
   {
-    "type": "compound_stmt",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "break_stmt",
-          "named": true
-        },
-        {
-          "type": "compound_stmt",
-          "named": true
-        },
-        {
-          "type": "continue_stmt",
-          "named": true
-        },
-        {
-          "type": "delete_stmt",
-          "named": true
-        },
-        {
-          "type": "do_while_stmt",
-          "named": true
-        },
-        {
-          "type": "expr_stmt",
-          "named": true
-        },
-        {
-          "type": "for_stmt",
-          "named": true
-        },
-        {
-          "type": "if_stmt",
-          "named": true
-        },
-        {
-          "type": "local_var_decl_stmt",
-          "named": true
-        },
-        {
-          "type": "nop",
-          "named": true
-        },
-        {
-          "type": "return_stmt",
-          "named": true
-        },
-        {
-          "type": "switch_stmt",
-          "named": true
-        },
-        {
-          "type": "while_stmt",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "continue_stmt",
     "named": true,
     "fields": {}
@@ -1318,10 +1255,6 @@
             "named": true
           },
           {
-            "type": "compound_stmt",
-            "named": true
-          },
-          {
             "type": "continue_stmt",
             "named": true
           },
@@ -1339,6 +1272,10 @@
           },
           {
             "type": "for_stmt",
+            "named": true
+          },
+          {
+            "type": "func_block",
             "named": true
           },
           {
@@ -1547,7 +1484,7 @@
         "required": true,
         "types": [
           {
-            "type": "func_def",
+            "type": "func_block",
             "named": true
           },
           {
@@ -1704,10 +1641,6 @@
             "named": true
           },
           {
-            "type": "compound_stmt",
-            "named": true
-          },
-          {
             "type": "continue_stmt",
             "named": true
           },
@@ -1725,6 +1658,10 @@
           },
           {
             "type": "for_stmt",
+            "named": true
+          },
+          {
+            "type": "func_block",
             "named": true
           },
           {
@@ -2050,6 +1987,69 @@
     }
   },
   {
+    "type": "func_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "break_stmt",
+          "named": true
+        },
+        {
+          "type": "continue_stmt",
+          "named": true
+        },
+        {
+          "type": "delete_stmt",
+          "named": true
+        },
+        {
+          "type": "do_while_stmt",
+          "named": true
+        },
+        {
+          "type": "expr_stmt",
+          "named": true
+        },
+        {
+          "type": "for_stmt",
+          "named": true
+        },
+        {
+          "type": "func_block",
+          "named": true
+        },
+        {
+          "type": "if_stmt",
+          "named": true
+        },
+        {
+          "type": "local_var_decl_stmt",
+          "named": true
+        },
+        {
+          "type": "nop",
+          "named": true
+        },
+        {
+          "type": "return_stmt",
+          "named": true
+        },
+        {
+          "type": "switch_stmt",
+          "named": true
+        },
+        {
+          "type": "while_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "func_call_args",
     "named": true,
     "fields": {},
@@ -2285,7 +2285,7 @@
         "required": true,
         "types": [
           {
-            "type": "func_def",
+            "type": "func_block",
             "named": true
           },
           {
@@ -2344,69 +2344,6 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "func_def",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "break_stmt",
-          "named": true
-        },
-        {
-          "type": "compound_stmt",
-          "named": true
-        },
-        {
-          "type": "continue_stmt",
-          "named": true
-        },
-        {
-          "type": "delete_stmt",
-          "named": true
-        },
-        {
-          "type": "do_while_stmt",
-          "named": true
-        },
-        {
-          "type": "expr_stmt",
-          "named": true
-        },
-        {
-          "type": "for_stmt",
-          "named": true
-        },
-        {
-          "type": "if_stmt",
-          "named": true
-        },
-        {
-          "type": "local_var_decl_stmt",
-          "named": true
-        },
-        {
-          "type": "nop",
-          "named": true
-        },
-        {
-          "type": "return_stmt",
-          "named": true
-        },
-        {
-          "type": "switch_stmt",
-          "named": true
-        },
-        {
-          "type": "while_stmt",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -2482,10 +2419,6 @@
             "named": true
           },
           {
-            "type": "compound_stmt",
-            "named": true
-          },
-          {
             "type": "continue_stmt",
             "named": true
           },
@@ -2503,6 +2436,10 @@
           },
           {
             "type": "for_stmt",
+            "named": true
+          },
+          {
+            "type": "func_block",
             "named": true
           },
           {
@@ -2638,10 +2575,6 @@
             "named": true
           },
           {
-            "type": "compound_stmt",
-            "named": true
-          },
-          {
             "type": "continue_stmt",
             "named": true
           },
@@ -2659,6 +2592,10 @@
           },
           {
             "type": "for_stmt",
+            "named": true
+          },
+          {
+            "type": "func_block",
             "named": true
           },
           {
@@ -3653,7 +3590,7 @@
         "required": true,
         "types": [
           {
-            "type": "state_def",
+            "type": "class_def",
             "named": true
           }
         ]
@@ -3688,49 +3625,6 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "state_def",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "autobind_decl",
-          "named": true
-        },
-        {
-          "type": "event_decl",
-          "named": true
-        },
-        {
-          "type": "func_decl",
-          "named": true
-        },
-        {
-          "type": "member_default_val",
-          "named": true
-        },
-        {
-          "type": "member_default_val_block",
-          "named": true
-        },
-        {
-          "type": "member_hint",
-          "named": true
-        },
-        {
-          "type": "member_var_decl",
-          "named": true
-        },
-        {
-          "type": "nop",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -3818,10 +3712,6 @@
           "named": true
         },
         {
-          "type": "compound_stmt",
-          "named": true
-        },
-        {
           "type": "continue_stmt",
           "named": true
         },
@@ -3839,6 +3729,10 @@
         },
         {
           "type": "for_stmt",
+          "named": true
+        },
+        {
+          "type": "func_block",
           "named": true
         },
         {
@@ -4584,10 +4478,6 @@
             "named": true
           },
           {
-            "type": "compound_stmt",
-            "named": true
-          },
-          {
             "type": "continue_stmt",
             "named": true
           },
@@ -4605,6 +4495,10 @@
           },
           {
             "type": "for_stmt",
+            "named": true
+          },
+          {
+            "type": "func_block",
             "named": true
           },
           {

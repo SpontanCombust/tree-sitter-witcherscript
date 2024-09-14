@@ -23,7 +23,7 @@ function test() {
   (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
         (expr_stmt
             (literal_int))
         (expr_stmt
@@ -67,7 +67,7 @@ function test() {
   (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
         (expr_stmt
             (literal_null)))))
 
@@ -90,7 +90,7 @@ function test() {
   (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
         (expr_stmt
             (literal_bool))
         (expr_stmt
@@ -120,7 +120,7 @@ function test() {
   (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
         (expr_stmt
             (literal_string))
         (expr_stmt

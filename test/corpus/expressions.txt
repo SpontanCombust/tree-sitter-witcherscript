@@ -19,7 +19,7 @@ function test() {
   (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
         (expr_stmt
           (ident))
         (expr_stmt
@@ -57,7 +57,7 @@ function test() {
   (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
         (expr_stmt
           (unary_op_expr
             op: (unary_op_neg)
@@ -103,7 +103,7 @@ function test() {
   (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
         (expr_stmt
           (binary_op_expr
             left: (ident)
@@ -209,7 +209,7 @@ function test() {
   (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
         (expr_stmt
           (assign_op_expr
             left: (ident)
@@ -277,7 +277,7 @@ function test() {
   (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
         (expr_stmt
           (nested_expr
             (ident)))
@@ -376,7 +376,7 @@ function test() {
   (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
         (expr_stmt
           (assign_op_expr
             left: (member_access_expr
@@ -418,7 +418,7 @@ function test() {
   (func_decl
     name: (ident)
     params: (func_params)
-    definition: (func_def
+    definition: (func_block
         (expr_stmt
           (func_call_expr
             func: (member_access_expr

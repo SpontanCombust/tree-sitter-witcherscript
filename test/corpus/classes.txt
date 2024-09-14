@@ -108,7 +108,7 @@ abstract statemachine class Player extends Actor {
             names: (ident)
             param_type: (type_annot
               type_name: (ident))))
-        definition: (func_def))
+        definition: (func_block))
       (func_decl
         specifiers: (specifier)
         specifiers: (specifier)
@@ -126,4 +126,4 @@ abstract statemachine class Player extends Actor {
               type_name: (ident))))
         return_type: (type_annot
           type_name: (ident))
-        definition: (func_def)))))
+        definition: (func_block)))))
