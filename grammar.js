@@ -194,7 +194,7 @@ module.exports = grammar({
       $._state_decl_intro,
       $._state_decl_parent,
       optional($._class_base),
-      field('definition', alias($.class_def, $.state_def))
+      field('definition', $.class_def)
     ),
 
     _state_decl_intro: $ => seq(
@@ -348,7 +348,7 @@ module.exports = grammar({
 
     
     _func_definition: $ => choice(
-      alias($.func_block, $.func_def),
+      $.func_block,
       $.nop
     ),
 
@@ -412,7 +412,7 @@ module.exports = grammar({
       $.continue_stmt,
       $.return_stmt,
       $.delete_stmt,
-      alias($.func_block, $.compound_stmt),
+      $.func_block,
       $.expr_stmt,
       $.nop
     ),
